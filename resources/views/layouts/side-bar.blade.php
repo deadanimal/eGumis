@@ -145,6 +145,26 @@
     }
 </script>
 
+{{-- <script>
+    $('.nav-item a').addClass("active");
+</script> --}}
+{{-- <script 
+src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
+</script> --}}
+
+{{-- <script>
+    $('.card li').click(function(e){
+    // find/remove all active classes from each a
+    $('.mainNav > a').removeClass('active');
+
+    // add active selected a
+    $(this).addClass('active').siblings().removeClass("active");
+    e.preventDefault();
+    });
+</script> --}}
+
+
+
 <nav class="navbar navbar-light navbar-vertical navbar-expand-xl">
     <script>
         var navbarStyle = localStorage.getItem("navbarStyle");
@@ -197,8 +217,7 @@
                                     <a class="nav-link {{ Request::is('/audit_trail') ? 'active' : '' }} py-0"
                                         href="/audit_trail">
                                         <div class="d-flex align-items-center nav-link-side">
-                                            <span
-                                                class="px-0 {{ Request::is('/audit_trail') ? 'text-dark' : '' }}">LAPORAN AUDIT TRAIL</span>
+                                            <span class="px-0 {{ Request::is('/audit_trail') ? 'text-dark' : '' }}">LAPORAN AUDIT TRAIL</span>
                                         </div>
                                     </a>
                                 </li>
@@ -206,8 +225,7 @@
                                     <a class="nav-link {{ Request::is('/audit_trail/log_audit/*') ? 'active' : '' }} py-0"
                                         href="/audit_trail/log_audit">
                                         <div class="d-flex align-items-center nav-link-side">
-                                            <span
-                                                class="px-0 {{ Request::is('/audit_trail/log_audit') ? 'text-dark' : '' }}">LOG AUDIT</span>
+                                            <span class="px-0 {{ Request::is('/audit_trail/log_audit') ? 'text-dark' : '' }}">LOG AUDIT</span>
                                         </div>
                                     </a>
                                 </li>
@@ -290,6 +308,9 @@
                             </div>
                         </a>
                     </li>   
+
+                    
         </div>
     </div> 
 </nav>
+
