@@ -6,6 +6,18 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
 
+{{-- <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.2.0/css/dataTables.dateTime.min.css"> --}}
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables_themeroller.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_table_jui.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_table.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_page.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
+<link data-require="jqueryui@*" data-semver="1.10.0" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/css/smoothness/jquery-ui-1.10.0.custom.min.css" />
+<script data-require="jqueryui@*" data-semver="1.10.0" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/jquery-ui.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.js" data-semver="1.9.4" data-require="datatables@*"></script>
+<link href="style.css" rel="stylesheet" />
+
+
 
 <style>
     .btn-datatable {
@@ -30,7 +42,7 @@
             <label class="col-form-label text-black">Tempoh:</label>
         </div>
         <div class="col-4 mb-2">
-            <input placeholder="SILA PILIH" class="form-control textbox-n" id="idTempoh" onclick="SearchData()" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" />
+            <input placeholder="SILA PILIH" class="form-control textbox-n" id="idTempoh" id=" " type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" />
         </div>
     </div>
     <div class="row mx-2 mb-2">
@@ -38,7 +50,7 @@
             <label class="col-form-label text-black">Jenis Pengguna:</label>
         </div>
         <div class="col-4 mb-2">
-            <select class="form-select" aria-label="Default select example" id="idJenisPengguna" onclick="SearchData()" name="" required>
+            <select class="form-select" aria-label="Default select example" id="idJenisPengguna" id="myInput" onclick="SearchData()" name="" required>
                 <option selected>SILA PILIH</option>
                 <option value="A">Muzzamir</option>
                 <option value="B">Kuala Lumpur</option>
@@ -53,17 +65,17 @@
             <label class="col-form-label text-black">Nama Pengguna:</label>
         </div>
         <div class="col-4 mb-2">
-            <input class="form-control" name="" type="text" placeholder="TAIP DI SINI" id="idNamaPengguna" onclick="SearchData()" required/>
+            <input class="form-control" name="" type="text" placeholder="TAIP DI SINI" id="myInput" onclick="SearchData()" required/>
         </div>
         <div class="col-2 mb-2">
-            <button class="btn btn-secondary" type="submit" onclick="SearchData()">Cari
+            <button class="btn btn-secondary" type="submit" id="" onclick="SearchData()">Cari
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                   </svg>
             </button>
         </div>
     </div>
-
+    
     <div class="card mt-6">
         <div class="card-body">
             <table id="laporan-audit-trail" class="table line-table mt-6 stripe" style="width:100%">
@@ -83,7 +95,7 @@
                             <td>1</td>
                             <td>Muzammir</td>
                             <td>Kuala Lumpur</td>
-                            <td>Linux</td>
+                            <td>Windows</td>
                             <td>Android 11</td>
                             <td>$320,800</td>
                             <td>2022-12-25</td>
@@ -526,10 +538,14 @@
 <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/vfs_fonts.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
 
+{{-- <script src="https://cdn.datatables.net/datetime/1.2.0/js/dataTables.dateTime.min.js"></script> --}}
+
+
+
 
 <script>
     $(document).ready(function() {
-        $('#laporan-audit-trail').DataTable({
+        var table = $('#laporan-audit-trail').DataTable({
             "bInfo" : false,
             "language": {
                 "sLengthMenu": "PAPAR _MENU_ REKOD",
@@ -549,7 +565,7 @@
             buttons: [
                 { 
                     extend: 'pdf', 
-                    className: 'btn btn-primary', 
+                    className: 'btn btn-warning', 
                     text: 'PDF <img src="./assets/img/cloud-computing.png">',
                     download: 'open',
                 },
@@ -561,8 +577,155 @@
                 },
             ]
         });
+            $('#myInput').on('keyup change', function () {
+            table.search(this.value).draw();
+        });
+
+        // $("#datepicker_from").datepicker({
+        //     showOn: "button",
+        //     buttonImage: "images/calendar.gif",
+        //     buttonImageOnly: false,
+        //     "onSelect": function(date) {
+        //     minDateFilter = new Date(date).getTime();
+        //     oTable.fnDraw();
+        //     }
+        // }).keyup(function() {
+        //     minDateFilter = new Date(this.value).getTime();
+        //     oTable.fnDraw();
+        // });
+
+        // window.d = new DateTime(document.getElementById('test'), {
+        //     format: 'D MMM YYYY HH:mm'
+        // });
+        // $(".datepicker").datepicker( {
+        // maxDate:0,
+        // changeMonth: true,
+        // changeYear: true,
+        // dateFormat: 'yy-mm-dd',
+        // onClose: function(selectedDate) {
+        //     table.fnDraw();}});
+    //     $('#btnSearch').click(function (){
+    //        table.search(this.value).draw();
+    //    });
+        
+    });
+
+        // Date range filter
+        minDateFilter = "";
+        maxDateFilter = "";
+
+        $.fn.dataTableExt.afnFiltering.push(
+        function(oSettings, aData, iDataIndex) {
+            if (typeof aData._date == 'undefined') {
+            aData._date = new Date(aData[0]).getTime();
+            }
+
+            if (minDateFilter && !isNaN(minDateFilter)) {
+            if (aData._date < minDateFilter) {
+                return false;
+            }
+            }
+        return true;
     });
 </script>
+
+<script>
+    $(document).on("change", "#datepicker .created_on", function() {
+  var dataVal = $(this).datepicker('getDate');//get date from datepicker
+  dataVal= $.datepicker.formatDate("d/m/y", dataVal);//set format date like in the rows
+  //console.log(dataVal, typeof dataVal);
+  if (dataVal != '') {
+    $("tr:not('#table-header')").hide();//hide all rows
+    //show rows with the same date selected
+    $("label:contains('" +  dataVal + "')").each(function(){
+      $(this).closest('tr').show();
+    });
+  }  
+});
+
+</script>
+
+{{-- <script>
+    // Date range filter
+    minDateFilter = "";
+        maxDateFilter = "";
+
+        $.fn.dataTableExt.afnFiltering.push(
+        function(oSettings, aData, iDataIndex) {
+            if (typeof aData._date == 'undefined') {
+            aData._date = new Date(aData[0]).getTime();
+            }
+
+            if (minDateFilter && !isNaN(minDateFilter)) {
+            if (aData._date < minDateFilter) {
+                return false;
+            }
+            }
+
+        
+
+        return true;
+    });
+        
+</script> --}}
+
+{{-- <script>
+    $(document). ready(function () {
+    $('#laporan-audit-trail'). DataTable();
+    $('. mydatetimepicker'). dtDateTime();
+    });
+    </script> --}}
+
+{{-- <script>
+     codeListTable = $("#codeListTable").DataTable();
+        new $.fn.dataTable.Buttons( codeListTable, {
+            buttons: [
+                {
+                extend:    'copy',
+                text:      '<i class="fa fa-files-o"></i> Copy',
+                titleAttr: 'Copy',
+                className: 'btn btn-default btn-sm'
+                },
+                {
+                extend:    'csv',
+                text:      '<i class="fa fa-files-o"></i> CSV',
+                titleAttr: 'CSV',
+                className: 'btn btn-default btn-sm',
+                exportOptions: {
+                    columns: ':visible'
+                }
+                },
+                {
+                extend:    'excel',
+                text:      '<i class="fa fa-files-o"></i> Excel',
+                titleAttr: 'Excel',
+                className: 'btn btn-default btn-sm',
+                exportOptions: {
+                    columns: ':visible'
+                }
+                },
+                {
+                extend:    'pdf',
+                text:      '<i class="fa fa-file-pdf-o"></i> PDF',
+                titleAttr: 'PDF',
+                className: 'btn btn-default btn-sm',
+                exportOptions: {
+                    columns: ':visible'
+                }
+                },               
+                {
+                extend:    'print',
+                text:      '<i class="fa fa-print"></i> Print',
+                titleAttr: 'Print',
+                className: 'btn btn-default btn-sm',
+                exportOptions: {
+                    columns: ':visible'
+                }
+                },  
+            ]
+        } );
+        codeListTable.buttons().container().appendTo('#tableActions');
+</script> --}}
 
 {{-- <script>
     $(document).ready(function(){
@@ -598,50 +761,63 @@
     }
 </script> --}}
 
-<script>
+{{-- <script>
+    var table = $('#laporan-audit-trail').DataTable();
+
+    // #myInput is a <input type="text"> element
+    $('#myInput').on('keyup change', function () {
+        table.search(this.value).draw();
+    });
+</script> --}}
+
+{{-- <script>
     const table = document.getElementById("myAuditTrail");
     // save all tr
     const tr = table.getElementsByTagName("tr");
 
     function SearchData() {
-        var tempoh = document.getElementById("idTempoh").value.toUpperCase();
-        var jenis_pengguna = document.getElementById("idJenisPengguna").value.toUpperCase();
-        var nama_pengguna = document.getElementById("idNamaPengguna").value.toUpperCase();
+            var tempoh = document.getElementById("idTempoh").value.toUpperCase();
+            var jenis_pengguna = document.getElementById("idJenisPengguna").value.toUpperCase();
+            var nama_pengguna = document.getElementById("idNamaPengguna").value.toUpperCase();
 
-        for (i = 1; i < tr.length; i++) {
+            for (i = 1; i < tr.length; i++) {
 
-        var rowTempoh = tr[i].getElementsByTagName("td")[0].textContent.toUpperCase();
-        var rowJenisPengguna = tr[i].getElementsByTagName("td")[1].textContent.toUpperCase();
-        var rowNamaPengguna = tr[i].getElementsByTagName("td")[2].textContent.toUpperCase();
+            var rowTempoh = tr[i].getElementsByTagName("td")[0].textContent.toUpperCase();
+            var rowJenisPengguna = tr[i].getElementsByTagName("td")[1].textContent.toUpperCase();
+            var rowNamaPengguna = tr[i].getElementsByTagName("td")[2].textContent.toUpperCase();
 
-        var isDisplay = true;
+            var isDisplay = true;
 
-        if (tempoh != 'ALL' && jenis_pengguna != 'ALL') {
-        if (rowTempoh == name && rowJenisPengguna == jenis_pengguna) {
-            tr[i].style.display = "";
-        } else {
-            tr[i].style.display = "none";
-        }
-        } else if (rowJenisPengguna != '' || rowNamaPengguna != '') {
-        if (tempoh != 'ALL') {
-            if (rowTempoh == tempoh) {
-            tr[i].style.display = "";
+            if (tempoh != 'ALL' && jenis_pengguna != 'ALL') {
+            if (rowTempoh == name && rowJenisPengguna == jenis_pengguna) {
+                tr[i].style.display = "";
             } else {
-            tr[i].style.display = "none";
+                tr[i].style.display = "none";
+            }
+            } else if (rowJenisPengguna != '' || rowNamaPengguna != '') {
+            if (tempoh != 'ALL') {
+                if (rowTempoh == tempoh) {
+                tr[i].style.display = "";
+                } else {
+                tr[i].style.display = "none";
+                }
+            }
+            if (nama_pengguna != 'ALL') {
+                if (rowNamaPengguna == nama_pengguna) {
+                tr[i].style.display = "";
+                } else {
+                tr[i].style.display = "none";
+                }
             }
         }
-        if (nama_pengguna != 'ALL') {
-            if (rowNamaPengguna == nama_pengguna) {
-            tr[i].style.display = "";
-            } else {
-            tr[i].style.display = "none";
+
             }
-        }
     }
 
-        }
-}
+</script> --}}
 
-</script>
+
+
+
     
 @endsection
