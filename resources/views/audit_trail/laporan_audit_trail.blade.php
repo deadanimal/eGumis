@@ -20,6 +20,16 @@
 
 
 <style>
+    .button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
     .btn-datatable {
         background: green;
     }
@@ -544,6 +554,13 @@
 
 
 <script>
+    var buttonConfig = [];
+    var exportTitle = "ExportTableData"
+    buttonConfig.push({extend:'copyHtml5',title: exportTitle});
+    buttonConfig.push({extend:'copyHtml5',title: exportTitle,className: 'btn-success'});
+    buttonConfig.push({extend:'copyHtml5',title: exportTitle,className: 'btn-warning'});	
+
+    $.fn.dataTable.Buttons.defaults.dom.button.className = 'button'
     $(document).ready(function() {
         var table = $('#laporan-audit-trail').DataTable({
             "bInfo" : false,
@@ -559,19 +576,21 @@
                 }
             },
             dom: 'lfBrtip',
+            buttons: buttonConfig,
             // dom: 'Bfrtip',
             // Specify multiple classes to be used - for table striped color
             stripeClasses: ['stripe-1','stripe-2'],
             buttons: [
                 { 
-                    extend: 'pdf', 
-                    className: 'btn btn-warning', 
+                    extend: 'pdf',  
                     text: 'PDF <img src="./assets/img/cloud-computing.png">',
                     download: 'open',
+                    init: function(api, node, config) {
+                    $(node).removeClass('btn-default')
+                }
                 },
                 { 
                     extend: 'excel', 
-                    className: 'btn btn-primary',
                     text: 'EXCEL <img src="./assets/img/cloud-computing.png">',
                     download: 'open',
                 },
