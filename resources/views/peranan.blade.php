@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-<h1 style="color: #003478;">PERANAN SUBADMIN</h1>
+<h1 style="color: #003478;">PERANAN SUB-ADMIN</h1>
 
 <hr style="color: #003478;">
 

@@ -216,7 +216,7 @@
         }
 
         .nav-link.active {
-            background-color: #F5E284;
+            background-color: #003478;
             border-radius: 2px;
             color: black;
         }
@@ -451,7 +451,7 @@
                 width: 350px;
             }
 
-            .risda-m {
+            .egumis-m {
                 margin-left: 350px;
             }
 
@@ -466,7 +466,7 @@
         }
 
         @media only screen and (max-width: 1024px) {
-            .risda-m {
+            .egumis-m {
                 margin-left: 0px;
             }
 
@@ -622,34 +622,14 @@
                         </span>
                     </button>
 
-                    <div class=" risda-m">
+                    <div class="egumis-m">
                         <div class="container">
                             @yield('content')
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
-
-
-
-        {{-- <footer class="jkr-footer">
-            <div class="row p-3 align-items-center">
-                <div class="col-10">
-                    <div class="text-white" style="font-size: 10px;">
-                        Hakcipta Terpelihara © 2022 Kementerian Kerja Raya Malaysia Paparan Terbaik Menggunakan Internet
-                        Explorer 7.0 Atau Mozilla Firefox Dengan Resolusi Skrin 1280x800
-                    </div>
-                </div>
-                <div class="col-2 text-end text-white">
-                    <a href="/privasi" class="text-white" style="font-size: 10px;">Dasar Privasi</a> | <a
-                        href="/keselamatan" class="text-white" style="font-size: 10px;">Dasar Keselamatan</a>
-                </div>
-            </div>
-        </footer> --}}
-
     </main>
 
 

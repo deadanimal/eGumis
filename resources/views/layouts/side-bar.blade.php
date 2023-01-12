@@ -1,4 +1,9 @@
 <style>
+    .sidebar{
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+    }
     .stripe-2 {
       background-color: #fff !important;
     }
@@ -65,7 +70,7 @@
 
     .switch input:not(:checked) {
         background: #fff;
-        transition: background 0.4s;
+        transition: background 0.2s;
     }
 
     .switch input:not(:checked)::before{
@@ -82,7 +87,7 @@
         left: 90px;
         right: 10px;
         background: #003478;
-        transition: left 0.4s 0.2s, right 0.5s, background 0.35s;
+        transition: left 0.4s 0.2s, right 0.4s, background 0.2s;
     }
 
     .modal {
@@ -111,7 +116,7 @@
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 600;
-        font-size: 20px;
+        font-size: 15px;
         line-height: 13px;
         color: white;
     }
@@ -208,7 +213,10 @@ src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
                                 aria-expanded="{{ Request::is('audit_trail') ? 'true' : 'false' }}"
                                 aria-controls="audit_trail">
                                 <div class="d-flex align-items-center nav-link-side px-0">
-                                    <span class="px-3"><span class="fas fa-home"></span>AUDIT TRAIL</span>
+                                    <span class="px-3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+                                        <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                                        <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                                      </svg> AUDIT TRAIL</span>
                                 </div>
                             </a>
                             <ul class="nav-item collapse {{ Request::is('audit_trail/*') || Request::is('audit_trail') ? 'show' : 'false' }} my-1"
@@ -217,7 +225,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
                                     <a class="nav-link {{ Request::is('/audit_trail') ? 'active' : '' }} py-0"
                                         href="/audit_trail">
                                         <div class="d-flex align-items-center nav-link-side">
-                                            <span class="px-0 {{ Request::is('/audit_trail') ? 'text-dark' : '' }}">LAPORAN AUDIT TRAIL</span>
+                                            <input type="radio"> <span class="px-0 {{ Request::is('/audit_trail') ? 'text-dark' : '' }}">&nbsp; LAPORAN AUDIT TRAIL</span>
                                         </div>
                                     </a>
                                 </li>
@@ -225,16 +233,15 @@ src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
                                     <a class="nav-link {{ Request::is('/audit_trail/log_audit/*') ? 'active' : '' }} py-0"
                                         href="/audit_trail/log_audit">
                                         <div class="d-flex align-items-center nav-link-side">
-                                            <span class="px-0 {{ Request::is('/audit_trail/log_audit') ? 'text-dark' : '' }}">LOG AUDIT</span>
+                                            <input type="radio"> <span class="px-0 {{ Request::is('/audit_trail/log_audit') ? 'text-dark' : '' }}">&nbsp; LOG AUDIT</span>
                                         </div>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link {{ Request::is('/audit_trail') ? 'active' : '' }} py-0"
+                                    <a class="nav-link {{ Request::is('/audit_trail/*') ? 'active' : '' }} py-0"
                                         href="/audit_trail/log_akses">
                                         <div class="d-flex align-items-center nav-link-side">
-                                            <span
-                                                class="px-0 {{ Request::is('/audit_trail') ? 'text-dark' : '' }}">LOG AKSES</span>
+                                            <input type="radio"> <span class="px-0 {{ Request::is('/audit_trail') ? 'text-dark' : '' }}">&nbsp; LOG AKSES</span>
                                         </div>
                                     </a>
                                 </li>
@@ -247,16 +254,19 @@ src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
                                 aria-expanded="{{ Request::is('pelaporan') ? 'true' : 'false' }}"
                                 aria-controls="pelaporan">
                                 <div class="d-flex align-items-center nav-link-side px-0">
-                                    <span class="px-3"><span class="fas fa-home"></span>PELAPORAN</span>
+                                    <span class="px-3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+                                        <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                                        <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                                      </svg> PELAPORAN</span>
                                 </div>
-                                </a>
+                            </a>
                             <ul class="nav-item collapse {{ Request::is('pelaporan/*') || Request::is('pelaporan') ? 'show' : 'false' }} my-1"
                                 id="pelaporan">
                                 <li class="nav-item">
                                     <a class="nav-link {{ Request::is('/pelaporan') ? 'active' : '' }} py-0"
                                         href="/pelaporan">
                                         <div class="d-flex align-items-center nav-link-side">
-                                            <span class="px-0 {{ Request::is('/pelaporan') ? 'text-dark' : '' }}">LAPORAN SEMAKAN WTD</span>
+                                            <input type="radio"><span class="px-0 {{ Request::is('/pelaporan') ? 'text-dark' : '' }}">&nbsp; LAPORAN SEMAKAN WTD</span>
                                         </div>
                                     </a>
                                 </li>
@@ -264,7 +274,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
                                     <a class="nav-link {{ Request::is('/pelaporan') ? 'active' : '' }} py-0"
                                         href="/pelaporan/laporan_gagal_log_masuk">
                                         <div class="d-flex align-items-center nav-link-side">
-                                            <span class="px-0 {{ Request::is('/pelaporan') ? 'text-dark' : '' }}">LAPORAN GAGAL
+                                            <input type="radio"> <span class="px-0 {{ Request::is('/pelaporan') ? 'text-dark' : '' }}">LAPORAN GAGAL
                                             LOG MASUK/ SET SEMULA KATA LALUAN/ DAFTAR PENGGUNA MELALUI MOBILE APPS</span>
                                         </div>
                                     </a>
@@ -273,7 +283,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
                                     <a class="nav-link {{ Request::is('/pelaporan') ? 'active' : '' }} py-0"
                                         href="/pelaporan/laporan_permohonan_tuntutan_aplikasi">
                                         <div class="d-flex align-items-center nav-link-side">
-                                            <span class="px-0 {{ Request::is('/pelaporan') ? 'text-dark' : '' }}">LAPORAN
+                                            <input type="radio"><span class="px-0 {{ Request::is('/pelaporan') ? 'text-dark' : '' }}">&nbsp; LAPORAN
                                             PERMOHONAN TUNTUTAN MELALUI APLIKASI MUDAH ALIH</span>
                                         </div>
                                     </a>
@@ -282,7 +292,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
                                     <a class="nav-link {{ Request::is('/pelaporan') ? 'active' : '' }} py-0"
                                         href="/pelaporan/laporan_permohonan_wtd">
                                         <div class="d-flex align-items-center nav-link-side">
-                                            <span class="px-0 {{ Request::is('/pelaporan') ? 'text-dark' : '' }}">LAPORAN
+                                            <input type="radio"><span class="px-0 {{ Request::is('/pelaporan') ? 'text-dark' : '' }}">&nbsp; LAPORAN
                                             PERMOHONAN TUNTUTAN WTD MENGIKUT NEGERI</span>
                                         </div>
                                     </a>
@@ -291,7 +301,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
                                     <a class="nav-link {{ Request::is('/pelaporan') ? 'active' : '' }} py-0"
                                         href="/pelaporan/laporan_tempoh_penggunaan_aplikasi">
                                         <div class="d-flex align-items-center nav-link-side">
-                                            <span class="px-0 {{ Request::is('/pelaporan') ? 'text-dark' : '' }}">LAPORAN
+                                            <input type="radio"><span class="px-0 {{ Request::is('/pelaporan') ? 'text-dark' : '' }}">&nbsp; LAPORAN
                                             TEMPOH PENGGUNAAN APLIKASI</span>
                                         </div>
                                     </a>
@@ -304,7 +314,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
                             href="/peranan">
                             <div class="d-flex align-items-center nav-link-side">
                                 <span
-                                    class="px-0 {{ Request::is('/peranan') ? 'text-dark' : '' }}">PERANAN SUBADMIN</span>
+                                    class="px-0 {{ Request::is('/peranan') ? 'text-dark' : '' }}">PERANAN SUB-ADMIN</span>
                             </div>
                         </a>
                     </li>   
@@ -313,4 +323,69 @@ src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
         </div>
     </div> 
 </nav>
+
+{{-- <nav class="navbar navbar-vertical navbar-expand-xl navbar-light navbar-card">
+    <script>
+        var navbarStyle = localStorage.getItem("navbarStyle");
+        if (navbarStyle && navbarStyle !== 'transparent') {
+          document.querySelector('.navbar-vertical').classList.add(`navbar-${navbarStyle}`);
+        }
+      </script>
+
+    <!-- Content-->
+    <div class="collapse navbar-collapse">
+      <div class="navbar-vertical-content scrollbar">
+        <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
+            <div class="col text-center">
+                <p class="info-sidebar mb-3">Selamat Datang!</p>
+            </div>
+            <div class="card">
+                <div class="card-body" style="background: #003478">
+                    <div class="image mb-4" style="display: flex; justify-content: center;">
+                        <img src="/assets/img/org-tua.jpeg" class="rounded" width="155" >
+                    </div>
+                    <div class="col text-center">
+                        <p class="info-sidebar mb-3">MOHD ALI BIN ABU</p>
+
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                                LOG KELUAR</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <span class="switch mt-4">
+                <input type="checkbox" id="switcher">
+                <label for="switcher"></label>
+            </span>
+            <a class="nav-link dropdown-indicator" href="/audit_trail" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="social">
+                <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fa fa-copy"></span></span><span class="nav-link-text ps-1">AUDIT TRAIL</span>
+                </div>
+                <ul class="nav collapse false" id="social">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/audit_trail">
+                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">LAPORAN AUDIT TRAIL</span></div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/audit_trail/log_audit">
+                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">LOG AUDIT</span></div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/audit_trail/log_akses">
+                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">LOG AKSES</span></div>
+                        </a>
+                    </li>
+            </a>
+
+        </ul>
+  
+        <!-- Navbar content-->
+      </div>
+    </div>
+</nav> --}}
+
 
