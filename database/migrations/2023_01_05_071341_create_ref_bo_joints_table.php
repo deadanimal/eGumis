@@ -13,9 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('app_rfd_status', function (Blueprint $table) {
-            $table->id();
+        Schema::create('ref_bo_joints', function (Blueprint $table) {
+            $table->integer('id');
             $table->timestamps();
+            $table->string('created_by')->nullable();
+            $table->dateTime('created_date')->nullable();
+            $table->string('modified_by')->nullable();
+            $table->dateTime('modified_date')->nullable();
+            $table->string('type_code')->nullable();
         });
     }
 
@@ -26,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('app_rfd_status');
+        Schema::dropIfExists('ref_bo_joints');
     }
 };

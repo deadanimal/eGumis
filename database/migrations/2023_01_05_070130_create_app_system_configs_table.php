@@ -13,20 +13,22 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('app_faq_detail', function (Blueprint $table) {
-            $table->id('faq_detail_id');
-            $table->id('faq_header_id');
+        Schema::create('app_system_configs', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
-            $table->boolean('active')->nullable();
-            $table->text('answer_en')->nullable();
-            $table->text('answer_my')->nullable();
+            $table->binary('code')->nullable();
             $table->string('created_by')->nullable();
             $table->dateTime('created_date')->nullable();
-            $table->integer('display_order')->nullable();
+            $table->decimal('decimal_value')->nullable();
+            $table->binary('enable')->nullable();
+            $table->integer('int_value')->nullable();
             $table->string('modified_by')->nullable();
             $table->dateTime('modified_date')->nullable();
-            $table->string('question_en')->nullable();
-            $table->string('question_my')->nullable();
+            $table->string('str_value')->nullable();
+            $table->string('name')->nullable();
+            $table->string('type')->nullable();
+            $table->string('description')->nullable();
+            $table->binary('superadmOnly')->nullable();
 
         });
     }
@@ -38,6 +40,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('app_faq_detail');
+        Schema::dropIfExists('app_system_configs');
     }
 };

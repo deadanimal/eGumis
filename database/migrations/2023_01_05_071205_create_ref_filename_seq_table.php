@@ -13,20 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('app_rfd_joint', function (Blueprint $table) {
-            $table->id();
+        Schema::create('ref_filename_seq', function (Blueprint $table) {
+            $table->integer('id');
             $table->timestamps();
-            // $table->foreignId('refund_bo_id')->references('id')->on('')->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('refund_bo_id')->nullable();
             $table->string('created_by')->nullable();
             $table->dateTime('created_date')->nullable();
-            $table->string('financial_year')->nullable();
-            $table->string('id_uma3')->nullable();
+            $table->integer('cur_seq_no')->nullable();
+            $table->string('form_name')->nullable();
             $table->string('modified_by')->nullable();
             $table->dateTime('modified_date')->nullable();
-            $table->string('name')->nullable();
-            $table->string('new_ic_number')->nullable();
-            $table->string('old_ic_number')->nullable();
         });
     }
 
@@ -37,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('app_rfd_joint');
+        Schema::dropIfExists('ref_filename_seq');
     }
 };

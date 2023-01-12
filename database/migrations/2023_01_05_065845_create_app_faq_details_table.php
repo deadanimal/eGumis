@@ -13,37 +13,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('app_announcement', function (Blueprint $table) {
-            $table->id();
+        Schema::create('app_faq_details', function (Blueprint $table) {
+            $table->integer('faq_detail_id');
+            $table->integer('faq_header_id');
             $table->timestamps();
-            $table->text('announcement_en')->nullable();
-            $table->text('announcement_my')->nullable();
+            $table->binary('active')->nullable();
+            $table->text('answer_en')->nullable();
+            $table->text('answer_my')->nullable();
             $table->string('created_by')->nullable();
             $table->dateTime('created_date')->nullable();
-            $table->dateTime('expiryDate')->nullable();
+            $table->integer('display_order')->nullable();
             $table->string('modified_by')->nullable();
             $table->dateTime('modified_date')->nullable();
-            $table->boolean('newContent')->nullable();
-            $table->integer('new_content_count')->nullable();
-            $table->dateTime('publishDate')->nullable();
-            $table->boolean('status')->nullable();
-            $table->string('title_en')->nullable();
-            $table->string('title_my')->nullable();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            $table->string('question_en')->nullable();
+            $table->string('question_my')->nullable();
         });
     }
 
@@ -54,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('app_announcement');
+        Schema::dropIfExists('app_faq_details');
     }
 };

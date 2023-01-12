@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ref_bo_master', function (Blueprint $table) {
-            $table->id();
+        Schema::create('sec_user_roles', function (Blueprint $table) {
+            $table->integer('user_id')->nullable();
             $table->timestamps();
+            $table->integer('role_id')->nullable();
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ref_bo_master');
+        Schema::dropIfExists('sec_user_roles');
     }
 };

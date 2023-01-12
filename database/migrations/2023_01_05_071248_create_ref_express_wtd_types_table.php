@@ -13,21 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('app_wtd_type_claim_document', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('ref_express_wtd_types', function (Blueprint $table) {
+            $table->integer('id');
             $table->timestamps();
-            $table->string('claim_doc_code')->nullable();
             $table->string('created_by')->nullable();
             $table->dateTime('created_date')->nullable();
-            $table->string('doc_desc')->nullable();
-            $table->string('doc_desc_my')->nullable();
-            $table->binary('mandatory')->nullable();
             $table->string('modified_by')->nullable();
             $table->dateTime('modified_date')->nullable();
-            $table->string('wtd_type_code')->nullable();
-
-
-
+            $table->string('type_code')->nullable();
         });
     }
 
@@ -38,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('app_wtd_type_claim_document');
+        Schema::dropIfExists('ref_express_wtd_types');
     }
 };

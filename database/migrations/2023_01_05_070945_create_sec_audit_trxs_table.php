@@ -13,9 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('app_rfd_search_trx', function (Blueprint $table) {
-            $table->id();
+        Schema::create('sec_audit_trxs', function (Blueprint $table) {
+            $table->integer('id');
             $table->timestamps();
+            $table->string('action')->nullable();
+            $table->string('action_by')->nullable();
+            $table->text('detail')->nullable();
+            $table->integer('entity_id')->nullable();
+            $table->string('entity_name')->nullable();
         });
     }
 
@@ -26,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('app_rfd_search_trx');
+        Schema::dropIfExists('sec_audit_trxs');
     }
 };

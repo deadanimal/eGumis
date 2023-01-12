@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('app_rfd_payee', function (Blueprint $table) {
+        Schema::create('app_rfd_payees', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('refund_info_id');
             $table->string('acc_no')->nullable();
             $table->string('address')->nullable();
             $table->string('bankCode')->nullable();
@@ -35,7 +36,6 @@ return new class extends Migration
             $table->string('phone_no')->nullable();
             $table->string('postcode')->nullable();
             $table->string('validateStatus')->nullable();
-
         });
     }
 
@@ -46,6 +46,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('app_rfd_payee');
+        Schema::dropIfExists('app_rfd_payees');
     }
 };

@@ -70,7 +70,7 @@
 
     .switch input:not(:checked) {
         background: #fff;
-        transition: background 0.4s;
+        transition: background 0.2s;
     }
 
     .switch input:not(:checked)::before{
@@ -87,7 +87,7 @@
         left: 90px;
         right: 10px;
         background: #003478;
-        transition: left 0.4s 0.2s, right 0.5s, background 0.35s;
+        transition: left 0.4s 0.2s, right 0.4s, background 0.2s;
     }
 
     .modal {

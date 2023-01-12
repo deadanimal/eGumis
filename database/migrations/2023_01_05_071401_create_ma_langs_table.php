@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sec_audit_log', function (Blueprint $table) {
-            $table->id();
+        Schema::create('ma_langs', function (Blueprint $table) {
+            $table->integer('id');
             $table->timestamps();
+            $table->string('code')->nullable();
+            $table->text('language_name')->nullable();
+            $table->text('translation')->nullable();
         });
     }
 
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sec_audit_log');
+        Schema::dropIfExists('ma_langs');
     }
 };

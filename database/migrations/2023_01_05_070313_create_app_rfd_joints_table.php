@@ -13,19 +13,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('app_faq_header', function (Blueprint $table) {
-            $table->id('faq_header_id');
+        Schema::create('app_rfd_joints', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
-            $table->boolean('active')->nullable();
+            // $table->foreignId('refund_bo_id')->references('id')->on('')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('refund_bo_id')->nullable();
             $table->string('created_by')->nullable();
             $table->dateTime('created_date')->nullable();
-            $table->integer('display_order')->nullable();
+            $table->string('financial_year')->nullable();
+            $table->string('id_uma3')->nullable();
             $table->string('modified_by')->nullable();
             $table->dateTime('modified_date')->nullable();
-            $table->string('title_en')->nullable();
-            $table->string('title_my')->nullable();
-          
-
+            $table->string('name')->nullable();
+            $table->string('new_ic_number')->nullable();
+            $table->string('old_ic_number')->nullable();
         });
     }
 
@@ -36,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('app_faq_header');
+        Schema::dropIfExists('app_rfd_joints');
     }
 };

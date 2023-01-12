@@ -13,23 +13,22 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('app_system_config', function (Blueprint $table) {
-            $table->id();
+        Schema::create('app_announcements', function (Blueprint $table) {
+            $table->integer('id');
             $table->timestamps();
-            $table->boolean('code')->nullable();
+            $table->text('announcement_en')->nullable();
+            $table->text('announcement_my')->nullable();
             $table->string('created_by')->nullable();
             $table->dateTime('created_date')->nullable();
-            $table->decimal('decimal_value')->nullable();
-            $table->boolean('enable')->nullable();
-            $table->integer('int_value')->nullable();
+            $table->dateTime('expiryDate')->nullable();
             $table->string('modified_by')->nullable();
             $table->dateTime('modified_date')->nullable();
-            $table->string('str_value')->nullable();
-            $table->string('name')->nullable();
-            $table->string('type')->nullable();
-            $table->string('description')->nullable();
-            $table->binary('superadmOnly')->nullable();
-
+            $table->binary('newContent')->nullable();
+            $table->integer('new_content_count')->nullable();
+            $table->dateTime('publishDate')->nullable();
+            $table->binary('status')->nullable();
+            $table->string('title_en')->nullable();
+            $table->string('title_my')->nullable();
         });
     }
 
@@ -40,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('app_system_config');
+        Schema::dropIfExists('app_announcements');
     }
 };

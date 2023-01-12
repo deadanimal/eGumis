@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ref_bo_joint', function (Blueprint $table) {
-            $table->id();
+        Schema::create('ref_regions', function (Blueprint $table) {
+            $table->integer('id');
             $table->timestamps();
+            $table->string('country_code')->nullable();
+            $table->string('name')->nullable();
+            $table->string('region_code')->nullable();
         });
     }
 
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ref_bo_joint');
+        Schema::dropIfExists('ref_regions');
     }
 };
