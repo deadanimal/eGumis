@@ -10,4 +10,5 @@ class Laporan extends Model implements Auditable
 {
     use HasFactory;
     use \OwenIt\Auditing\Auditable;
+    protected $table = 'audit_log_mas';
 }
