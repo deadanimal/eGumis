@@ -14,8 +14,11 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function tunjuk_lupa(){
-        return view('auth.login');
+    // public function masuk(){
+    //     return view('auth.login');
+    // }
+    public function masuk(){
+        return view('audit_trail.laporan_audit_trail');
     }
 
     public function cipta_lupa(Request $request){
@@ -26,7 +29,7 @@ class UserController extends Controller
         //     alert()->error('Email Tidak Sah', 'Gagal');
         //     return redirect('/login'); 
         // }
-        $user->password = Hash::make('eGUMIS');
+        $user->password = Hash::make('password');
         $user->save();
         Mail::to('maisarah.musa@pipeline-network.com')->send(new LupaKataLaluan);
         // Mail::to($user->email)->send(new LupaKataLaluan);

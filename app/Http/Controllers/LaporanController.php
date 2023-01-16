@@ -86,6 +86,31 @@ class LaporanController extends Controller
         //
     }
 
+    public function carianLaporan(Request $request)
+    {
+        $laporan = Laporan::where('id','!=',null);
+            
+       
+            //$laporan->whereDate('created_date', '=', $request->tempoh);
+        
+
+        // if ($request->jenis_pengguna != null) {
+        //     $laporan->where('')
+        // }
+
+       
+        $laporan->where('full_name', $request->nama);
+        
+
+        return view('audit_trail.laporan_audit_trail',[
+            'audit_trail'=> $laporan->get(),
+            'nama'=>$request->nama,
+            'tempoh'=>$request->tempoh,
+            
+        ]);
+    
+    }
+
     public function audit_trail(Request $request){
         // $id = (int)$request->route('id');
         // $audit_trail = New Laporan();
@@ -118,16 +143,18 @@ class LaporanController extends Controller
     }
 
     public function laporan_audit_trail(Request $request){
-        // $id = (int)$request->route('id');
-        // $audit_trail = Laporan::find($id);  
+      //  $id = (int)$request->route('id');
+      //  $audit_trail = Laporan::find($id);  
         // $audit_trail = new Laporan();  
+        // dd($request->all());
+        // dd('request');
 
-        // dd('ok');
         // $audit_trail->created_by = $request->created_by;
         // $audit_trail->created_date = $request->created_date;
         // $audit_trail->menu_name_en = $request->menu_name_en;
         // $audit_trail->menu_name_ms = $request->menu_name_ms;
         // $audit_trail->menu_url = $request->menu_url;
+
         // $audit_trail->method_name = $request->method_name;
         // $audit_trail->description = $request->description;
         // $audit_trail->descriptionmy = $request->descriptionmy;
@@ -147,7 +174,9 @@ class LaporanController extends Controller
         // $audit_trail->entity_id = $request->entity_id;
         // $audit_trail->entity_name = $request->entity_name; 
         // $audit_trail->save();
-        return view('audit_trail.laporan_audit_trail');
+        return view('audit_trail.laporan_audit_trail',
+    ['audit_trail'=>Laporan::all()]
+    );
         // return redirect('/audit_trail');
     }
 

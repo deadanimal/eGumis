@@ -15,11 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
 
-Route::put('/login', [UserController::class, 'cipta_lupa']);
+Route::put('/login', [UserController::class, 'masuk']);
+// Route::get('/login', [UserController::class, 'masuk']);
 
 Route::get('/selamat-datang', function () {
     return view('paparan-selamat-datang');
@@ -36,6 +37,7 @@ Route::get('/pelaporan', [LaporanController::class, 'pelaporan']);
 // Route::get('/pelaporan/laporan_semakan_wtd', [LaporanController::class, 'laporan_semakan_wtd']);
 Route::get('/pelaporan/laporan_gagal_log_masuk', [LaporanController::class, 'laporan_gagal_log_masuk']);
 // Route::get('/search', 'LaporanController@search');
+Route::post('/carian-laporan', [LaporanController::class, 'carianLaporan']);
 Route::get('/search', [LaporanController::class, 'search']);
 
 Route::get('/pelaporan/laporan_permohonan_tuntutan_aplikasi', [LaporanController::class, 'laporan_permohonan_tuntutan_aplikasi']);

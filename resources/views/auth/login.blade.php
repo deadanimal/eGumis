@@ -183,21 +183,22 @@
               </div>
 
               <div class="container">
-                <form method="POST" action="/login">
+                <form method="GET" action="/audit_trail" enctype="multipart/form-data">
                     @csrf
+                    @method('GET')
                     <div class="form-check mx-7 my-3">
                         <div id="nric">
-                            <input class="form-control text-center" type="email" name="icPengguna" placeholder="Emel"/>
+                            <input class="form-control text-center" type="email" name="email" id="email" placeholder="Emel"/>
                         </div>
                     </div>
                     <div class="form-check mx-7 my-3">
                         <div>
-                            <input class="form-control text-center" type="password" name="password" placeholder="Kata Laluan" required autocomplete="current-password"/>
+                            <input class="form-control text-center" type="password" name="password" id="password" placeholder="Kata Laluan" required autocomplete="current-password"/>
                         </div>
                     </div>
                     <div class="form-check mx-7 my-3">
                     <div>
-                        <button class="btn btn-primary d-block w-100 mt-3" type="submit" name="login">Log Masuk</button>
+                        <button class="btn btn-primary d-block w-100 mt-3" type="submit" name="submit">Log Masuk</button>
                     </div>
                 </form>
               </div>
