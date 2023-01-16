@@ -210,8 +210,8 @@
             border-color: #009640;
         } */
 
-        .nav-link-risda.active {
-            background-color: #8DB368;
+        .nav-link-egumis.active {
+            background-color: #003478;
             color: white;
         }
 
@@ -236,7 +236,7 @@
         .nav-link {
             display: block;
             padding: 0.5rem 1rem;
-            color: #009640;
+            color: #003478;
             -webkit-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
             -o-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
             transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
@@ -292,15 +292,6 @@
             -webkit-box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
             box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
         }
-        .btn-primary-sah {
-
-            color: #fff;
-            background-color: #F4A258;
-            border-color: #F4A258;
-
-            box-shadow: 0px 4px 4px rgba(244, 162, 88, 0.3);
-            border-radius: 7px;
-        }
 
         .btn-secondary:hover,
         .navbar-vertical .btn-purchase:hover,
@@ -322,28 +313,7 @@
             border-color: #FFF;
         }
 
-        .line-corner-table-jkr{
-            border-radius: 7.86741px;
-        }
-
-        .btn-sasaran-jkr {
-            margin-right: 50px;
-        }
-
-        .btn-sah-jkr {
-            margin-right: 20px;
-        } 
-
-        .btn-white-sah {
-            border-color: #F4A258;
-            background-color: #fff;
-            color: #F4A258;
-            -webkit-box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
-            box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
-        }
-
-    
-
+       
         .nav-link-side {
             /* display: block; */
             padding: 0.5rem 1rem;
@@ -377,15 +347,15 @@
 
         li {
             display: list-item;
-            color: #009640;
+            color: #003478;
             text-align: -webkit-match-parent;
         }
 
         .page-item.active .page-link {
             z-index: 3;
             color: var(--falcon-pagination-active-color);
-            background-color: #009640;
-            border-color: #009640;
+            background-color: #003478;
+            border-color: #003478;
         }
 
         .dropdown-indicator:after {
@@ -513,115 +483,27 @@
             border-color: #009640;
         }
 
-        .flatpickr-day.selected {
-            background-color: #009640;
-            border-color: #009640;
-        }
-
-        .choices .choices__list--dropdown .choices__item--selectable.is-highlighted {
-            background-color: #009640;
-            color: var(--falcon-choices-item-selectable-highlighted-bg);
-        }
-
-        .jkr-header {
-            /* font-family: 'Montserrat'; */
-            font-style: normal;
-            font-weight: 700;
-            font-size: 18px;
-            line-height: 22px;
-            /* identical to box height */
-            text-align: center;
-
-            /* ORANGE */
-            color: #F4A258;
-        }
-
-        .jkr-header-title{
-            font-style: normal;
-            font-weight: 700;
-            font-size: 25px;
-            line-height: 30px;
-            display: flex;
-            align-items: center;
-
-            /* Red orange */
-
-            color: #EB5500;
-        }
-
-        .btn-final {
-            color: #797979;
-            background-color: transparent;
-            border-color: transparent;
-        }
-
-        .btn-final:hover {
-            color: white !important;
-            background-color: #EB5500;
-            border-color: #EB5500;
-        }
-
-        .row-odd {
-            background-color: #F4A258;
-        }
-
-        .row-even {
-            background-color: #F4A258;
-        }
-
-        .star {
-            color:#FF0000;
-        }
-
-        .shadow-table-jkr{
-            background: #FFFFFF;
-            box-shadow: 0px 2.86088px 7.15219px 7.15219px rgba(0, 0, 0, 0.05);
-            border-radius: 7.15219px;
-        }
-
     </style>
     <?php
         use Illuminate\Support\Facades\Auth;
     ?>
 
-
     <main class="main" id="top">
-        <nav class="navbar navbar-expand p-3"
-            style="box-shadow: 0px 2px 2px 1px lightgrey; background-image: url('/assets/img/header.png'); z-index: 2;">
+        <nav class="navbar navbar-expand p-3" style="box-shadow: 0px 2px 2px 1px lightgrey; background-image: url('/assets/img/header.png'); z-index: 2;">
 
             <div class="col-3 text-center" style="filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));">
-                {{-- <img src="/assets/img/JATA_NEGARA_MALAYSIA.png" alt="Jata Negara"
-                    style="width: 82.45px; height: 64.3px;">
-                <img src="/assets/img/JKR_LOGO.png" alt="JKR" style="width: 81.46px; height: 54.93px;"> --}}
                 <img src="/assets/img/IOS-eGUMIS 1024px 1.png" alt="EGUMIS" style="width: 127px; height:127px">
             </div>
 
             <div class="col">
                 <h1 class="text-white">PORTAL PELAPORAN eGUMIS MOBILE APPS</h1>
                 <h4 class="text-white">JABATAN AKAUNTAN NEGARA MALAYSIA (JANM)</h4>
-                {{-- <a href="/" class="jkr-header">UTAMA</a> --}}
             </div>
-            
-            {{-- <div class="col-2 text-end">
-                <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button type="submit" class="btn jkr-header" style="border-color: #F4A258;">LOG KELUAR</button>
-                </form>
-            </div> --}}
         </nav>
         <div class="container-fluid ps-0" data-layout="container">
             @include('layouts.side-bar')
             <div class="row">
-
-                <div class="content" style="background: white">
-                    <button class="btn navbar-toggler-humburger-icon navbar-toggler me-1 me-sm-3" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse"
-                        aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle Navigation">
-                        <span class="navbar-toggle-icon">
-                            <span class="toggle-line"></span>
-                        </span>
-                    </button>
-
+                <div class="content py-5" style="background: white">
                     <div class="egumis-m">
                         <div class="container">
                             @yield('content')
@@ -632,78 +514,19 @@
         </div>
     </main>
 
-
-    <script>
-        $(document).ready(function() {
-            $('#preload2').hide();
-        });
-
-        $('.up-switch-risda').click(function() {
-            $('#preload2').show();
-        });
-
-        $(document).load(function() {
-            $('#preload2').show();
-        });
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-
     <script src="/vendors/popper/popper.min.js"></script>
     <script src="/vendors/bootstrap/bootstrap.min.js"></script>
     <script src="/vendors/anchorjs/anchor.min.js"></script>
     <script src="/vendors/is/is.min.js"></script>
     <script src="/vendors/chart/chart.min.js"></script>
-    <script src="/vendors/leaflet/leaflet.js"></script>
-    <script src="/vendors/leaflet.markercluster/leaflet.markercluster.js"></script>
-    <script src="/vendors/leaflet.tilelayer.colorfilter/leaflet-tilelayer-colorfilter.min.js"></script>
-    <script src="/vendors/countup/countUp.umd.js"></script>
     <script src="/vendors/echarts/echarts.min.js"></script>
-    <script src="/vendors/progressbar/progressbar.min.js"></script>
     <script src="/vendors/fullcalendar/main.min.js"></script>
     <script src="/assets/js/flatpickr.js"></script>
-    <script src="/vendors/dayjs/dayjs.min.js"></script>
     <script src="/vendors/fontawesome/all.min.js"></script>
     <script src="/vendors/lodash/lodash.min.js"></script>
     <script src="/vendors/list.js/list.min.js"></script>
     <script src="/assets/js/theme.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            // setInterval(() => {
-            //     const today = new Date();
-            //     let day = today.getDate();
-            //     const bulan = ['Januari', 'Februari', 'Mac', 'April', 'May', 'Jun', 'Julai', 'Ogos',
-            //         'September', 'Oktober', 'November', 'Disember'
-            //     ];
-            //     let month = bulan[today.getMonth()];
-            //     let year = today.getFullYear();
-            //     let h = today.getHours();
-            //     let m = today.getMinutes();
-            //     let s = today.getSeconds();
-            //     if (m < 10) m = "0" + m;
-            //     if (s < 10) s = "0" + s;
-            //     if (day < 10) day = "0" + day;
-            //     document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
-            //     document.getElementById("date").innerHTML =
-            //         day + " " + month + " " + year;
-            // }, 1000);
-
-
-
-            $('.datatable').DataTable();
-
-
-
-
-            $(".tahun").datepicker({
-                format: "yyyy",
-                viewMode: "years",
-                minViewMode: "years",
-                autoclose: true
-            });
-
-        });
-    </script>
 
     @yield('scripts')
 </body>

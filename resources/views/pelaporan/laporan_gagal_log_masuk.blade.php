@@ -25,52 +25,54 @@
 
 
 <div class="container-fluid">
-    <div class="row mx-2 mb-2 mt-5">
-        <div class="col-2 mb-2">
-            <label class="col-form-label text-black">Tempoh:</label>
+    <form action="{{url('search')}}" type="get">
+        <div class="row mx-2 mb-2 mt-5">
+            <div class="col-2 mb-2">
+                <label class="col-form-label text-black">Tempoh:</label>
+            </div>
+            <div class="col-4 mb-2">
+                <input placeholder="SILA PILIH" class="form-control textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" />
+            </div>
+            <div class="col-2 mb-2">
+                <label class="col-form-label text-black">Nama Pengguna:</label>
+            </div>
+            <div class="col-4 mb-2">
+                <input class="form-control" name="" type="text" placeholder="TAIP DI SINI" required/>
+            </div>
         </div>
-        <div class="col-4 mb-2">
-            <input placeholder="SILA PILIH" class="form-control textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" />
+        <div class="row mx-2 mb-2">
+            <div class="col-2 mb-2">
+                <label class="col-form-label text-black">Jenis Status:</label>
+            </div>
+            <div class="col-4 mb-2">
+                <select class="form-select" aria-label="Default select example" name="" required>
+                    <option selected>SILA PILIH</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                </select>        
+            </div>       
+            <div class="col-2 mb-2">
+                <label class="col-form-label text-black">No. Pengenalan:</label>
+            </div>
+            <div class="col-4 mb-2">
+                <input class="form-control" name="" type="number" placeholder="TAIP DI SINI" required/>       
+            </div>
         </div>
-        <div class="col-2 mb-2">
-            <label class="col-form-label text-black">Nama Pengguna:</label>
+        <div class="row mx-2 mb-2">
+            <div class="col-2 mb-2">
+                <label class="col-form-label text-black">Nama:</label>
+            </div>
+            <div class="col-4 mb-2">
+                <input class="form-control" name="" type="text" placeholder="TAIP DI SINI" required/>        
+            </div>
+            <div class="col-2 mb-2">
+                <label class="col-form-label text-black">E-mel:</label>
+            </div>
+            <div class="col-4 mb-2">
+                <input class="form-control" name="" type="email" placeholder="TAIP DI SINI" required/>                
+            </div>
         </div>
-        <div class="col-4 mb-2">
-            <input class="form-control" name="" type="text" placeholder="TAIP DI SINI" required/>
-        </div>
-    </div>
-    <div class="row mx-2 mb-2">
-        <div class="col-2 mb-2">
-            <label class="col-form-label text-black">Jenis Status:</label>
-        </div>
-        <div class="col-4 mb-2">
-            <select class="form-select" aria-label="Default select example" name="" required>
-                <option selected>SILA PILIH</option>
-                <option value="A">A</option>
-                <option value="B">B</option>
-            </select>        
-        </div>       
-        <div class="col-2 mb-2">
-            <label class="col-form-label text-black">No. Pengenalan:</label>
-        </div>
-        <div class="col-4 mb-2">
-            <input class="form-control" name="" type="number" placeholder="TAIP DI SINI" required/>       
-        </div>
-    </div>
-    <div class="row mx-2 mb-2">
-        <div class="col-2 mb-2">
-            <label class="col-form-label text-black">Nama:</label>
-        </div>
-        <div class="col-4 mb-2">
-            <input class="form-control" name="" type="text" placeholder="TAIP DI SINI" required/>        
-        </div>
-        <div class="col-2 mb-2">
-            <label class="col-form-label text-black">E-mel:</label>
-        </div>
-        <div class="col-4 mb-2">
-            <input class="form-control" name="" type="email" placeholder="TAIP DI SINI" required/>                
-        </div>
-    </div>
+    </form>
 
     <div class="card mt-6">
         <div class="card-body">
