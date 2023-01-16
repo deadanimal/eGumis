@@ -35,6 +35,9 @@ Route::get('/audit_trail/log_akses', [LaporanController::class, 'log_akses']);
 Route::get('/pelaporan', [LaporanController::class, 'pelaporan']);
 // Route::get('/pelaporan/laporan_semakan_wtd', [LaporanController::class, 'laporan_semakan_wtd']);
 Route::get('/pelaporan/laporan_gagal_log_masuk', [LaporanController::class, 'laporan_gagal_log_masuk']);
+// Route::get('/search', 'LaporanController@search');
+Route::get('/search', [LaporanController::class, 'search']);
+
 Route::get('/pelaporan/laporan_permohonan_tuntutan_aplikasi', [LaporanController::class, 'laporan_permohonan_tuntutan_aplikasi']);
 Route::get('/pelaporan/laporan_permohonan_wtd', [LaporanController::class, 'laporan_permohonan_wtd']);
 Route::get('/pelaporan/laporan_tempoh_penggunaan_aplikasi', [LaporanController::class, 'laporan_tempoh_penggunaan_aplikasi']);

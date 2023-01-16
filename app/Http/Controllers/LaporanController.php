@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+
 
 use App\Http\Requests\StoreLaporanRequest;
 use App\Http\Requests\UpdateLaporanRequest;
@@ -84,12 +86,73 @@ class LaporanController extends Controller
         //
     }
 
-    public function audit_trail(){
-        return view('audit_trail.laporan_audit_trail');
+    public function audit_trail(Request $request){
+        // $id = (int)$request->route('id');
+        // $audit_trail = New Laporan();
+
+        // $audit_trail->created_by = $request->created_by;
+        // $audit_trail->created_date = $request->created_date;
+        // $audit_trail->menu_name_en = $request->menu_name_en;
+        // $audit_trail->menu_name_ms = $request->menu_name_ms;
+        // $audit_trail->menu_url = $request->menu_url;
+        // $audit_trail->method_name = $request->method_name;
+        // $audit_trail->description = $request->description;
+        // $audit_trail->descriptionmy = $request->descriptionmy;
+        // $audit_trail->modified_by = $request->modified_by;
+        // $audit_trail->modified_date = $request->modified_date;
+        // $audit_trail->date_logged_in = $request->date_logged_in;
+        // $audit_trail->date_logged_out = $request->date_logged_out;
+        // $audit_trail->http_method = $request->http_method;
+        // $audit_trail->ip_address = $request->ip_address;
+        // $audit_trail->requested_time = $request->requested_time;
+        // $audit_trail->requested_url = $request->requested_url;
+        // $audit_trail->session_id = $request->session_id;
+        // $audit_trail->action = $request->action;
+        // $audit_trail->action_by = $request->action_by;
+        // $audit_trail->detail = $request->detail;
+        // $audit_trail->entity_id = $request->entity_id;
+        // $audit_trail->entity_name = $request->entity_name; 
+        // $audit_trail->save();
+
+        return redirect('/');
     }
 
-    public function laporan_audit_trail(){
+    public function laporan_audit_trail(Request $request){
+        // $id = (int)$request->route('id');
+        // $audit_trail = Laporan::find($id);  
+        // $audit_trail = new Laporan();  
+
+        // dd('ok');
+        // $audit_trail->created_by = $request->created_by;
+        // $audit_trail->created_date = $request->created_date;
+        // $audit_trail->menu_name_en = $request->menu_name_en;
+        // $audit_trail->menu_name_ms = $request->menu_name_ms;
+        // $audit_trail->menu_url = $request->menu_url;
+        // $audit_trail->method_name = $request->method_name;
+        // $audit_trail->description = $request->description;
+        // $audit_trail->descriptionmy = $request->descriptionmy;
+        // $audit_trail->modified_by = $request->modified_by;
+        // $audit_trail->modified_date = $request->modified_date;
+        // $audit_trail->date_logged_in = $request->date_logged_in;
+        // $audit_trail->date_logged_out = $request->date_logged_out;
+        // $audit_trail->full_name = $request->full_name;
+        // $audit_trail->http_method = $request->http_method;
+        // $audit_trail->ip_address = $request->ip_address;
+        // $audit_trail->requested_time = $request->requested_time;
+        // $audit_trail->requested_url = $request->requested_url;
+        // $audit_trail->session_id = $request->session_id;
+        // $audit_trail->action = $request->action;
+        // $audit_trail->action_by = $request->action_by;
+        // $audit_trail->detail = $request->detail;
+        // $audit_trail->entity_id = $request->entity_id;
+        // $audit_trail->entity_name = $request->entity_name; 
+        // $audit_trail->save();
         return view('audit_trail.laporan_audit_trail');
+        // return redirect('/audit_trail');
+    }
+
+    public function search() {
+
     }
 
     public function log_audit(){
@@ -109,6 +172,7 @@ class LaporanController extends Controller
     // }
 
     public function laporan_gagal_log_masuk(){
+
         return view('pelaporan.laporan_gagal_log_masuk');
     }
 
