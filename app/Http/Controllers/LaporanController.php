@@ -105,8 +105,7 @@ class LaporanController extends Controller
         return view('audit_trail.laporan_audit_trail',[
             'audit_trail'=> $laporan->get(),
             'nama'=>$request->nama,
-            'tempoh'=>$request->tempoh,
-            
+            'tempoh'=>$request->tempoh, 
         ]);
     
     }
@@ -178,10 +177,6 @@ class LaporanController extends Controller
     ['audit_trail'=>Laporan::all()]
     );
         // return redirect('/audit_trail');
-    }
-
-    public function search() {
-
     }
 
     public function log_audit(){

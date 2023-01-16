@@ -88,15 +88,6 @@
             color: white;
         }
 
-        .bg-orange-jkr{
-            background-color: #EB5500;
-        }
-
-        .text-green-jkr {
-            color: #5B8E7D;
-            font-weight: 700;
-        }
-
         .text-dark-green-jkr {
             color: #1A7FE5;
         }
@@ -182,7 +173,7 @@
             margin-top: -10px;
             margin-left: -10px;
             border-radius: 50%;
-            border: 5px solid #009640;
+            border: 5px solid #1A7FE5;
             border-top-color: #ffffff00;
             animation: spinner 0.9s linear infinite;
         }
@@ -207,7 +198,7 @@
 
     <style>
         /* .form-control {
-            border-color: #009640;
+            border-color: #1A7FE5;
         } */
 
         .nav-link-egumis.active {
@@ -442,7 +433,7 @@
 
             .navbar-vertical {
                 position: absolute;
-                background: #009640;
+                background: #1A7FE5;
                 max-width: 100%;
             }
 
@@ -468,7 +459,7 @@
 
             .navbar-vertical {
                 position: absolute;
-                background: #009640;
+                background: #1A7FE5;
                 max-width: 100%;
             }
 
@@ -479,8 +470,8 @@
         }
 
         .form-check-input:checked {
-            background-color: #009640;
-            border-color: #009640;
+            background-color: #1A7FE5;
+            border-color: #1A7FE5;
         }
 
     </style>
