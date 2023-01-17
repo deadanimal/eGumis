@@ -2,13 +2,18 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+// class SecUser extends Model
+// {
+//     use HasFactory;
+// }
+
+class SecUser extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -42,15 +47,5 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function LaporanGagalLogMasuk()
-    {
-        return $this->belongsTo(User::class);
-
-    }
-    
-    public function Laporan()
-    {
-        return $this->belongsTo(User::class);
-
-    }
+    protected $table = 'sec_users';
 }

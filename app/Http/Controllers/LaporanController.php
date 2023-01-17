@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreLaporanRequest;
 use App\Http\Requests\UpdateLaporanRequest;
 use App\Models\Laporan;
+use App\Models\LaporanGagalLogMasuk;
 
 class LaporanController extends Controller
 {
@@ -86,6 +87,7 @@ class LaporanController extends Controller
         //
     }
 
+
     public function carianLaporan(Request $request)
     {
         $laporan = Laporan::where('id','!=',null);
@@ -101,13 +103,30 @@ class LaporanController extends Controller
        
         $laporan->where('full_name', $request->nama);
         
-
+            // dd('ok');
         return view('audit_trail.laporan_audit_trail',[
             'audit_trail'=> $laporan->get(),
             'nama'=>$request->nama,
             'tempoh'=>$request->tempoh, 
         ]);
+    }
     
+    public function carianLaporanGagalLogMasuk(Request $request) {
+        $laporan = LaporanGagalLogMasuk::where('id','!=',null);
+        // $laporan = LaporanGagalLogMasuk::where('status','!=',null);
+
+        $laporan->where('username', $request->nama_pengguna);
+        $laporan->where('status', $request->jenis_status);
+        $laporan->where('identity_number', $request->identity_number);
+        $laporan->whereDate('created_date', '=', $request->tempoh);
+
+        
+        // dd('ok');
+        // dd($request->all());
+        return view('pelaporan.laporan_gagal_log_masuk',[
+            'pelaporan'=> $laporan->get(),
+            'tempoh'=>$request->tempoh, 
+        ]);
     }
 
     public function audit_trail(Request $request){
@@ -196,8 +215,11 @@ class LaporanController extends Controller
     // }
 
     public function laporan_gagal_log_masuk(){
+        // dd('ok');
 
-        return view('pelaporan.laporan_gagal_log_masuk');
+
+    return view('pelaporan.laporan_gagal_log_masuk',
+    ['pelaporan'=>LaporanGagalLogMasuk::all()]);
     }
 
     public function laporan_permohonan_tuntutan_aplikasi(){

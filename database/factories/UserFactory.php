@@ -18,7 +18,7 @@ class UserFactory extends Factory
         
      * @return array<string, mixed>
      */
-    protected $model = User::class;
+    protected $model = SecUser::class;
     
     public function definition()
     {
