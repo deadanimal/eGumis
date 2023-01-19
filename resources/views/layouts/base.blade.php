@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en-US" dir="ltr">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PORTAL PELAPORAN eGUMIS MOBILE APPS</title>
     <link rel="manifest" href="/assets/img/favicons/manifest.json">
     <meta name="theme-color" content="#ffffff">
@@ -375,7 +372,8 @@
             transition-property: transform, border-color, -webkit-transform;
         }
 
-        @media (min-width: 601px) {
+        @media (min-width: 100px) {
+            /* @media only screen and (max-width: 600px) and (min-width: 400px)  {  */
             .navbar-vertical.navbar-expand-xl {
                 max-width: 350px;
                 top: 0;

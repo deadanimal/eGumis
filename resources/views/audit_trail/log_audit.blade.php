@@ -26,39 +26,57 @@
 
 
 <div class="container-fluid">
-    <div class="container">
-        <div class="row mx-2 mb-2 mt-5">
-            <div class="col-2 mb-2">
-                <label class="col-form-label text-black">Jenis Audit:</label>
+        <form action="/carian-log-audit" method="POST">
+            @csrf
+            <div class="row mx-2 mb-2 mt-5">
+                <div class="col-2 mb-2">
+                    <label class="col-form-label text-black">Jenis Audit:</label>
+                </div>
+                <div class="col-4 mb-2">
+                    <input class="form-control" name="" type="text" placeholder="TAIP DI SINI" required/>
+                </div>
+                <div class="col-2 mb-2">
+                    <label class="col-form-label text-black">ID Log Masuk:</label>
+                </div>
+                <div class="col-4 mb-2">
+                    <input class="form-control" name="" type="text" placeholder="TAIP DI SINI" required/>
+                </div>
             </div>
-            <div class="col-4 mb-2">
-                <input class="form-control" name="" type="text" placeholder="TAIP DI SINI" required/>
+            <div class="row mx-2 mb-2">
+                <div class="col-2 mb-2">
+                    <label class="col-form-label text-black">Tarikh Audit:</label>
+                </div>
+                <div class="col-2 mb-2">
+                    <input placeholder="SILA PILIH" class="form-control textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" />
+                </div>
+                <div class="col-2 mb-2">
+                    <input placeholder="SILA PILIH" class="form-control textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" />
+                </div>
+                <div class="col-2 mb-2">
+                    <label class="col-form-label text-black">Nama:</label>
+                </div>
+                <div class="col-4 mb-2">
+                    <input class="form-control" name="" type="text" placeholder="TAIP DI SINI" required/>
+                </div>
             </div>
-            <div class="col-2 mb-2">
-                <label class="col-form-label text-black">ID Log Masuk:</label>
-            </div>
-            <div class="col-4 mb-2">
-                <input class="form-control" name="" type="text" placeholder="TAIP DI SINI" required/>
-            </div>
+            <div class="row mx-2 mb-2">
+                <div class="col mb-2 text-end">
+                    <button class="btn btn-secondary filter-button" type="submit"> Cari
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                    </button>
+                    </form>
+                    <form action="/audit_trail/log_audit" method="GET">
+                        <button class="btn" onClick="window.location.reload();">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                                <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
+                                <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
         </div>
-        <div class="row mx-2 mb-2">
-            <div class="col-2 mb-2">
-                <label class="col-form-label text-black">Tarikh Audit:</label>
-            </div>
-            <div class="col-2 mb-2">
-                <input placeholder="SILA PILIH" class="form-control textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" />
-            </div>
-            <div class="col-2 mb-2">
-                <input placeholder="SILA PILIH" class="form-control textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" />
-            </div>
-            <div class="col-2 mb-2">
-                <label class="col-form-label text-black">Nama:</label>
-            </div>
-            <div class="col-4 mb-2">
-                <input class="form-control" name="" type="text" placeholder="TAIP DI SINI" required/>
-            </div>
-        </div>
-    </div>
 
     <div class="card mt-6">
         <div class="card-body">
@@ -72,6 +90,21 @@
                         <th class="text-center">Info Audit</th> 
                         <th class="text-center">Database Table</th>
                     </tr>
+                    {{-- <tbody id="myAuditTrail">
+                        @foreach ($audit_trail as $at) 
+                            <tr>
+                                <td>{{$at->id}}</td>
+                                <td>{{$at->full_name}}</td>
+                                <td>{{$at->ip_address}}</td>
+                                <td>{{$at->ip_address}}</td>
+                                <td>{{$at->ip_address}}</td>
+                                <td>{{$at->date_logged_in}}</td>
+                                <td>{{$at->date_logged_out}}</td>
+                                <td>{{$at->requested_time}}</td>
+                                <td>{{$at->requested_url}}</td>
+                            </tr>
+                            @endforeach
+                    </tbody> --}}
                 </thead>
              </table>
         </div>

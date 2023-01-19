@@ -1,13 +1,14 @@
 @extends('layouts.base')
 
 @section('content')
-<h1 style="color: #003478;">PERANAN SUB-ADMIN</h1>
+<h1 style="color: #003478;">PENGURUSAN PENGGUNA</h1>
 
 <hr style="color: #003478;">
 
 <div class="card mt-6">
     <div class="card-body">
-        <table id="laporan-audit-trail" class="table line-table mt-6 stripe" style="width:100%">
+        <h2 style="color: #003478;">Daftar Pengguna</h2>
+        {{-- <table id="laporan-audit-trail" class="table line-table mt-6 stripe" style="width:100%">
             <thead class="text-black">
                 <tr>
                     <th class="text-center">Bil.</th>
@@ -52,43 +53,70 @@
                         </td>
                         </form>
                     </tr>
-                    {{-- <tr>
-                        <td>1</td>
-                        <td>Muzzamir</td>
-                        <td>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                  Pilih
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                Pilih
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="col-auto">
-                                <form action="" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                    <select class="form-select form-control" name="nama">
-                                        <option selected disabled="">Sila Pilih</option>
-                                        <option value="admin">Admin</option>
-                                        <option value="sub-admin">Sub-Admin</option>
-                                    </select>
-                                </form>
-                            </div>
-                        </td>
-                        <td><button name="sah" value="1" type="submit" class="btn btn-secondary">Simpan</button>
-                        </td>
-                    </tr> --}}
                 </tbody>
             </thead>
-         </table>
+        </table> --}}
+        <form action="" method="POST">
+            @csrf
+            <div class="row mx-2 mb-2 mt-5">
+                <div class="col-4 mb-2 text-end">
+                    <label class="col-form-label text-black">Jenis Pengguna: <span style="color: #FF0000">&#42;</span></label>
+                </div>
+                <div class="col-5 mb-2">
+                    <input placeholder="SILA PILIH" class="form-control textbox-n" data-column-index='7'  name="tempoh" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" required/>
+                </div>
+            </div>
+            <div class="row mx-2 mb-2 mt-2">
+                <div class="col-4 mb-2 text-end">
+                    <label class="col-form-label text-black">Nama Pengguna: <span style="color: #FF0000">&#42;</span></label>
+                </div>
+                <div class="col-5 mb-2">
+                    <input placeholder="Contoh: Ahmad bin Muhammad" class="form-control textbox-n" data-column-index='7'  name="tempoh" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" required/>
+                </div>
+            </div>
+            <div class="row mx-2 mb-2 mt-2">
+                <div class="col-4 mb-2 text-end">
+                    <label class="col-form-label text-black">ID Pengguna: <span style="color: #FF0000">&#42;</span></label>
+                </div>
+                <div class="col-5 mb-2">
+                    <input placeholder="Contoh: ahmad" class="form-control textbox-n" data-column-index='7'  name="tempoh" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" required/>
+                </div>
+            </div>
+            <div class="row mx-2 mb-2 mt-2">
+                <div class="col-4 mb-2 text-end">
+                    <label class="col-form-label text-black">Jenis Pengenalan: <span style="color: #FF0000">&#42;</span></label>
+                </div>
+                <div class="col-5 mb-2">
+                    <input class="form-control textbox-n" data-column-index='7'  name="tempoh" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" required/>
+                </div>
+            </div>
+            <div class="row mx-2 mb-2 mt-2">
+                <div class="col-4 mb-2 text-end">
+                    <label class="col-form-label text-black">No. Pengenalan: <span style="color: #FF0000">&#42;</span></label>
+                </div>
+                <div class="col-5 mb-2">
+                    <input class="form-control textbox-n" data-column-index='7'  name="tempoh" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" placeholder="Contoh: 770101037777" required/>
+                </div>
+            </div>
+            <div class="row mx-2 mb-2 mt-2">
+                <div class="col-4 mb-2 text-end">
+                    <label class="col-form-label text-black">Emel: <span style="color: #FF0000">&#42;</span></label>
+                </div>
+                <div class="col-5 mb-2">
+                    <input placeholder="Contoh: egumis@anm.gov.my" class="form-control textbox-n" data-column-index='7'  name="tempoh" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" required/>
+                </div>
+            </div>
+            <div class="row mx-2 mb-2 mt-2 text-end">
+                <div class="col-10 mb-2 text-end">
+                    <button class="btn btn-secondary" type="submit">Simpan</button>
+                </div>
+                </form>
+                <form action="/peranan">
+                    <div class="col-10 mb-2 text-end">
+                        <button class="btn btn-primary" type="submit">Batal</button>
+                    </div>
+                </form>
+            </div>
     </div>
 </div>
 

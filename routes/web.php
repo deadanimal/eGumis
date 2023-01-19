@@ -61,12 +61,22 @@ Route::middleware('auth')->group(function () {
     Route::get('/audit_trail/log_akses', [LaporanController::class, 'log_akses']);
     Route::get('/pelaporan', [LaporanController::class, 'pelaporan']);
     Route::get('/pelaporan/laporan_gagal_log_masuk', [LaporanController::class, 'laporan_gagal_log_masuk']);
-    Route::post('/carian-laporan', [LaporanController::class, 'carianLaporan']);
-    Route::post('/carian-gagal-log-masuk', [LaporanController::class, 'carianLaporanGagalLogMasuk']);
     Route::get('/pelaporan/laporan_permohonan_tuntutan_aplikasi', [LaporanController::class, 'laporan_permohonan_tuntutan_aplikasi']);
     Route::get('/pelaporan/laporan_permohonan_wtd', [LaporanController::class, 'laporan_permohonan_wtd']);
     Route::get('/pelaporan/laporan_tempoh_penggunaan_aplikasi', [LaporanController::class, 'laporan_tempoh_penggunaan_aplikasi']);
-    Route::get('/peranan', [LaporanController::class, 'peranan']);
+    Route::get('/pengurusan-pengguna/daftar-pengguna', [LaporanController::class, 'daftar_pengguna']);
+    Route::get('/pengurusan-pengguna/senarai-pengguna', [LaporanController::class, 'senarai_pengguna']);
+
+
+    //Carian
+    Route::post('/carian-laporan', [LaporanController::class, 'carianLaporan']);
+    Route::post('/carian-log-audit', [LaporanController::class, 'carianLaporanLogAudit']);
+    Route::post('/carian-log-akses', [LaporanController::class, 'carianLaporanLogAkses']);
+    Route::post('/carian-gagal-log-masuk', [LaporanController::class, 'carianLaporanGagalLogMasuk']);
+    Route::post('/carian-semakan-wtd', [LaporanController::class, 'carianLaporanSemakanWTD']);
+    Route::post('/carian-permohonan-tuntutan-aplikasi', [LaporanController::class, 'carianLaporanPermohonanTuntutanAplikasi']);
+    Route::post('/carian-permohonan_wtd', [LaporanController::class, 'carianLaporanPermohonanWTD']);
+    Route::post('/carian-tempoh-penggunaan-aplikasi', [LaporanController::class, 'carianLaporanTempohPenggunaanAplikasi']);
     });
 
 require __DIR__.'/auth.php';

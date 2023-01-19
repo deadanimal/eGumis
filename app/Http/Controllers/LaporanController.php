@@ -110,13 +110,13 @@ class LaporanController extends Controller
             'tempoh'=>$request->tempoh, 
         ]);
     }
-    
-    public function carianLaporanGagalLogMasuk(Request $request) {
+
+    public function carianLogAudit(Request $request) {
         $laporan = LaporanGagalLogMasuk::where('id','!=',null);
         // $laporan = LaporanGagalLogMasuk::where('status','!=',null);
 
         $laporan->where('username', $request->nama_pengguna);
-        $laporan->where('status', $request->jenis_status);
+        // $laporan->where('status', $request->jenis_status);
         $laporan->where('identity_number', $request->identity_number);
         $laporan->whereDate('created_date', '=', $request->tempoh);
 
@@ -127,6 +127,49 @@ class LaporanController extends Controller
             'pelaporan'=> $laporan->get(),
             'tempoh'=>$request->tempoh, 
         ]);
+    }
+
+    public function carianLogAkses(Request $request) {
+       
+        return view('audit_trail.log_akses');
+    }
+
+    public function carianLaporanGagalLogMasuk(Request $request) {
+        $laporan = LaporanGagalLogMasuk::where('id','!=',null);
+        // $laporan = LaporanGagalLogMasuk::where('status','!=',null);
+
+        $laporan->where('username', $request->nama_pengguna);
+        // $laporan->where('status', $request->jenis_status);
+        $laporan->where('identity_number', $request->identity_number);
+        $laporan->whereDate('created_date', '=', $request->tempoh);
+
+        
+        // dd('ok');
+        // dd($request->all());
+        return view('pelaporan.laporan_gagal_log_masuk',[
+            'pelaporan'=> $laporan->get(),
+            'tempoh'=>$request->tempoh, 
+        ]);
+    }
+
+    public function carianLaporanSemakanWTD()
+    {
+        return view('pelaporan.laporan_semakan_wtd');
+    }
+
+    public function carianLaporanPermohonanTuntutanAplikasi()
+    {
+        return view('pelaporan.laporan_permohonan_tuntutan_aplikasi');
+    }
+
+    public function carianLaporanPermohonanWTD()
+    {
+        return view('pelaporan.laporan_permohonan_wtd');
+    }
+
+    public function carianLaporanTempohPenggunaanAplikasi()
+    {
+        return view('pelaporan.laporan_tempoh_penggunaan_aplikasi');
     }
 
     public function audit_trail(Request $request){
@@ -193,10 +236,12 @@ class LaporanController extends Controller
         // $audit_trail->entity_name = $request->entity_name; 
         // $audit_trail->save();
         return view('audit_trail.laporan_audit_trail',
-    ['audit_trail'=>Laporan::all()]
-    );
+            ['audit_trail'=>Laporan::all()]
+        );
         // return redirect('/audit_trail');
     }
+
+    
 
     public function log_audit(){
         return view('audit_trail.log_audit');
@@ -234,8 +279,12 @@ class LaporanController extends Controller
         return view('pelaporan.laporan_tempoh_penggunaan_aplikasi');
     }
 
-    public function peranan(){
-        return view('peranan');
+    public function daftar_pengguna(){
+        return view('pengurusan-pengguna.daftar-pengguna');
+    }
+    
+    public function senarai_pengguna(){
+        return view('pengurusan-pengguna.senarai-pengguna');
     }
 
     // public function log_masuk(){
