@@ -3,8 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-\Illuminate\Support\Facades\DB::statement('SET SESSION sql_require_primary_key=0;');
-
 
 return new class extends Migration
 {
@@ -15,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('password_resets', function (Blueprint $table) {
-            $table->string('email')->index();
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
+        Schema::table('sec_users', function (Blueprint $table) {
+            //
+            $table->id();
+
         });
     }
 
@@ -29,6 +27,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('password_resets');
+        Schema::table('sec_users', function (Blueprint $table) {
+            //
+        });
     }
 };

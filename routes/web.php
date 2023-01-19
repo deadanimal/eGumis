@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\MyLoginController;
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,27 +28,6 @@ Route::get('/selamat-datang', function () {
     return view('paparan-selamat-datang');
 });
 
-// Route::get('/laporan_audit_trail', function () {
-//     return view('audit_trail.laporan_audit_trail');
-// });
-// Route::get('/audit_trail', [LaporanController::class, 'laporan_audit_trail']);
-// // Route::get('/laporan_audit_trail', [LaporanController::class, 'laporan_audit_trail']);
-// Route::get('/audit_trail/log_audit', [LaporanController::class, 'log_audit']);
-// Route::get('/audit_trail/log_akses', [LaporanController::class, 'log_akses']);
-// Route::get('/pelaporan', [LaporanController::class, 'pelaporan']);
-// // Route::get('/pelaporan/laporan_semakan_wtd', [LaporanController::class, 'laporan_semakan_wtd']);
-// Route::get('/pelaporan/laporan_gagal_log_masuk', [LaporanController::class, 'laporan_gagal_log_masuk']);
-// // Route::get('/search', 'LaporanController@search');
-// Route::post('/carian-laporan', [LaporanController::class, 'carianLaporan']);
-// Route::post('/carian-gagal-log-masuk', [LaporanController::class, 'carianLaporanGagalLogMasuk']);
-
-// Route::get('/search', [LaporanController::class, 'search']);
-
-// Route::get('/pelaporan/laporan_permohonan_tuntutan_aplikasi', [LaporanController::class, 'laporan_permohonan_tuntutan_aplikasi']);
-// Route::get('/pelaporan/laporan_permohonan_wtd', [LaporanController::class, 'laporan_permohonan_wtd']);
-// Route::get('/pelaporan/laporan_tempoh_penggunaan_aplikasi', [LaporanController::class, 'laporan_tempoh_penggunaan_aplikasi']);
-// Route::get('/peranan', [LaporanController::class, 'peranan']);
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -66,8 +46,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/pelaporan/laporan_tempoh_penggunaan_aplikasi', [LaporanController::class, 'laporan_tempoh_penggunaan_aplikasi']);
     Route::get('/pengurusan-pengguna/daftar-pengguna', [LaporanController::class, 'daftar_pengguna']);
     Route::get('/pengurusan-pengguna/senarai-pengguna', [LaporanController::class, 'senarai_pengguna']);
+    Route::get('/pengurusan-pengguna/senarai-pengguna/kemaskini/{id}/edit', [LaporanController::class, 'senarai_pengguna_kemaskini']);
+    Route::put('/pengurusan-pengguna/senarai-pengguna/simpan-kemaskini/{id}', [LaporanController::class, 'senarai_pengguna_simpan_kemaskini']);
 
 
+    //Daftar Pengguna
+    Route::post('/pengurusan-pengguna/daftar-pengguna', [LaporanController::class, 'daftarPengguna']);
     //Carian
     Route::post('/carian-laporan', [LaporanController::class, 'carianLaporan']);
     Route::post('/carian-log-audit', [LaporanController::class, 'carianLaporanLogAudit']);

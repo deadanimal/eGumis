@@ -27,7 +27,7 @@
                     <label class="col-form-label text-black">Nama:</label>
                 </div>
                 <div class="col-5 mb-2">
-                    <input class="form-control textbox-n" data-column-index='7'  name="tempoh" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" required/>
+                    <input class="form-control textbox-n" name="tempoh" type="text" required/>
                 </div>
             </div>
             <div class="row mx-2 mb-2 mt-2">
@@ -35,7 +35,7 @@
                     <label class="col-form-label text-black">Nama Pengguna:</label>
                 </div>
                 <div class="col-5 mb-2">
-                    <input class="form-control textbox-n" data-column-index='7'  name="tempoh" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" required/>
+                    <input style="text-transform: uppercase;" class="form-control textbox-n" name="tempoh" type="text" required/>
                 </div>
             </div>
             <div class="row mx-2 mb-2 mt-2">
@@ -43,7 +43,7 @@
                     <label class="col-form-label text-black">No. Pengenalan:</label>
                 </div>
                 <div class="col-5 mb-2">
-                    <input class="form-control textbox-n" data-column-index='7'  name="tempoh" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" required/>
+                    <input class="form-control textbox-n" name="tempoh" type="text" required/>
                 </div>
             </div>
             <div class="row mx-2 mb-2 mt-2">
@@ -51,7 +51,7 @@
                     <label class="col-form-label text-black">E-mel:</label>
                 </div>
                 <div class="col-5 mb-2">
-                    <input class="form-control textbox-n" data-column-index='7'  name="tempoh" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" required/>
+                    <input class="form-control textbox-n" name="tempoh" type="text" required/>
                 </div>
                 <div class="col-2 mb-2 text-end">
                     <button class="btn btn-secondary" type="submit">Cari  &nbsp;
@@ -62,7 +62,8 @@
                 </div>
             </div>
         </form>
-        <form action="" method="POST">
+        <form action="/pengurusan-pengguna/daftar-pengguna" method="GET">
+            @csrf
             <div class="row mx-2 mb-2 mt-5">
                 <div class="col-10 mb-2">
                     <button class="btn btn-secondary" type="submit">Tambah  &nbsp;
@@ -86,21 +87,30 @@
                     <th class="text-center">E-mel</th> 
                     <th class="text-center">Jenis Pengguna</th>
                     <th class="text-center">Status</th> 
+                    <th class="text-center">Tindakan</th> 
+
                 </tr>
-                <tbody id="myAuditTrail">
-                {{-- @foreach ($audit_trail as $at)  --}}
-                    {{-- <tr>
-                        <td>{{$at->id}}</td>
-                        <td>{{$at->full_name}}</td>
-                        <td>{{$at->ip_address}}</td>
-                        <td>{{$at->ip_address}}</td>
-                        <td>{{$at->ip_address}}</td>
-                        <td>{{$at->date_logged_in}}</td>
-                        <td>{{$at->date_logged_out}}</td>
-                        <td>{{$at->requested_time}}</td>
-                        <td>{{$at->requested_url}}</td>
-                    </tr> --}}
-                {{-- @endforeach --}}
+                <tbody id="mySenaraiPengguna">
+                @foreach ($senarai_pengguna as $s) 
+                    <tr>
+                        <td>{{$s->id}}</td>
+                        <td>{{$s->username}}</td>
+                        <td>{{$s->identity_number}}</td>
+                        <td>{{$s->full_name}}</td>
+                        <td>{{$s->email}}</td>
+                        <td>Jenis Pengguna</td>
+                        <td>Aktif (table lain ni)</td>
+                        <td>
+                            <form action="/pengurusan-pengguna/senarai-pengguna/kemaskini/{id}/edit" method="GET">
+                                @csrf
+                                <button class="btn btn-secondary" style="text-align: center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                                    <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+                                  </svg> &nbsp;Kemaskini</button>
+                            </form>
+                        </td>
+
+                    </tr>
+                @endforeach
                 </tbody>
             </thead>
         </table>

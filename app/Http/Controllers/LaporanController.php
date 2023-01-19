@@ -8,6 +8,7 @@ use App\Http\Requests\StoreLaporanRequest;
 use App\Http\Requests\UpdateLaporanRequest;
 use App\Models\Laporan;
 use App\Models\LaporanGagalLogMasuk;
+use App\Models\DaftarPengguna;
 
 class LaporanController extends Controller
 {
@@ -284,7 +285,52 @@ class LaporanController extends Controller
     }
     
     public function senarai_pengguna(){
-        return view('pengurusan-pengguna.senarai-pengguna');
+        return view('pengurusan-pengguna.senarai-pengguna',
+        ['senarai_pengguna'=>DaftarPengguna::all()]
+        );
+    }
+
+    public function daftarPengguna(Request $request)
+    {
+        // $id = (int)$request->route('id');
+        $daftar = new DaftarPengguna();  
+
+        // $daftar->id = $request->id;
+        $daftar->full_name = $request->full_name;
+        $daftar->username = $request->username;
+        $daftar->identity_type = $request->identity_type;
+        $daftar->identity_number = $request->identity_number;
+        $daftar->email = $request->email;
+        $daftar->save();
+
+
+        // return view('pengurusan-pengguna.daftar-pengguna',
+        //     ['daftar'=>Laporan::all()]
+        // );
+        return redirect('/pengurusan-pengguna/daftar-pengguna');
+    }
+
+    public function senarai_pengguna_kemaskini(Request $request)
+    {
+        $id = (int)$request->route('id'); 
+        // dd($request->all());
+        $pengguna = DaftarPengguna::find($id);
+
+       return view('pengurusan-pengguna.senarai-pengguna-edit', compact('pengguna'));
+    }
+
+    public function senarai_pengguna_simpan_kemaskini(Request $request)
+    {
+        $id = (int)$request->route('id'); 
+        $pengguna = DaftarPengguna::find($id);
+        $pengguna->full_name = strtoupper($request->full_name);
+        $pengguna->username = $request->username;
+        $pengguna->identity_type = $request->identity_type;
+        $pengguna->identity_number = $request->identity_number;
+        $pengguna->email = $request->email;
+        $pengguna->save();
+        
+        return redirect('/pengurusan-pengguna/senarai-pengguna');
     }
 
     // public function log_masuk(){
