@@ -41,4 +41,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function LaporanGagalLogMasuk()
+    {
+        return $this->belongsTo(User::class);
+
+    }
+    
+    public function Laporan()
+    {
+        return $this->belongsTo(User::class);
+
+    }
 }

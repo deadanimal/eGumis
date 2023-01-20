@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreLaporanRequest;
 use App\Http\Requests\UpdateLaporanRequest;
 use App\Models\Laporan;
+use App\Models\LaporanGagalLogMasuk;
+use App\Models\DaftarPengguna;
 
 class LaporanController extends Controller
 {
@@ -86,6 +88,7 @@ class LaporanController extends Controller
         //
     }
 
+
     public function carianLaporan(Request $request)
     {
         $laporan = Laporan::where('id','!=',null);
@@ -101,13 +104,73 @@ class LaporanController extends Controller
        
         $laporan->where('full_name', $request->nama);
         
-
+            // dd('ok');
         return view('audit_trail.laporan_audit_trail',[
             'audit_trail'=> $laporan->get(),
             'nama'=>$request->nama,
             'tempoh'=>$request->tempoh, 
         ]);
-    
+    }
+
+    public function carianLogAudit(Request $request) {
+        $laporan = LaporanGagalLogMasuk::where('id','!=',null);
+        // $laporan = LaporanGagalLogMasuk::where('status','!=',null);
+
+        $laporan->where('username', $request->nama_pengguna);
+        // $laporan->where('status', $request->jenis_status);
+        $laporan->where('identity_number', $request->identity_number);
+        $laporan->whereDate('created_date', '=', $request->tempoh);
+
+        
+        // dd('ok');
+        // dd($request->all());
+        return view('pelaporan.laporan_gagal_log_masuk',[
+            'pelaporan'=> $laporan->get(),
+            'tempoh'=>$request->tempoh, 
+        ]);
+    }
+
+    public function carianLogAkses(Request $request) {
+       
+        return view('audit_trail.log_akses');
+    }
+
+    public function carianLaporanGagalLogMasuk(Request $request) {
+        $laporan = LaporanGagalLogMasuk::where('id','!=',null);
+        // $laporan = LaporanGagalLogMasuk::where('status','!=',null);
+
+        $laporan->where('username', $request->nama_pengguna);
+        // $laporan->where('status', $request->jenis_status);
+        $laporan->where('identity_number', $request->identity_number);
+        $laporan->whereDate('created_date', '=', $request->tempoh);
+
+        
+        // dd('ok');
+        // dd($request->all());
+        return view('pelaporan.laporan_gagal_log_masuk',[
+            'pelaporan'=> $laporan->get(),
+            'tempoh'=>$request->tempoh, 
+        ]);
+    }
+
+    public function carianLaporanSemakanWTD()
+    {
+        return view('pelaporan.laporan_semakan_wtd');
+    }
+
+    public function carianLaporanPermohonanTuntutanAplikasi()
+    {
+        return view('pelaporan.laporan_permohonan_tuntutan_aplikasi');
+    }
+
+    public function carianLaporanPermohonanWTD()
+    {
+        return view('pelaporan.laporan_permohonan_wtd');
+    }
+
+    public function carianLaporanTempohPenggunaanAplikasi()
+    {
+        return view('pelaporan.laporan_tempoh_penggunaan_aplikasi');
     }
 
     public function audit_trail(Request $request){
@@ -174,10 +237,12 @@ class LaporanController extends Controller
         // $audit_trail->entity_name = $request->entity_name; 
         // $audit_trail->save();
         return view('audit_trail.laporan_audit_trail',
-    ['audit_trail'=>Laporan::all()]
-    );
+            ['audit_trail'=>Laporan::all()]
+        );
         // return redirect('/audit_trail');
     }
+
+    
 
     public function log_audit(){
         return view('audit_trail.log_audit');
@@ -196,8 +261,11 @@ class LaporanController extends Controller
     // }
 
     public function laporan_gagal_log_masuk(){
+        // dd('ok');
 
-        return view('pelaporan.laporan_gagal_log_masuk');
+
+    return view('pelaporan.laporan_gagal_log_masuk',
+    ['pelaporan'=>LaporanGagalLogMasuk::all()]);
     }
 
     public function laporan_permohonan_tuntutan_aplikasi(){
@@ -212,8 +280,57 @@ class LaporanController extends Controller
         return view('pelaporan.laporan_tempoh_penggunaan_aplikasi');
     }
 
-    public function peranan(){
-        return view('peranan');
+    public function daftar_pengguna(){
+        return view('pengurusan-pengguna.daftar-pengguna');
+    }
+    
+    public function senarai_pengguna(){
+        return view('pengurusan-pengguna.senarai-pengguna',
+        ['senarai_pengguna'=>DaftarPengguna::all()]
+        );
+    }
+
+    public function daftarPengguna(Request $request)
+    {
+        // $id = (int)$request->route('id');
+        $daftar = new DaftarPengguna();  
+
+        // $daftar->id = $request->id;
+        $daftar->full_name = $request->full_name;
+        $daftar->username = $request->username;
+        $daftar->identity_type = $request->identity_type;
+        $daftar->identity_number = $request->identity_number;
+        $daftar->email = $request->email;
+        $daftar->save();
+
+
+        // return view('pengurusan-pengguna.daftar-pengguna',
+        //     ['daftar'=>Laporan::all()]
+        // );
+        return redirect('/pengurusan-pengguna/daftar-pengguna');
+    }
+
+    public function senarai_pengguna_kemaskini(Request $request)
+    {
+        $id = (int)$request->route('id'); 
+        // dd($request->all());
+        $pengguna = DaftarPengguna::find($id);
+
+       return view('pengurusan-pengguna.senarai-pengguna-edit', compact('pengguna'));
+    }
+
+    public function senarai_pengguna_simpan_kemaskini(Request $request)
+    {
+        $id = (int)$request->route('id'); 
+        $pengguna = DaftarPengguna::find($id);
+        $pengguna->full_name = strtoupper($request->full_name);
+        $pengguna->username = $request->username;
+        $pengguna->identity_type = $request->identity_type;
+        $pengguna->identity_number = $request->identity_number;
+        $pengguna->email = $request->email;
+        $pengguna->save();
+        
+        return redirect('/pengurusan-pengguna/senarai-pengguna');
     }
 
     // public function log_masuk(){
