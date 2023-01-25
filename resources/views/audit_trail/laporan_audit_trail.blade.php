@@ -59,7 +59,7 @@
 
 
 <div class="container-fluid">
-    <form action="/carian-laporan" method="post">
+    <form action="/carian-laporan" method="POST">
         @csrf
         <div class="row mx-2 mb-2 mt-5">
             <div class="col-2 mb-2">
@@ -81,12 +81,20 @@
                 </select>
             </div>
         </div>
+        <div class="row mx-2 mb-2 mt-5">
+            <div class="col-2 mb-2">
+                <label class="col-form-label text-black">Alamat IP:</label>
+            </div>
+            <div class="col-4 mb-2">
+                <input value="{{$ip_address ?? ''}}" placeholder="SILA PILIH" class="form-control textbox-n" name="alamat_ip" type="text"/>
+            </div>
+        </div>
         <div class="row mx-2 mb-2">
             <div class="col-2 mb-2">
                 <label class="col-form-label text-black">Nama Pengguna:</label>
             </div>
             <div class="col-4 mb-2">
-                <input value="{{$nama ?? ''}}" class="form-control" data-column-index='1' type="text" placeholder="TAIP DI SINI" name="nama" required/>
+                <input value="{{$full_name ?? ''}}" class="form-control" data-column-index='1' type="text" placeholder="TAIP DI SINI" name="nama"/>
             </div>
             <div class="col mb-2">
                 <button class="btn btn-secondary filter-button" type="submit"> Cari
@@ -98,6 +106,7 @@
     </form>
             <div class="col mb-2">
                 <form action="/audit_trail" method="GET">
+                    @csrf
                     <button class="btn" onClick="window.location.reload();">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
                             <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>

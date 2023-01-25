@@ -1,5 +1,53 @@
 @extends('layouts.base')
 
+<style>
+    .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+    /* Rounded sliders */
+    .slider.round {
+    border-radius: 34px;
+    }
+
+    .slider.round:before {
+    border-radius: 50%;
+    }
+</style>
+
 @section('content')
 
 <h1 style="color: #003478;">PENGURUSAN PENGGUNA</h1>
@@ -11,8 +59,9 @@
         <h4>Maklumat Akaun</h4>
         <hr>
 
-        <form action="/pengurusan-pengguna/senarai-pengguna/simpan-kemaskini" method="PUT">
+        <form action="/pengurusan-pengguna/senarai-pengguna/simpan-kemaskini/{id}" method="POST">
             @csrf
+            @method('PUT')
             <div class="row mx-2 mb-2 mt-5">
                 <div class="col-2 mb-2">
                     <label class="col-form-label text-black">Nama Pengguna: <span style="color: #FF0000">&#42;</span></label>
@@ -32,7 +81,10 @@
                     <label class="col-form-label text-black">Keaktifan: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-4 mb-2">
-                    letak toggle switch sini
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                    </label>
                 </div>
             </div>
 
