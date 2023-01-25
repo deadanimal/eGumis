@@ -48,6 +48,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/pengurusan-pengguna/senarai-pengguna', [LaporanController::class, 'senarai_pengguna']);
     Route::get('/pengurusan-pengguna/senarai-pengguna/kemaskini/{id}/edit', [LaporanController::class, 'senarai_pengguna_kemaskini']);
     Route::put('/pengurusan-pengguna/senarai-pengguna/simpan-kemaskini/{id}', [LaporanController::class, 'senarai_pengguna_simpan_kemaskini']);
+    Route::delete('/pengurusan-pengguna/senarai-pengguna/{id}', [LaporanController::class, 'hapus_senarai_pengguna']);  
+
 
 
     //Daftar Pengguna
@@ -61,6 +63,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/carian-permohonan-tuntutan-aplikasi', [LaporanController::class, 'carianLaporanPermohonanTuntutanAplikasi']);
     Route::post('/carian-permohonan_wtd', [LaporanController::class, 'carianLaporanPermohonanWTD']);
     Route::post('/carian-tempoh-penggunaan-aplikasi', [LaporanController::class, 'carianLaporanTempohPenggunaanAplikasi']);
+    Route::post('/carian-senarai-pengguna', [LaporanController::class, 'carianSenaraiPengguna']);
     });
 
 require __DIR__.'/auth.php';

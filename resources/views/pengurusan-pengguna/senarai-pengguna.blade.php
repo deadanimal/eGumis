@@ -8,14 +8,14 @@
 <div class="card mt-6">
     <div class="card-body">
         <h2 style="color: #003478;">Senarai Pengguna</h2>
-        <form action="" method="POST">
+        <form action="/carian-senarai-pengguna" method="POST">
             @csrf
             <div class="row mx-2 mb-2 mt-5">
                 <div class="col-4 mb-2 text-end">
                     <label class="col-form-label text-black">Jenis Pengguna:</label>
                 </div>
                 <div class="col-5 mb-2">
-                    <select class="form-select categoryFilter" data-column-index='2' aria-label="Default select example"  name="jenis_pengguna" required>
+                    <select class="form-select categoryFilter" data-column-index='2' aria-label="Default select example"  name="jenis_pengguna">
                         <option selected>SILA PILIH</option>
                         <option value="BWTD">SEMUA</option>
                         <option value="BPTM">BPTM</option>
@@ -27,7 +27,7 @@
                     <label class="col-form-label text-black">Nama:</label>
                 </div>
                 <div class="col-5 mb-2">
-                    <input class="form-control textbox-n" name="tempoh" type="text" required/>
+                    <input value="{{$nama_penuh ?? ''}}" class="form-control textbox-n" name="nama_penuh" type="text"/>
                 </div>
             </div>
             <div class="row mx-2 mb-2 mt-2">
@@ -35,7 +35,7 @@
                     <label class="col-form-label text-black">Nama Pengguna:</label>
                 </div>
                 <div class="col-5 mb-2">
-                    <input style="text-transform: uppercase;" class="form-control textbox-n" name="tempoh" type="text" required/>
+                    <input value="{{$nama_pengguna ?? ''}}" class="form-control textbox-n" name="nama_pengguna" type="text"/>
                 </div>
             </div>
             <div class="row mx-2 mb-2 mt-2">
@@ -43,7 +43,7 @@
                     <label class="col-form-label text-black">No. Pengenalan:</label>
                 </div>
                 <div class="col-5 mb-2">
-                    <input class="form-control textbox-n" name="tempoh" type="text" required/>
+                    <input value="{{$no_kad_pengenalan ?? ''}}" class="form-control textbox-n" name="no_kad_pengenalan" type="number"/>
                 </div>
             </div>
             <div class="row mx-2 mb-2 mt-2">
@@ -51,8 +51,9 @@
                     <label class="col-form-label text-black">E-mel:</label>
                 </div>
                 <div class="col-5 mb-2">
-                    <input class="form-control textbox-n" name="tempoh" type="text" required/>
+                    <input value="{{$emel ?? ''}}" class="form-control textbox-n" name="emel" type="text"/>
                 </div>
+
                 <div class="col-2 mb-2 text-end">
                     <button class="btn btn-secondary" type="submit">Cari  &nbsp;
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -60,8 +61,19 @@
                         </svg>
                     </button>
                 </div>
+            </form>
+                <div class="col mb-2">
+                    <form action="/pengurusan-pengguna/senarai-pengguna" method="GET">
+                        @csrf
+                        <button class="btn" onClick="window.location.reload();">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                                <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
+                                <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
             </div>
-        </form>
         <form action="/pengurusan-pengguna/daftar-pengguna" method="GET">
             @csrf
             <div class="row mx-2 mb-2 mt-5">
@@ -87,13 +99,13 @@
                     <th class="text-center">E-mel</th> 
                     <th class="text-center">Jenis Pengguna</th>
                     <th class="text-center">Status</th> 
-                    <th class="text-center">Tindakan</th> 
-
+                    <th class="text-center">Tindakan</th>
+                    <th class="text-center">Hapus</th>
                 </tr>
                 <tbody id="mySenaraiPengguna">
                 @foreach ($senarai_pengguna as $s) 
                     <tr>
-                        <td>{{$s->id}}</td>
+                        <td>{{$loop->iteration}}</td>
                         <td>{{$s->username}}</td>
                         <td>{{$s->identity_number}}</td>
                         <td>{{$s->full_name}}</td>
@@ -103,12 +115,38 @@
                         <td>
                             <form action="/pengurusan-pengguna/senarai-pengguna/kemaskini/{id}/edit" method="GET">
                                 @csrf
-                                <button class="btn btn-secondary" style="text-align: center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                                <button class="btn btn-secondary btn-sm" style="text-align: center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
                                     <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
                                   </svg> &nbsp;Kemaskini</button>
                             </form>
                         </td>
-
+                        <td>
+                                  <button class="btn btn-secondary btn-sm" type="button" style="text-align: center" data-toggle="modal" data-target="#exampleModalCenter{{$loop->iteration}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                                    <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+                                  </svg> &nbsp;Hapus</button>
+                                  
+                                  <!-- Modal -->
+                                  <div class="modal fade" id="exampleModalCenter{{$loop->iteration}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title text-center" id="exampleModalLongTitle">Adakah anda ingin menghapuskan maklumat bagi pengguna  <b>{{$s->full_name}}</b> ?</h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form action="/pengurusan-pengguna/senarai-pengguna/{{$s->id}}" method="POST">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button class="btn btn-secondary" type="submit">Hapus</button>
+                                            </form>
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Batal</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -147,6 +185,18 @@
             stripeClasses: ['stripe-1','stripe-2'],
         });
     });
+</script>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
 </script>
 
 @endsection

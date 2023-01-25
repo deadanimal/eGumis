@@ -103,12 +103,15 @@ class LaporanController extends Controller
 
        
         $laporan->where('full_name', $request->nama);
+        // $laporan->where('ip_address', $request->alamat_ip);
+
         
             // dd('ok');
         return view('audit_trail.laporan_audit_trail',[
             'audit_trail'=> $laporan->get(),
             'nama'=>$request->nama,
             'tempoh'=>$request->tempoh, 
+            // 'alamat_ip'=>$request->alamat_ip,
         ]);
     }
 
@@ -124,7 +127,7 @@ class LaporanController extends Controller
         
         // dd('ok');
         // dd($request->all());
-        return view('pelaporan.laporan_gagal_log_masuk',[
+        return view('audit_trail.log_audit',[
             'pelaporan'=> $laporan->get(),
             'tempoh'=>$request->tempoh, 
         ]);
@@ -150,6 +153,23 @@ class LaporanController extends Controller
         return view('pelaporan.laporan_gagal_log_masuk',[
             'pelaporan'=> $laporan->get(),
             'tempoh'=>$request->tempoh, 
+        ]);
+    }
+
+    public function carianSenaraiPengguna(Request $request)
+    {
+        $senarai_pengguna = DaftarPengguna::where('id','!=',null);
+        $senarai_pengguna->where('full_name', $request->nama_penuh);
+        $senarai_pengguna->where('username', $request->nama_pengguna);
+        // $senarai_pengguna->where('identity_number', $request->identity_number);
+        // $senarai_pengguna->where('email', $request->email);
+
+        return view('/pengurusan-pengguna.senarai-pengguna',[
+            'senarai_pengguna'=>$senarai_pengguna->get(),
+            'nama_penuh'=>$request->nama_penuh,
+            'nama_pengguna'=>$request->nama_pengguna,
+            // 'no_kad_pengenalan'=>$request->no_kad_pengenalan,
+            // 'emel'=>$request->emel,
         ]);
     }
 
@@ -292,10 +312,7 @@ class LaporanController extends Controller
 
     public function daftarPengguna(Request $request)
     {
-        // $id = (int)$request->route('id');
         $daftar = new DaftarPengguna();  
-
-        // $daftar->id = $request->id;
         $daftar->full_name = $request->full_name;
         $daftar->username = $request->username;
         $daftar->identity_type = $request->identity_type;
@@ -314,9 +331,17 @@ class LaporanController extends Controller
     {
         $id = (int)$request->route('id'); 
         // dd($request->all());
+       
         $pengguna = DaftarPengguna::find($id);
+        if ($pengguna != null) {
+        $pengguna->username = $request->username;
+        $pengguna->save();
+        }
 
-       return view('pengurusan-pengguna.senarai-pengguna-edit', compact('pengguna'));
+        // dd('test');
+
+       return view('pengurusan-pengguna.senarai-pengguna-edit', 
+       compact('pengguna'));
     }
 
     public function senarai_pengguna_simpan_kemaskini(Request $request)
@@ -330,7 +355,21 @@ class LaporanController extends Controller
         $pengguna->email = $request->email;
         $pengguna->save();
         
-        return redirect('/pengurusan-pengguna/senarai-pengguna');
+        // return redirect('/pengurusan-pengguna/senarai-pengguna');
+        return back();
+    }
+
+    public function hapus_senarai_pengguna(Request $request)
+    {
+        $id = (int)$request->route('id'); 
+
+        // dd($request->all());
+        $pengguna = DaftarPengguna::find($id); 
+        if ($pengguna != null) {
+            $pengguna->delete();
+        }
+        alert()->success('Maklumat Pengguna Dihapuskan', 'Berjaya');
+        return back();
     }
 
     // public function log_masuk(){
