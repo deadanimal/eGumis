@@ -92,7 +92,6 @@ class LaporanController extends Controller
     public function carianLaporan(Request $request)
     {
         $laporan = Laporan::where('id','!=',null);
-            
        
             //$laporan->whereDate('created_date', '=', $request->tempoh);
         
@@ -100,18 +99,19 @@ class LaporanController extends Controller
         // if ($request->jenis_pengguna != null) {
         //     $laporan->where('')
         // }
-
-       
-        $laporan->where('full_name', $request->nama);
-        // $laporan->where('ip_address', $request->alamat_ip);
-
+        if ($request->nama) {
+            $laporan->where('full_name','LIKE','%'.$request->nama.'%');
+        }
+        if ($request->alamat_ip) {
+            $laporan->where('ip_address','LIKE','%'.$request->alamat_ip.'%');
+        }
         
             // dd('ok');
         return view('audit_trail.laporan_audit_trail',[
             'audit_trail'=> $laporan->get(),
-            'nama'=>$request->nama,
-            'tempoh'=>$request->tempoh, 
-            // 'alamat_ip'=>$request->alamat_ip,
+            'full_name'=>$request->nama,
+            'tempoh'=>$request->tempoh,
+            'alamat_ip'=>$request->alamat_ip, 
         ]);
     }
 
@@ -159,17 +159,34 @@ class LaporanController extends Controller
     public function carianSenaraiPengguna(Request $request)
     {
         $senarai_pengguna = DaftarPengguna::where('id','!=',null);
-        $senarai_pengguna->where('full_name', $request->nama_penuh);
-        $senarai_pengguna->where('username', $request->nama_pengguna);
+
+        // 1st method
+        // $senarai_pengguna->where('full_name', $request->nama_penuh);
+        // $senarai_pengguna->where('username', $request->nama_pengguna);
         // $senarai_pengguna->where('identity_number', $request->identity_number);
         // $senarai_pengguna->where('email', $request->email);
+
+        if ($request->nama) {
+            $senarai_pengguna->where('full_name', 'LIKE', '%'.$request->nama.'%');
+        }
+        if ($request->nama_pengguna) {
+            $senarai_pengguna->where('username', 'LIKE', '%'.$request->nama_pengguna.'%');
+        }
+        if ($request->no_kad_pengenalan) {
+            $senarai_pengguna->where('identity_number', 'LIKE', '%'.$request->no_kad_pengenalan.'%');
+        }
+        if ($request->emel) {
+            $senarai_pengguna->where('email', 'LIKE', '%'.$request->emel.'%');
+        }
+
+
 
         return view('/pengurusan-pengguna.senarai-pengguna',[
             'senarai_pengguna'=>$senarai_pengguna->get(),
             'nama_penuh'=>$request->nama_penuh,
             'nama_pengguna'=>$request->nama_pengguna,
-            // 'no_kad_pengenalan'=>$request->no_kad_pengenalan,
-            // 'emel'=>$request->emel,
+            'no_kad_pengenalan'=>$request->no_kad_pengenalan,
+            'emel'=>$request->emel,
         ]);
     }
 
@@ -305,6 +322,9 @@ class LaporanController extends Controller
     }
     
     public function senarai_pengguna(){
+
+        // $id = (int)$request->route('id'); 
+        // $senarai_pengguna = DaftarPengguna::find($id);
         return view('pengurusan-pengguna.senarai-pengguna',
         ['senarai_pengguna'=>DaftarPengguna::all()]
         );

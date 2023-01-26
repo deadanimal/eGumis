@@ -66,7 +66,7 @@ input:checked + .slider:before {
                     <label class="col-form-label text-black">Nama Pengguna: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-4 mb-2">
-                    <input class="form-control" type="text" readonly/>
+                    <input class="form-control" type="text" value="{{$pengguna->username}}" readonly/>
                 </div>
                 <div class="col-2 mb-2">
                     <label class="col-form-label text-black">Entiti Pengguna: <span style="color: #FF0000">&#42;</span></label>
@@ -189,7 +189,7 @@ input:checked + .slider:before {
             <div class="row mx-2 mb-2 mt-2">
                 <div class="col mb-2 text-end">
                     <form action="">
-                        <button class="btn btn-tertiary" href="/pengurusan-pengguna/senarai-pengguna">Kembali</button>
+                        <button class="btn btn-primary" href="/pengurusan-pengguna/senarai-pengguna">Kembali</button>
                     </form>
                     <button class="btn btn-secondary" type="submit">Simpan</button>
                 </div>
