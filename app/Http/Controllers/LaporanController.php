@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateLaporanRequest;
 use App\Models\Laporan;
 use App\Models\LaporanGagalLogMasuk;
 use App\Models\DaftarPengguna;
+use App\Models\LaporanSemakanWTD;
 
 class LaporanController extends Controller
 {
@@ -193,9 +194,29 @@ class LaporanController extends Controller
         ]);
     }
 
-    public function carianLaporanSemakanWTD()
+    public function carianLaporanSemakanWTD(Request $request)
     {
-        return view('pelaporan.laporan_semakan_wtd');
+
+        $semakan_wtd = LaporanSemakanWTD::where('id','!=',null);
+
+        if ($request->nama) {
+            $semakan_wtd->where('full_name', 'LIKE', '%'.$request->nama.'%');
+        }
+        if($request->no_rujukan){
+            $semakan_wtd->where('file_refno', 'LIKE', '%'.$request->no_rujukan.'%');
+        }
+        // if ($request->tempoh) {
+        //     $semakan_wtd->whereDate('requested_time', 'LIKE', '%'.$request->tempoh.'%');
+        // }
+
+
+        return view('pelaporan.laporan_semakan_wtd',[
+            'semakan_wtd'=>$semakan_wtd->get(),
+            'nama'=>$request->nama,
+            'no_rujukan'=>$request->no_rujukan,
+
+
+        ]);
     }
 
     public function carianLaporanPermohonanTuntutanAplikasi()
@@ -293,7 +314,10 @@ class LaporanController extends Controller
     }
 
     public function pelaporan(){
-        return view('pelaporan.laporan_semakan_wtd');
+        
+        return view('pelaporan.laporan_semakan_wtd',[
+            'semakan_wtd'=>LaporanSemakanWTD::all()
+        ]);
     }
 
     // public function laporan_semakan_wtd(){
