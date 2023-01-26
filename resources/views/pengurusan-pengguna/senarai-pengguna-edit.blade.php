@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 <style>
-    .slider {
+    /* .slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -38,14 +38,13 @@ input:checked + .slider:before {
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
-    /* Rounded sliders */
     .slider.round {
     border-radius: 34px;
     }
 
     .slider.round:before {
     border-radius: 50%;
-    }
+    } */
 </style>
 
 @section('content')
@@ -67,7 +66,7 @@ input:checked + .slider:before {
                     <label class="col-form-label text-black">Nama Pengguna: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-4 mb-2">
-                    <input class="form-control" value="{{$pengguna->username}}" type="text" readonly/>
+                    <input class="form-control" type="text" readonly/>
                 </div>
                 <div class="col-2 mb-2">
                     <label class="col-form-label text-black">Entiti Pengguna: <span style="color: #FF0000">&#42;</span></label>
@@ -81,10 +80,10 @@ input:checked + .slider:before {
                     <label class="col-form-label text-black">Keaktifan: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-4 mb-2">
-                    <label class="switch">
-                        <input type="checkbox" checked>
-                        <span class="slider round"></span>
-                    </label>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                        <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                    </div>
                 </div>
             </div>
 
