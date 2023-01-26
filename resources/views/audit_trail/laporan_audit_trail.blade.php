@@ -218,6 +218,8 @@
                     extend: 'pdf',  
                     text: 'PDF <img src="./assets/img/cloud-computing.png">',
                     download: 'open',
+                    pageSize: 'LEGAL',
+                    orientation: 'landscape',
                     init: function(api, node, config) {
                     $(node).removeClass('btn-default')
                 }

@@ -28,7 +28,8 @@
 <hr style="color: #003478;">
 
 <div class="container-fluid">
-    <form action="/carian-semakan-wtd">
+    <form action="/carian-semakan-wtd" method="POST">
+        @csrf
         <div class="row mx-2 mb-2 mt-5">
             <div class="col-2 mb-2">
                 <label class="col-form-label text-black">Tempoh:</label>
@@ -40,7 +41,7 @@
                 <label class="col-form-label text-black">Status:</label>
             </div>
             <div class="col-3 mb-2">
-                <select class="form-select" aria-label="Default select example" name="jenisProjek" required>
+                <select class="form-select" aria-label="Default select example" name="">
                     <option selected>SILA PILIH</option>
                     <option value="A">A</option>
                     <option value="B">B</option>
@@ -66,7 +67,7 @@
                 <label class="col-form-label text-black">No. Pengenalan:</label>
             </div>
             <div class="col-3 mb-2">
-                <input class="form-control" name="" type="number" placeholder="TAIP DI SINI" required/>
+                <input class="form-control" name="" type="number" placeholder="TAIP DI SINI"/>
             </div>
         </div>
         <div class="row mx-2 mb-2 mt-2">
@@ -74,7 +75,7 @@
                 <label class="col-form-label text-black">No. Rujukan:</label>
             </div>
             <div class="col-3 mb-2">
-                <input class="form-control" name="" type="text" placeholder="TAIP DI SINI" required/>
+                <input value="{{$no_rujukan ?? ''}}" class="form-control" name="no_rujukan" type="text" placeholder="TAIP DI SINI"/>
             </div>
         </div>
     
@@ -85,6 +86,7 @@
                 <table id="semakan-wtd" class="table line-table mt-6" style="width:100%">
                     <thead class="text-black">
                         <tr>
+                            <th class="text-center">Bil</th>
                             <th class="text-center">No. Rujukan</th>
                             <th class="text-center">Nama Pengguna</th>
                             <th class="text-center">No. Pengenalan</th>
@@ -95,6 +97,22 @@
                             <th class="text-center">OS</th> 
                             <th class="text-center">Model</th> 
                         </tr>
+                        <tbody>
+                            @foreach ($semakan_wtd as $sw) 
+                        <tr>
+                            <td>{{$sw->id}}</td>
+                            <td>{{$sw->file_refno}}</td>
+                            <td>{{$sw->name}}</td>
+                            <td>ada ic baru/lama</td>
+                            <td>{{$sw->claimAmount}}</td>
+                            <td>{{$sw->created_date}}</td>
+                            <td>{{$sw->status}}</td>
+                            <td>Tindakan untuk?</td>
+                            <td>Tiada OS</td>
+                            <td>Tiada Model</td>
+                        </tr>
+                    @endforeach
+                        </tbody>
                     </thead>
                 </table>
             </div>
