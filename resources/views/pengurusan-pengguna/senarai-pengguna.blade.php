@@ -110,7 +110,7 @@
                         <td>{{$s->identity_number}}</td>
                         <td>{{$s->full_name}}</td>
                         <td>{{$s->email}}</td>
-                        <td>Jenis Pengguna</td>
+                        <td>{{$s->jenis_pengguna}}</td>
                         <td>Aktif (table lain ni)</td>
                         <td>
                             <form action="/pengurusan-pengguna/senarai-pengguna/kemaskini/{id}/edit" method="GET">
