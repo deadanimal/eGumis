@@ -314,7 +314,7 @@ class LaporanController extends Controller
     }
 
     public function pelaporan(){
-        
+
         return view('pelaporan.laporan_semakan_wtd',[
             'semakan_wtd'=>LaporanSemakanWTD::all()
         ]);
@@ -365,6 +365,7 @@ class LaporanController extends Controller
         $daftar->identity_type = $request->identity_type;
         $daftar->identity_number = $request->identity_number;
         $daftar->email = $request->email;
+        $daftar->jenis_pengguna = $request->jenis_pengguna;
         $daftar->save();
 
 
