@@ -162,11 +162,11 @@
 <script src="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"></script>
 
 <script>
-    $(document).ready(function() {
-        var table = $('#senarai-pengguna').DataTable({
-            scrollX: true,
-            "bInfo" : false,
-            "language": {
+    $(document).ready(function () {
+    $('#senarai-pengguna').DataTable({
+        scrollX: true, //scroll table
+        "bInfo" : false, //disable show entries
+        "language": {
                 "sLengthMenu": "PAPAR _MENU_ REKOD",
                 search: "",
                 searchPlaceholder: "Carian",
@@ -177,14 +177,10 @@
                 "next": "Seterusnya",
                 }
             },
-            dom: 'lfBfrtip',
-            // dom: 'Bfrtip',
-            // dom: 'frit',
-
-            // Specify multiple classes to be used - for table striped color
-            stripeClasses: ['stripe-1','stripe-2'],
-        });
+             dom: 'Bfrtip',
+             stripeClasses: ['stripe-1','stripe-2'],
     });
+    }); 
 </script>
 
 <script>

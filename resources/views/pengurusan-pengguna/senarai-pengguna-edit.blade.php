@@ -67,7 +67,7 @@ input:checked + .slider:before {
                     <label class="col-form-label text-black">Nama Pengguna: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-4 mb-2">
-                    <input class="form-control" value="" type="text" readonly/>
+                    <input class="form-control" value="{{$pengguna->username}}" type="text" readonly/>
                 </div>
                 <div class="col-2 mb-2">
                     <label class="col-form-label text-black">Entiti Pengguna: <span style="color: #FF0000">&#42;</span></label>
