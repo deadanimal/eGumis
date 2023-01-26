@@ -81,12 +81,13 @@
                 </select>
             </div>
         </div>
+        {{-- ni testing part --}}
         <div class="row mx-2 mb-2 mt-5">
             <div class="col-2 mb-2">
                 <label class="col-form-label text-black">Alamat IP:</label>
             </div>
             <div class="col-4 mb-2">
-                <input value="{{$ip_address ?? ''}}" placeholder="SILA PILIH" class="form-control textbox-n" name="alamat_ip" type="text"/>
+                <input value="{{$alamat_ip ?? ''}}" placeholder="SILA PILIH" class="form-control textbox-n" name="alamat_ip" type="text"/>
             </div>
         </div>
         <div class="row mx-2 mb-2">
@@ -94,7 +95,7 @@
                 <label class="col-form-label text-black">Nama Pengguna:</label>
             </div>
             <div class="col-4 mb-2">
-                <input value="{{$full_name ?? ''}}" class="form-control" data-column-index='1' type="text" placeholder="TAIP DI SINI" name="nama"/>
+                <input value="{{$nama ?? ''}}" class="form-control" data-column-index='1' type="text" placeholder="TAIP DI SINI" name="nama"/>
             </div>
             <div class="col mb-2">
                 <button class="btn btn-secondary filter-button" type="submit"> Cari

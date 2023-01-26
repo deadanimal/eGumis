@@ -27,7 +27,7 @@
                     <label class="col-form-label text-black">Nama:</label>
                 </div>
                 <div class="col-5 mb-2">
-                    <input value="{{$nama_penuh ?? ''}}" class="form-control textbox-n" name="nama_penuh" type="text"/>
+                    <input value="{{$nama ?? ''}}" class="form-control textbox-n" name="nama" type="text"/>
                 </div>
             </div>
             <div class="row mx-2 mb-2 mt-2">
