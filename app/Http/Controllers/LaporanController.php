@@ -419,12 +419,4 @@ class LaporanController extends Controller
         alert()->success('Maklumat Pengguna Dihapuskan', 'Berjaya');
         return back();
     }
-
-    // public function log_masuk(){
-
-
-    //     alert()->success('TERIMA KASIH', 'Kata laluan baharu telah dihantar ke emel anda');
-
-    //     return back();
-    // }
 }
