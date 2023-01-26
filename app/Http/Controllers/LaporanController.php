@@ -105,13 +105,16 @@ class LaporanController extends Controller
         if ($request->alamat_ip) {
             $laporan->where('ip_address','LIKE','%'.$request->alamat_ip.'%');
         }
+        if ($request->tempoh) {
+            $laporan->whereDate('requested_time', 'LIKE', '%'.$request->tempoh.'%');
+        }
         
             // dd('ok');
         return view('audit_trail.laporan_audit_trail',[
             'audit_trail'=> $laporan->get(),
             'full_name'=>$request->nama,
-            'tempoh'=>$request->tempoh,
             'alamat_ip'=>$request->alamat_ip, 
+            'tempoh'=>$request->tempoh,
         ]);
     }
 

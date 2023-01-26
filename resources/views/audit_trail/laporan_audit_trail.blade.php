@@ -21,10 +21,10 @@
 
 
 <style>
-    div.dataTables_wrapper {
+    /* div.dataTables_wrapper {
         width: 800px;
         margin: 0 auto;
-    }
+    } */
     .button {
         background-color: #1A7FE5;
         border: none;
@@ -121,6 +121,7 @@
     
     <div class="card mt-6">
         <div class="card-body">
+            <div class="table-responsive scrollbar">
             <table id="laporan-audit-trail" class="table line-table mt-6 stripe" style="width:100%">
                 <thead class="text-black">
                     <tr>
@@ -147,10 +148,11 @@
                             <td>{{$at->requested_time}}</td>
                             <td>{{$at->requested_url}}</td>
                         </tr>
-                        @endforeach
+                    @endforeach
                     </tbody>
                 </thead>
             </table>
+            </div>
         </div>
     </div>
 
@@ -193,7 +195,7 @@
     $.fn.dataTable.Buttons.defaults.dom.button.className = 'button'
     $(document).ready(function() {
         var table = $('#laporan-audit-trail').DataTable({
-            scrollX: true,
+            // scrollX: true,
             "bInfo" : false,
             "language": {
                 "sLengthMenu": "PAPAR _MENU_ REKOD",
@@ -207,10 +209,10 @@
                 }
             },
             dom: 'lfBrtip',
-            buttons: buttonConfig,
-            // dom: 'Bfrtip',
             // Specify multiple classes to be used - for table striped color
             stripeClasses: ['stripe-1','stripe-2'],
+            buttons: buttonConfig,
+            // dom: 'Bfrtip',
             buttons: [
                 { 
                     extend: 'pdf',  
