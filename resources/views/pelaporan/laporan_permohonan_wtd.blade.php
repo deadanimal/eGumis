@@ -109,6 +109,24 @@
                             <th class="text-center">Tarikh Tuntutan</th> 
                             <th class="text-center">Status</th> 
                         </tr>
+                        <tbody id="myPermohonanWTDNegeri">
+                            @foreach ($negeri as $n) 
+                                <tr>
+                                    <td>{{$n->id}}</td>
+                                    <td>{{$n->file_refno}}</td>
+                                    <td>{{$n->name}}</td>
+                                    <td>
+                                        {{$n->new_ic_number}}
+                                        {{$n->old_ic_number}}
+                                    </td>
+                                    <td>Model (tiada table lagi)</td>
+                                    <td>{{$n->date_logged_in}}</td>
+                                    <td>{{$n->date_logged_out}}</td>
+                                    <td>{{$n->requested_time}}</td>
+                                    <td>{{$n->requested_url}}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
                     </thead>
                 </table>
             </div>

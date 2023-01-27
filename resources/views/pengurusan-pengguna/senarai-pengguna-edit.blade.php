@@ -95,7 +95,7 @@ input:checked + .slider:before {
                     <label class="col-form-label text-black">Nama Penuh: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-4 mb-2">
-                    <input class="form-control" value="" type="text" placeholder="TAIP DI SINI" required/>
+                    <input value="{{$pengguna ?? ''}}" class="form-control" name="username" type="text" placeholder="TAIP DI SINI" required/>
                 </div>
                 <div class="col-2 mb-2">
                     <label class="col-form-label text-black">E-mel: <span style="color: #FF0000">&#42;</span></label>

@@ -67,7 +67,7 @@
                 <label class="col-form-label text-black">No. Pengenalan:</label>
             </div>
             <div class="col-3 mb-2">
-                <input class="form-control" name="" type="number" placeholder="TAIP DI SINI"/>
+                <input value="{{$no_ic ?? ''}}" class="form-control" name="no_ic" type="number" placeholder="TAIP DI SINI"/>
             </div>
         </div>
         <div class="row mx-2 mb-2 mt-2">
@@ -103,7 +103,14 @@
                             <td>{{$sw->id}}</td>
                             <td>{{$sw->file_refno}}</td>
                             <td>{{$sw->name}}</td>
-                            <td>ada ic baru/lama</td>
+                            <td>{{$sw->new_ic_number}}
+                                {{$sw->old_ic_number}}
+                                {{-- @if($request->no_ic == 'new_ic_number')
+                                    {{$sw->new_ic_number}}
+                                @elseif($request->no_ic == 'old_ic_number')
+                                    {{$sw->old_ic_number}}
+                                @endif   --}}
+                            </td>
                             <td>{{$sw->claimAmount}}</td>
                             <td>{{$sw->created_date}}</td>
                             <td>{{$sw->status}}</td>

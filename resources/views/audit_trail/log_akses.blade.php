@@ -39,13 +39,13 @@
                 <label class="col-form-label text-black">Nama Pengguna:</label>
             </div>
             <div class="col-4">
-                <input class="form-control" name="" type="text" placeholder="TAIP DI SINI" required/>
+                <input value="{{$nama ?? ''}}" class="form-control" name="nama" type="text" placeholder="TAIP DI SINI" />
             </div>
             <div class="col-2">
                 <label class="col-form-label text-black">Alamat:</label>
             </div>
             <div class="col-4">
-                <input class="form-control" name="" type="text" placeholder="TAIP DI SINI" required/>
+                <input value="{{$alamat_ip ?? ''}}" class="form-control" name="alamat_ip" type="text" placeholder="TAIP DI SINI" />
             </div>
         </div>
         <div class="row mx-2 mb-2">
@@ -53,17 +53,17 @@
                 <label class="col-form-label text-black">Log Masuk:</label>
             </div>
             <div class="col-4 mb-2">
-                <input class="form-control" name="" type="text" placeholder="TAIP DI SINI" required/>
+                <input value="{{$log_masuk ?? ''}}" class="form-control" name="log_masuk" type="text" placeholder="TAIP DI SINI" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"/>
             </div>
             <div class="col-2 mb-2">
                 <label class="col-form-label text-black">Log Keluar:</label>
             </div>
             <div class="col-4 mb-2">
-                <input class="form-control" name="" type="text" placeholder="TAIP DI SINI" required/>
+                <input value="{{$log_keluar ?? ''}}" class="form-control" name="log_keluar" type="text" placeholder="TAIP DI SINI" />
             </div>
         </div>
     <div class="col mb-2 text-end">
-        <button class="btn btn-secondary">Cari
+        <button class="btn btn-secondary" type="submit">Cari
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
             </svg>
@@ -86,10 +86,23 @@
                 <thead class="text-black">
                     <tr>
                         <th class="text-center">Bil.</th>
-                        <th class="text-center">Menu</th>
-                        <th class="text-center">Tarikh Capaian</th>
+                        <th class="text-center">Nama Pengguna</th>
+                        <th class="text-center">Alamat</th>
+                        <th class="text-center">Log Masuk</th>
+                        <th class="text-center">Log Keluar</th>
                     </tr>
                 </thead>
+                <tbody id="myLogAkses">
+                    @foreach ($log_akses as $akses) 
+                        <tr>
+                            <td>{{$akses->id}}</td>
+                            <td>{{$akses->username}}</td>
+                            <td>{{$akses->ip_address}}</td>
+                            <td>{{$akses->date_logged_in}}</td>
+                            <td>{{$akses->date_logged_out}}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
              </table>
         </div>
     </div>
@@ -160,4 +173,6 @@
         });
     });
 </script>
+
+
 @endsection

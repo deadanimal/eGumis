@@ -66,7 +66,7 @@
                 <label class="col-form-label text-black">Tempoh:</label>
             </div>
             <div class="col-4 mb-2">
-                <input placeholder="SILA PILIH" class="form-control textbox-n" data-column-index='7'  name="tempoh" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" />
+                <input placeholder="SILA PILIH" class="form-control textbox-n" name="tempoh" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"/>
             </div>
         </div>
         <div class="row mx-2 mb-2">
@@ -74,7 +74,7 @@
                 <label class="col-form-label text-black">Jenis Pengguna:</label>
             </div>
             <div class="col-4 mb-2">
-                <select class="form-select categoryFilter" data-column-index='2' aria-label="Default select example"  name="jenis_pengguna" required>
+                <select class="form-select categoryFilter" aria-label="Default select example"  name="jenis_pengguna" required>
                     <option selected>SILA PILIH</option>
                     <option value="BWTD">BWTD</option>
                     <option value="BPTM">BPTM</option>
@@ -82,14 +82,14 @@
             </div>
         </div>
         {{-- ni testing part --}}
-        <div class="row mx-2 mb-2 mt-5">
+        {{-- <div class="row mx-2 mb-2 mt-5">
             <div class="col-2 mb-2">
                 <label class="col-form-label text-black">Alamat IP:</label>
             </div>
             <div class="col-4 mb-2">
                 <input value="{{$alamat_ip ?? ''}}" placeholder="SILA PILIH" class="form-control textbox-n" name="alamat_ip" type="text"/>
             </div>
-        </div>
+        </div> --}}
         <div class="row mx-2 mb-2">
             <div class="col-2 mb-2">
                 <label class="col-form-label text-black">Nama Pengguna:</label>
@@ -141,8 +141,8 @@
                             <td>{{$at->id}}</td>
                             <td>{{$at->full_name}}</td>
                             <td>{{$at->ip_address}}</td>
-                            <td>{{$at->ip_address}}</td>
-                            <td>{{$at->ip_address}}</td>
+                            <td>OS (tiada table lagi)</td>
+                            <td>Model (tiada table lagi)</td>
                             <td>{{$at->date_logged_in}}</td>
                             <td>{{$at->date_logged_out}}</td>
                             <td>{{$at->requested_time}}</td>

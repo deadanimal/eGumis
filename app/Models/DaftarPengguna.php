@@ -10,4 +10,10 @@ class DaftarPengguna extends Model
     use HasFactory;
     protected $table = 'sec_users';
 
+    public function AuditLogMa()
+    {
+       return $this->hasOne(DaftarPengguna::class, 'id', 'username');
+    }
+
 }
+
