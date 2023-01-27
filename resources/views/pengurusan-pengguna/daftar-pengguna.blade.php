@@ -103,7 +103,8 @@
                     <label class="col-form-label text-black">No. Pengenalan: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-5 mb-2">
-                    <input class="form-control textbox-n" name="identity_number" type="number" placeholder="Contoh: 770101037777" required/>
+                    <input class="form-control textbox-n" name="identity_number" type="number" placeholder="Contoh: 770101037777" maxlength="12" size="12"
+                    required/>
                 </div>
             </div>
             <div class="row mx-2 mb-2 mt-2">

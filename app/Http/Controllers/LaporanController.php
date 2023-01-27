@@ -119,7 +119,7 @@ class LaporanController extends Controller
         ]);
     }
 
-    public function carianLogAudit(Request $request) {
+    public function carianLaporanLogAudit(Request $request) {
         $laporan = LaporanGagalLogMasuk::where('id','!=',null);
         // $laporan = LaporanGagalLogMasuk::where('status','!=',null);
 
@@ -137,26 +137,73 @@ class LaporanController extends Controller
         ]);
     }
 
-    public function carianLogAkses(Request $request) {
+    public function carianLaporanLogAkses(Request $request) {
        
-        return view('audit_trail.log_akses');
+        $laporan = Laporan::where('id','!=',null);
+       
+        //$laporan->whereDate('created_date', '=', $request->tempoh);
+    
+
+        // if ($request->jenis_pengguna != null) {
+        //     $laporan->where('')
+        // }
+        if ($request->nama) {
+            $laporan->where('username','LIKE','%'.$request->nama.'%');
+        }
+        if ($request->alamat_ip) {
+            $laporan->where('ip_address','LIKE','%'.$request->alamat_ip.'%');
+        }
+        if ($request->log_masuk) {
+            $laporan->whereDate('date_logged_in', 'LIKE', '%'.$request->log_masuk.'%');
+        }
+        if ($request->log_keluar) {
+            $laporan->whereDate('date_logged_out', 'LIKE', '%'.$request->log_keluar.'%');
+        }
+
+        return view('audit_trail.log_akses', [
+            'log_akses'=> $laporan->get(),
+            'username'=>$request->nama,
+            'alamat_ip'=>$request->alamat_ip, 
+            'log_masuk'=>$request->log_masuk,
+            'log_keluar'=>$request->log_keluar,
+        ]);
     }
 
     public function carianLaporanGagalLogMasuk(Request $request) {
         $laporan = LaporanGagalLogMasuk::where('id','!=',null);
         // $laporan = LaporanGagalLogMasuk::where('status','!=',null);
 
-        $laporan->where('username', $request->nama_pengguna);
-        // $laporan->where('status', $request->jenis_status);
-        $laporan->where('identity_number', $request->identity_number);
-        $laporan->whereDate('created_date', '=', $request->tempoh);
+        if($request->nama){
+            $laporan->where('username', 'LIKE','%'.$request->nama.'%');
+        }
+        if($request->nama_pengguna){
+            $laporan->where('username', 'LIKE','%'.$request->nama_pengguna.'%');
+        }
+        if($request->status){
+            $laporan->where('status', 'LIKE','%'.$request->jenis_status.'%');
+        }
+        if($request->no_ic){
+            $laporan->where('identity_number','LIKE','%'.$request->no_ic.'%');
+        }
+        if($request->tempoh){
+            $laporan->whereDate('created_date','LIKE','%'.$request->tempoh.'%');
+        }
+        if($request->emel){
+            $laporan->where('email','LIKE','%'.$request->emel.'%');
+        }
+        
 
         
         // dd('ok');
         // dd($request->all());
         return view('pelaporan.laporan_gagal_log_masuk',[
             'pelaporan'=> $laporan->get(),
-            'tempoh'=>$request->tempoh, 
+            'nama'=>$request->nama, 
+            'nama_pengguna'=>$request->nama_pengguna, 
+            'status'=>$request->status,
+            'identity_number'=>$request->no_ic,
+            'tempoh'=>$request->tempoh,
+            'emel'=>$request->emel,
         ]);
     }
 
@@ -205,6 +252,10 @@ class LaporanController extends Controller
         if($request->no_rujukan){
             $semakan_wtd->where('file_refno', 'LIKE', '%'.$request->no_rujukan.'%');
         }
+        if($request->no_ic){
+            $semakan_wtd->where('new_ic_number', 'LIKE', '%'.$request->no_ic.'%');
+            $semakan_wtd->where('old_ic_number', 'LIKE', '%'.$request->no_ic.'%');
+        }
         // if ($request->tempoh) {
         //     $semakan_wtd->whereDate('requested_time', 'LIKE', '%'.$request->tempoh.'%');
         // }
@@ -214,8 +265,6 @@ class LaporanController extends Controller
             'semakan_wtd'=>$semakan_wtd->get(),
             'nama'=>$request->nama,
             'no_rujukan'=>$request->no_rujukan,
-
-
         ]);
     }
 
@@ -310,7 +359,9 @@ class LaporanController extends Controller
     }
 
     public function log_akses(){
-        return view('audit_trail.log_akses');
+        return view('audit_trail.log_akses', [
+            'log_akses'=>Laporan::all()
+        ]);
     }
 
     public function pelaporan(){
@@ -337,7 +388,11 @@ class LaporanController extends Controller
     }
 
     public function laporan_permohonan_wtd(){
-        return view('pelaporan.laporan_permohonan_wtd');
+
+
+        return view('pelaporan.laporan_permohonan_wtd',[
+            'negeri'=>LaporanSemakanWTD::all()
+        ]);
     }
 
     public function laporan_tempoh_penggunaan_aplikasi(){
@@ -367,7 +422,6 @@ class LaporanController extends Controller
         $daftar->email = $request->email;
         $daftar->jenis_pengguna = $request->jenis_pengguna;
         $daftar->save();
-
 
         // return view('pengurusan-pengguna.daftar-pengguna',
         //     ['daftar'=>Laporan::all()]
@@ -419,12 +473,4 @@ class LaporanController extends Controller
         alert()->success('Maklumat Pengguna Dihapuskan', 'Berjaya');
         return back();
     }
-
-    // public function log_masuk(){
-
-
-    //     alert()->success('TERIMA KASIH', 'Kata laluan baharu telah dihantar ke emel anda');
-
-    //     return back();
-    // }
 }

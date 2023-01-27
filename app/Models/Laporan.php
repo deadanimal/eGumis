@@ -17,4 +17,8 @@ class Laporan extends Model implements Auditable
         return $this->hasMany(Laporan::class);
 
     }
+
+    public function DaftarPengguna(){
+        return $this->hasOneThrough(Laporan::class, 'id');
+    }
 }

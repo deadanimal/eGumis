@@ -32,13 +32,13 @@
                 <label class="col-form-label text-black">Tempoh:</label>
             </div>
             <div class="col-4 mb-2">
-                <input value="{{$tempoh ?? ''}}" placeholder="SILA PILIH" class="form-control textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" />
+                <input value="{{$tempoh ?? ''}}" name="tempoh" placeholder="SILA PILIH" class="form-control textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"/>
             </div>
             <div class="col-2 mb-2">
                 <label class="col-form-label text-black">Nama Pengguna:</label>
             </div>
             <div class="col-4 mb-2">
-                <input value="{{$nama_pengguna ?? ''}}" class="form-control" name="nama_pengguna" type="text" placeholder="TAIP DI SINI" required/>
+                <input value="{{$nama_pengguna ?? ''}}" class="form-control" name="nama_pengguna" type="text" placeholder="TAIP DI SINI"/>
             </div>
         </div>
         <div class="row mx-2 mb-2">
@@ -47,7 +47,7 @@
             </div>
             <div class="col-4 mb-2">
                 {{-- @foreach ($pelaporan as $p) --}}
-                    <select class="form-select" aria-label="Default select example" name="jenis_status" required>
+                    <select class="form-select" aria-label="Default select example" name="jenis_status">
                         <option selected>SILA PILIH</option>
                         <option value="{{$jenis_status ?? ''}}"></option>
                         {{-- <option value="B">B</option> --}}
@@ -58,7 +58,7 @@
                 <label class="col-form-label text-black">No. Pengenalan:</label>
             </div>
             <div class="col-4 mb-2">
-                <input  value="{{$identity_number ?? ''}}" class="form-control" name="identity_number" type="number" placeholder="TAIP DI SINI" required/>       
+                <input  value="{{$no_ic ?? ''}}" class="form-control" name="no_ic" type="number" placeholder="TAIP DI SINI"/>       
             </div>
         </div>
         <div class="row mx-2 mb-2">
@@ -66,13 +66,13 @@
                 <label class="col-form-label text-black">Nama:</label>
             </div>
             <div class="col-4 mb-2">
-                <input value="{{$nama_pengguna ?? ''}}" class="form-control" name="nama_pengguna" type="text" placeholder="TAIP DI SINI" required/>        
+                <input value="{{$nama_pengguna ?? ''}}" class="form-control" name="nama_pengguna" type="text" placeholder="TAIP DI SINI"/>        
             </div>
             <div class="col-2 mb-2">
                 <label class="col-form-label text-black">E-mel:</label>
             </div>
             <div class="col-4 mb-2">
-                <input class="form-control" name="email" type="email" placeholder="TAIP DI SINI" required/>                
+                <input value="{{$emel ?? ''}}" class="form-control" name="emel" type="email" placeholder="TAIP DI SINI"/>                
             </div>
             <div class="col mb-2 text-end">
                 <button class="btn btn-secondary filter-button" type="submit"> Cari
