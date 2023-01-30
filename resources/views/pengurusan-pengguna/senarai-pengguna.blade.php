@@ -19,6 +19,7 @@
                         <option selected>SILA PILIH</option>
                         <option value="BWTD">SEMUA</option>
                         <option value="BPTM">BPTM</option>
+                        <option value="BWTD">BWTD</option>
                     </select>
                 </div>
             </div>

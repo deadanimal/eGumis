@@ -4,7 +4,7 @@
         position: sticky;
         top: 0;
     } */
-    
+
 
     /* Fixed sidenav, full height */
     /* .sidenav {
@@ -66,7 +66,7 @@
     }
 
     .nav li.active {
-    border-bottom: 3px solid #338ecf;
+    border-bottom: 1px solid #338ecf;
     background: #eee
     }
 

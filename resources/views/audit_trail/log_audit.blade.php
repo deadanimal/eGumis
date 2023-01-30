@@ -33,13 +33,13 @@
                     <label class="col-form-label text-black">Jenis Audit:</label>
                 </div>
                 <div class="col-4 mb-2">
-                    <input class="form-control" name="" type="text" placeholder="TAIP DI SINI" required/>
+                    <input class="form-control" name="jenis_audit" type="text" placeholder="TAIP DI SINI"/>
                 </div>
                 <div class="col-2 mb-2">
                     <label class="col-form-label text-black">ID Log Masuk:</label>
                 </div>
                 <div class="col-4 mb-2">
-                    <input class="form-control" name="" type="text" placeholder="TAIP DI SINI" required/>
+                    <input class="form-control" name="" type="text" placeholder="TAIP DI SINI"/>
                 </div>
             </div>
             <div class="row mx-2 mb-2">
@@ -56,7 +56,7 @@
                     <label class="col-form-label text-black">Nama:</label>
                 </div>
                 <div class="col-4 mb-2">
-                    <input class="form-control" name="" type="text" placeholder="TAIP DI SINI" required/>
+                    <input class="form-control" name="" type="text" placeholder="TAIP DI SINI"/>
                 </div>
             </div>
             <div class="row mx-2 mb-2">

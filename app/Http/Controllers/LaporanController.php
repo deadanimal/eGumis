@@ -384,7 +384,9 @@ class LaporanController extends Controller
     }
 
     public function laporan_permohonan_tuntutan_aplikasi(){
-        return view('pelaporan.laporan_permohonan_tuntutan_aplikasi');
+        return view('pelaporan.laporan_permohonan_tuntutan_aplikasi',[
+            'gagal_log_masuk'=>LaporanSemakanWTD::all()
+        ]);
     }
 
     public function laporan_permohonan_wtd(){
