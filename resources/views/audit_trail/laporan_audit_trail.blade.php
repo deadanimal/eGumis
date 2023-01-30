@@ -76,6 +76,7 @@
             <div class="col-4 mb-2">
                 <select class="form-select categoryFilter" aria-label="Default select example"  name="jenis_pengguna" required>
                     <option selected>SILA PILIH</option>
+                    <option value="">SEMUA</option>
                     <option value="BWTD">BWTD</option>
                     <option value="BPTM">BPTM</option>
                 </select>
@@ -126,6 +127,7 @@
                 <thead class="text-black">
                     <tr>
                         <th class="text-center">Bil.</th>
+                        <th class="text-center">Jenis Pengguna</th>
                         <th class="text-center">Nama Pengguna</th>
                         <th class="text-center">Alamat IP</th>
                         <th class="text-center">OS</th>
@@ -139,6 +141,7 @@
                     @foreach ($audit_trail as $at) 
                         <tr>
                             <td>{{$at->id}}</td>
+                            <td>{{$at->jenis_pengguna}}</td>
                             <td>{{$at->full_name}}</td>
                             <td>{{$at->ip_address}}</td>
                             <td>OS (tiada table lagi)</td>

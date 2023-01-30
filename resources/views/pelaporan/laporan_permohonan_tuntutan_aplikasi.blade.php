@@ -41,7 +41,7 @@
                 <label class="col-form-label text-black">No. Pengenalan:</label>
             </div>
             <div class="col-4 mb-2">
-                <input class="form-control" name="" type="number" placeholder="TAIP DI SINI" required/>
+                <input class="form-control" name="" type="number" placeholder="TAIP DI SINI"/>
             </div>
         </div>
         <div class="row mx-2 mb-2">
@@ -49,13 +49,13 @@
                 <label class="col-form-label text-black">No. Rujukan:</label>
             </div>
             <div class="col-4 mb-2">
-                <input class="form-control" name="" type="number" placeholder="TAIP DI SINI" required/>      
+                <input class="form-control" name="" type="number" placeholder="TAIP DI SINI"/>      
             </div>       
             <div class="col-1 mb-2">
                 <label class="col-form-label text-black">Jenis Status:</label>
             </div>
             <div class="col-4 mb-2">
-                <input class="form-control" name="" type="text" placeholder="TAIP DI SINI" required/>        
+                <input class="form-control" name="jenis_status" type="text" placeholder="TAIP DI SINI"/>        
             </div>
             <div class="col mb-2 text-end">
                 <button class="btn btn-secondary filter-button" type="submit"> Cari
