@@ -446,10 +446,7 @@ class LaporanController extends Controller
         // dd('test');
 
        return view('pengurusan-pengguna.senarai-pengguna-edit', 
-       compact('pengguna'),[
-        'pengguna'=>$pengguna->get(),
-        'nama'=>$request->username,
-       ]);
+       compact('pengguna'));
     }
 
     public function senarai_pengguna_simpan_kemaskini(Request $request)
