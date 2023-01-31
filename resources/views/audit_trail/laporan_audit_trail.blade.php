@@ -74,7 +74,7 @@
                 <label class="col-form-label text-black">Jenis Pengguna:</label>
             </div>
             <div class="col-4 mb-2">
-                <select class="form-select categoryFilter" aria-label="Default select example"  name="jenis_pengguna" required>
+                <select class="form-select categoryFilter" aria-label="Default select example"  name="jenis_pengguna">
                     <option selected>SILA PILIH</option>
                     <option value="">SEMUA</option>
                     <option value="BWTD">BWTD</option>
@@ -106,7 +106,7 @@
                 </button>
             </div>
     </form>
-            <div class="col mb-2">
+            <div class="col-4 mb-2">
                 <form action="/audit_trail" method="GET">
                     @csrf
                     <button class="btn" onClick="window.location.reload();">

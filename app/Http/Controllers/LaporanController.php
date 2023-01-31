@@ -437,15 +437,19 @@ class LaporanController extends Controller
         // dd($request->all());
        
         $pengguna = DaftarPengguna::find($id);
-        if ($pengguna != null) {
+        if ($request->nama != null) {
         $pengguna->username = $request->username;
+        // $pengguna->email = $request->email;
         $pengguna->save();
         }
 
         // dd('test');
 
        return view('pengurusan-pengguna.senarai-pengguna-edit', 
-       compact('pengguna'));
+       compact('pengguna'),[
+        'pengguna'=>$pengguna->get(),
+        'nama'=>$request->username,
+       ]);
     }
 
     public function senarai_pengguna_simpan_kemaskini(Request $request)

@@ -64,6 +64,12 @@
 <body>
 
     <style>
+        .form {
+            display: inline;
+        }
+        .form-group {
+            display: inline-block;
+        }
         .form-select{
             border-color: #1A7FE5;
             box-shadow: inset 2px 2px 5px 2px lightgrey;

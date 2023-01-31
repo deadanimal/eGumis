@@ -55,7 +55,17 @@
                 <label class="col-form-label text-black">Jenis Status:</label>
             </div>
             <div class="col-4 mb-2">
-                <input class="form-control" name="jenis_status" type="text" placeholder="TAIP DI SINI"/>        
+                <select class="form-select" aria-label="Default select example" name="status">
+                    <option selected>SILA PILIH</option>
+                    <option value="Deraf">Deraf</option>
+                    <option value="Pengesahan Dokumen 1">Pengesahan Dokumen 1</option>
+                    <option value="Kuiri Dokumen 1">Kuiri Dokumen 1</option>
+                    <option value="Pengesahan Dokumen 2">Pengesahan Dokumen 2</option>
+                    <option value="Kuiri Dokumen 2">Kuiri Dokumen 2</option>
+                    <option value="Baharu">Baharu</option>
+                    <option value="Selesai">Selesai</option>
+                    <option value="Kuiri">Kuiri</option>
+                </select>
             </div>
             <div class="col mb-2 text-end">
                 <button class="btn btn-secondary filter-button" type="submit"> Cari
