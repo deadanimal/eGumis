@@ -47,7 +47,7 @@
             </div>
             <div class="col-4 mb-2">
                 {{-- @foreach ($pelaporan as $p) --}}
-                    <select class="form-select" aria-label="Default select example" name="jenis_status">
+                    <select class="form-select" aria-label="Default select example" name="status">
                         <option selected>SILA PILIH</option>
                         <option value="Deraf">Deraf</option>
                         <option value="Pengesahan Dokumen 1">Pengesahan Dokumen 1</option>

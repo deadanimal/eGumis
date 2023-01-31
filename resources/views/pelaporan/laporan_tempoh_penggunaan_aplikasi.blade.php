@@ -39,13 +39,19 @@
                 <input placeholder="SILA PILIH" class="form-control textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" />
             </div>
             <div class="col mb-2">
-                <label class="col-form-label text-black">Status:</label>
+                <label class="col-form-label text-black">Jenis Status:</label>
             </div>
             <div class="col mb-2">
-                <select class="form-select" aria-label="Default select example" name="" required>
+                <select class="form-select" aria-label="Default select example" name="status">
                     <option selected>SILA PILIH</option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
+                    <option value="Deraf">Deraf</option>
+                    <option value="Pengesahan Dokumen 1">Pengesahan Dokumen 1</option>
+                    <option value="Kuiri Dokumen 1">Kuiri Dokumen 1</option>
+                    <option value="Pengesahan Dokumen 2">Pengesahan Dokumen 2</option>
+                    <option value="Kuiri Dokumen 2">Kuiri Dokumen 2</option>
+                    <option value="Baharu">Baharu</option>
+                    <option value="Selesai">Selesai</option>
+                    <option value="Kuiri">Kuiri</option>
                 </select>
             </div>
             <div class="col-2 mb-2">
@@ -67,7 +73,7 @@
                 <label class="col-form-label text-black">Jenis Capaian:</label>
             </div>
             <div class="col-4 mb-2">
-                <input class="form-control" name="" type="number" placeholder="TAIP DI SINI" required/>
+                <input class="form-control" name="" type="number" placeholder="TAIP DI SINI"/>
             </div>
         </div>
         <div class="row mx-2 mb-2">
@@ -75,7 +81,7 @@
                 <label class="col-form-label text-black">Jenis OS:</label>
             </div>
             <div class="col-4 mb-2">
-                <input class="form-control" name="" type="number" placeholder="TAIP DI SINI" required/>      
+                <input class="form-control" name="" type="number" placeholder="TAIP DI SINI"/>      
             </div>       
         </div>
     </form>

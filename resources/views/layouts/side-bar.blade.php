@@ -97,13 +97,13 @@
     .switch {
         position: relative;
         width: 200px;
-        height: 50px;
+        height: 45px;
     }
 
     .switch input {
         appearance: none;
         width: 200px;
-        height: 50px;
+        height: 45px;
         background: #fff;
         outline: none;
     }
@@ -119,11 +119,13 @@
 
     .switch input::before {
         content: "Express";
-        left: 20px;
+        font-size: 12px;
+        left: 25px;
     }
 
     .switch input::after {
         content: "Non-Express";
+        font-size: 12px;
         right: 20px;
     }
 
@@ -135,7 +137,7 @@
         z-index: 1;
         position: absolute;
         top: 10px;
-        bottom: 4px;
+        bottom: 1px;
     }
 
     .switch input:checked::after,
@@ -158,12 +160,12 @@
 
     .switch input:not(:checked)::before{
         color: #003478;
-        transition: color 0.5s;
+        transition: color 1s;
     }
 
     .switch input:not(:checked)::after {
         color: #fff;
-        transition: color 0.5s 0.2s;
+        transition: color 1s 0.2s;
     }
 
     .switch input:not(:checked) +label {
@@ -468,11 +470,14 @@
                         </div>
                     </div>
                 </div>
-
-                <span class="switch mt-4">
-                    <input type="checkbox" id="switcher">
-                    <label for="switcher"></label>
-                </span>
+           
+                    <span class="switch mt-4">
+                        <form action="" method="">
+                            @csrf
+                            <input type="checkbox" id="switcher">
+                            <label for="switcher"></label>
+                        </form>
+                    </span>
 
                 <li class="nav-item has-submenu">
                     <a class="nav-link" href="/pengurusan-pengguna/daftar-pengguna"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
