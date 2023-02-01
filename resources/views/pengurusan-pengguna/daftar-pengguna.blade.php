@@ -75,7 +75,7 @@
                     <label class="col-form-label text-black">Nama Pengguna: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-5 mb-2">
-                    <input placeholder="Contoh: Ahmad bin Muhammad" class="form-control textbox-n" name="full_name" type="text" style="text-transform: uppercase;" required/>
+                    <input placeholder="Contoh: Ahmad bin Muhammad" class="form-control textbox-n" name="full_name" type="text" onkeyup="this.value = this.value.toUpperCase();" required/>
                 </div>
             </div>
             <div class="row mx-2 mb-2 mt-2">

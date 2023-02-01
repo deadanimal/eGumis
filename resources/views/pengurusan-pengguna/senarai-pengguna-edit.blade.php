@@ -58,7 +58,7 @@ input:checked + .slider:before {
         <h4>Maklumat Akaun</h4>
         <hr>
 
-        <form action="/pengurusan-pengguna/senarai-pengguna/simpan-kemaskini/{id}" method="POST">
+        <form action="/pengurusan-pengguna/senarai-pengguna/simpan-kemaskini/{{$pengguna->id}}" method="POST">
             @csrf
             @method('PUT')
             <div class="row mx-2 mb-2 mt-5">
@@ -66,14 +66,14 @@ input:checked + .slider:before {
                     <label class="col-form-label text-black">Nama Pengguna: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-4 mb-2">
-                    <input class="form-control" type="text" readonly/>
+                    <input value="{{$pengguna->username}}" class="form-control" type="text" readonly/>
                 </div>
-                <div class="col-2 mb-2">
+                {{-- <div class="col-2 mb-2">
                     <label class="col-form-label text-black">Entiti Pengguna: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-4 mb-2">
                     <input class="form-control" name="" type="text" placeholder="TAIP DI SINI" required/>
-                </div>
+                </div> --}}
             </div>
             <div class="row mx-2 mb-2 mt-2">
                 <div class="col-2 mb-2">
@@ -89,19 +89,18 @@ input:checked + .slider:before {
 
             <h4 class="mt-5">Maklumat Diri</h4>
             <hr>
-
             <div class="row mx-2 mb-2 mt-5">
                 <div class="col-2 mb-2">
                     <label class="col-form-label text-black">Nama Penuh: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-4 mb-2">
-                    <input value="{{$pengguna->username}}" class="form-control" name="nama" type="text" placeholder="TAIP DI SINI" required/>
+                    <input  value="{{$pengguna->full_name}}" class="form-control" name="nama" type="text" placeholder="TAIP DI SINI" required/>
                 </div>
                 <div class="col-2 mb-2">
                     <label class="col-form-label text-black">E-mel: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-4 mb-2">
-                    <input value="{{$pengguna->email}}" class="form-control" name="" type="text" placeholder="TAIP DI SINI" required/>
+                    <input value="{{$pengguna->email}}" class="form-control" type="text" placeholder="TAIP DI SINI" required/>
                 </div>
             </div>
             <div class="row mx-2 mb-2 mt-2">
@@ -110,16 +109,15 @@ input:checked + .slider:before {
                 </div>
                 <div class="col-4 mb-2">
                     <select class="form-select categoryFilter" data-column-index='2' aria-label="Default select example" name="identity_type" required>
-                        <option selected>SILA PILIH</option>
-                        <option value="NOMBOR KP BARU">NOMBOR KP BARU</option>
-                        <option value="NOMBOR KP LAMA">NOMBOR KP LAMA</option>
+                        {{-- <option selected>SILA PILIH</option> --}}
+                        <option value="{{$pengguna->identity_type}}">{{$pengguna->identity_type}}</option>
                     </select>                
                 </div>
                 <div class="col-2 mb-2">
                     <label class="col-form-label text-black">No. Pengenalan: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-4 mb-2">
-                    <input class="form-control" name="" type="number" placeholder="TAIP DI SINI" required/>
+                    <input value="{{$pengguna->identity_number}}" class="form-control" type="number" placeholder="TAIP DI SINI" required/>
                 </div>
             </div>
 
