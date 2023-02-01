@@ -431,17 +431,22 @@ class LaporanController extends Controller
         return redirect('/pengurusan-pengguna/daftar-pengguna');
     }
 
-    public function senarai_pengguna_kemaskini(Request $request)
+    public function senarai_pengguna_kemaskini(Request $request, $id)
     {
-        $id = (int)$request->route('id'); 
+        //$id = (int)$request->route('id'); 
         // dd($request->all());
        
         $pengguna = DaftarPengguna::find($id);
-        if ($request->nama != null) {
-        $pengguna->username = $request->username;
+        // $pengguna = DaftarPengguna::all();
+        // if ($request->nama != null) {
+            // $pengguna->username = $request->username;
+            // $pengguna->save();
+        // }
         // $pengguna->email = $request->email;
-        $pengguna->save();
-        }
+        // $pengguna->save();
+        // }
+
+        // dd($pengguna);
 
         // dd('test');
 
@@ -453,12 +458,14 @@ class LaporanController extends Controller
     {
         $id = (int)$request->route('id'); 
         $pengguna = DaftarPengguna::find($id);
-        $pengguna->full_name = strtoupper($request->full_name);
+        $pengguna->full_name = $request->full_name;
         $pengguna->username = $request->username;
         $pengguna->identity_type = $request->identity_type;
         $pengguna->identity_number = $request->identity_number;
         $pengguna->email = $request->email;
         $pengguna->save();
+
+        // dd($pengguna);
         
         // return redirect('/pengurusan-pengguna/senarai-pengguna');
         return back();
