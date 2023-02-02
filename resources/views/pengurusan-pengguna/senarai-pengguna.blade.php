@@ -134,7 +134,7 @@
                         <td>{{$s->jenis_pengguna}}</td>
                         <td>Aktif (table lain ni)</td>
                         <td>
-                            <form action="/pengurusan-pengguna/senarai-pengguna/kemaskini/{{$s->id}}/edit" method="GET">
+                            <form action="/pengurusan-pengguna/senarai-pengguna/kemaskini/{{$s->id}}" method="GET">
                                 @csrf
                                 <button class="btn btn-secondary" style="text-align: center">Kemaskini</button>
                             </form>

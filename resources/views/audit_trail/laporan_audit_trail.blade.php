@@ -122,7 +122,7 @@
     
     <div class="card mt-6">
         <div class="card-body">
-            <div class="table-responsive scrollbar">
+            {{-- <div class="table-responsive scrollbar"> --}}
             <table id="laporan-audit-trail" class="table line-table mt-6 stripe" style="width:100%">
                 <thead class="text-black">
                     <tr>
@@ -155,7 +155,7 @@
                     </tbody>
                 </thead>
             </table>
-            </div>
+            {{-- </div> --}}
         </div>
     </div>
 
@@ -198,7 +198,7 @@
     $.fn.dataTable.Buttons.defaults.dom.button.className = 'button'
     $(document).ready(function() {
         var table = $('#laporan-audit-trail').DataTable({
-            // scrollX: true,
+            scrollX: true,
             "bInfo" : false,
             "language": {
                 "sLengthMenu": "PAPAR _MENU_ REKOD",
@@ -221,7 +221,7 @@
                     extend: 'pdf',  
                     text: 'PDF <img src="./assets/img/cloud-computing.png">',
                     download: 'open',
-                    pageSize: 'LEGAL',
+                    pageSize: 'A4',
                     orientation: 'landscape',
                     init: function(api, node, config) {
                     $(node).removeClass('btn-default')
