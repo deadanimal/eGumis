@@ -46,7 +46,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/pelaporan/laporan_tempoh_penggunaan_aplikasi', [LaporanController::class, 'laporan_tempoh_penggunaan_aplikasi']);
     Route::get('/pengurusan-pengguna/daftar-pengguna', [LaporanController::class, 'daftar_pengguna']);
     Route::get('/pengurusan-pengguna/senarai-pengguna', [LaporanController::class, 'senarai_pengguna']);
-    Route::get('/pengurusan-pengguna/senarai-pengguna/kemaskini/{id}/edit', [LaporanController::class, 'senarai_pengguna_kemaskini']);
+    Route::get('/pengurusan-pengguna/senarai-pengguna/kemaskini/{id}', [LaporanController::class, 'senarai_pengguna_kemaskini']);
     Route::put('/pengurusan-pengguna/senarai-pengguna/simpan-kemaskini/{id}', [LaporanController::class, 'senarai_pengguna_simpan_kemaskini']);
     Route::delete('/pengurusan-pengguna/senarai-pengguna/{id}', [LaporanController::class, 'hapus_senarai_pengguna']);  
 

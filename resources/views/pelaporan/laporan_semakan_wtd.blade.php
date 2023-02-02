@@ -101,7 +101,7 @@
 
     <div class="card mt-6">
         <div class="card-body">
-            <div class="table-responsive scrollbar">
+            {{-- <div class="table-responsive scrollbar"> --}}
                 <table id="semakan-wtd" class="table line-table mt-6" style="width:100%">
                     <thead class="text-black">
                         <tr>
@@ -136,7 +136,7 @@
                         </tbody>
                     </thead>
                 </table>
-            </div>
+            {{-- </div> --}}
         </div>
     </div>
 
@@ -170,6 +170,7 @@
     $.fn.dataTable.Buttons.defaults.dom.button.className = 'button'
     $(document).ready(function() {
     var table = $('#semakan-wtd').DataTable( {
+        scrollX: true,
         "bInfo" : false,
         "language": {
             "sLengthMenu": "PAPAR _MENU_ REKOD",

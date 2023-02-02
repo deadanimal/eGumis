@@ -135,6 +135,7 @@
     $.fn.dataTable.Buttons.defaults.dom.button.className = 'button'
     $(document).ready(function() {
     var table = $('#tempoh-penggunaan-aplikasi').DataTable( {
+        scrollX: true,
         "bInfo" : false,
         "language": {
             "sLengthMenu": "PAPAR _MENU_ REKOD",

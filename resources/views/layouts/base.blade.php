@@ -64,6 +64,68 @@
 <body>
 
     <style>
+        /* hide mobile version by default */
+        .logo .mobile {
+            display: none;
+        }
+        /* when screen is less than 600px wide
+            show mobile version and hide desktop */
+        @media (max-width: 600px) {
+            .logo .mobile {
+            display: block;
+            }
+            .logo .desktop {
+            display: none;
+            }
+        }
+        .header {
+            overflow: hidden;
+            background-color: #f1f1f1;
+            padding: 20px 10px;
+        }
+
+        .header a {
+            float: left;
+            color: black;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px; 
+            line-height: 25px;
+            border-radius: 4px;
+        }
+
+        .header a.logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .header a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .header a.active {
+            background-color: dodgerblue;
+            color: white;
+        }
+
+        .header-right {
+            float: right;
+        }
+
+        @media screen and (max-width: 500px) {
+        .header a {
+            float: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .header-right {
+            float: none;
+        }
+        }
+
         .form {
             display: inline;
         }
@@ -488,6 +550,7 @@
 
             <div class="col-3 text-center" style="filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));">
                 <img src="/assets/img/IOS-eGUMIS 1024px 1.png" alt="EGUMIS" style="width: 127px; height:127px">
+                {{-- <img src="/assets/img/IOS-eGUMIS 1024px 1.png" class="d-lg-none" alt="EGUMIS" style="width: 90px; height:90px"> --}}
             </div>
 
             <div class="col">

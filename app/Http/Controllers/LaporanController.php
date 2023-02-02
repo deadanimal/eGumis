@@ -55,7 +55,7 @@ class LaporanController extends Controller
         //
     }
 
-    /**
+    /**x
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Laporan  $laporan
@@ -75,7 +75,22 @@ class LaporanController extends Controller
      */
     public function update(UpdateLaporanRequest $request, Laporan $laporan)
     {
-        //
+        // $id = (int)$request->route('id'); 
+        // $pengguna = DaftarPengguna::find($id);
+        // // if ($pengguna != null) {
+        // $pengguna->full_name = $request->full_name;
+        // $pengguna->username = $request->username;
+        // $pengguna->identity_type = $request->identity_type;
+        // $pengguna->identity_number = $request->identity_number;
+        // $pengguna->email = $request->email;
+        // $pengguna->save();
+        // // // }
+
+        // // // dd($pengguna);
+        
+        // alert()->success('Maklumat berjaya dikemaskini');
+        // // // return redirect('/pengurusan-pengguna/senarai-pengguna');
+        // return back();
     }
 
     /**
@@ -457,17 +472,20 @@ class LaporanController extends Controller
     public function senarai_pengguna_simpan_kemaskini(Request $request)
     {
         $id = (int)$request->route('id'); 
-        $pengguna = DaftarPengguna::find($id);
-        $pengguna->full_name = $request->full_name;
-        $pengguna->username = $request->username;
-        $pengguna->identity_type = $request->identity_type;
-        $pengguna->identity_number = $request->identity_number;
-        $pengguna->email = $request->email;
-        $pengguna->save();
+        $s_pengguna = DaftarPengguna::find($id);
+        // // if ($pengguna != null) {
+        $s_pengguna->full_name = $request->full_name;
+        $s_pengguna->username = $request->username;
+        $s_pengguna->identity_type = $request->identity_type;
+        $s_pengguna->identity_number = $request->identity_number;
+        $s_pengguna->email = $request->email;
+        $s_pengguna->save();
+        // // // }
 
-        // dd($pengguna);
+        // // // dd($pengguna);
         
-        // return redirect('/pengurusan-pengguna/senarai-pengguna');
+        alert()->success('Maklumat berjaya dikemaskini');
+        // // return redirect('/pengurusan-pengguna/senarai-pengguna');
         return back();
     }
 

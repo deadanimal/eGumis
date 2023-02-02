@@ -165,6 +165,7 @@
     $.fn.dataTable.Buttons.defaults.dom.button.className = 'button'
     $(document).ready(function() {
     $('#laporan-gagal').DataTable( {
+        scrollX: true,
         "bInfo" : false,
         "language": {
             "sLengthMenu": "PAPAR _MENU_ REKOD",
@@ -179,12 +180,14 @@
         },
         // Specify multiple classes to be used - for table striped color
         stripeClasses: ['stripe-1','stripe-2'],
-        dom: 'Bfrtip',
+        dom: 'lfBrtip',
         buttons: [
                 { 
                     extend: 'pdf', 
                     text: 'PDF <img src="./assets/img/cloud-computing.png">',
                     download: 'open',
+                    pageSize: 'A4',
+                    // orientation: 'potrait',
                     init: function(api, node, config) {
                     $(node).removeClass('btn-default')
                 }
