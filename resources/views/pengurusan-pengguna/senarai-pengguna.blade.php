@@ -194,7 +194,7 @@
                 "next": "Seterusnya",
                 }
             },
-             dom: 'Bfrtip',
+            dom: 'lfBrtip',
              stripeClasses: ['stripe-1','stripe-2'],
     });
     }); 
