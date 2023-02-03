@@ -148,7 +148,7 @@
     $(document).ready(function() {
     var table1 = $('#log-audit').DataTable( {
             scrollX: true,
-            lengthChange: false,
+            // lengthChange: false,
             "bInfo" : false,
             "language": {
                 "sLengthMenu": "PAPAR _MENU_ REKOD",

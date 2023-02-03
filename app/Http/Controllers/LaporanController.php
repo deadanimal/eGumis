@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-
-
 use App\Http\Requests\StoreLaporanRequest;
 use App\Http\Requests\UpdateLaporanRequest;
 use App\Models\Laporan;
@@ -484,7 +482,7 @@ class LaporanController extends Controller
 
         // // // dd($pengguna);
         
-        alert()->success('Maklumat berjaya dikemaskini');
+        alert()->success('Maklumat Dikemaskini, Berjaya');
         // // return redirect('/pengurusan-pengguna/senarai-pengguna');
         return back();
     }
