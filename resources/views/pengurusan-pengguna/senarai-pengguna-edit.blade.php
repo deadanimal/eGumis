@@ -58,15 +58,15 @@
         <h4>Maklumat Akaun</h4>
         <hr>
 
-        {{-- <form action="/pengurusan-pengguna/senarai-pengguna/simpan-kemaskini/{{$pengguna->id}}" method="POST">
+        <form action="/pengurusan-pengguna/senarai-pengguna/simpan-kemaskini/{{$pengguna->id}}" method="POST">
             @csrf
-            @method('PUT') --}}
+            @method('PUT')
             <div class="row mx-2 mb-2 mt-5">
                 <div class="col-2 mb-2">
                     <label class="col-form-label text-black">Nama Pengguna: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-4 mb-2">
-                    <input value="{{$pengguna->username}}" class="form-control" type="text" readonly/>
+                    <input value="{{$pengguna->username}}" class="form-control" name="username" type="text" readonly/>
                 </div>
                 <div class="col-2 mb-2">
                     <label class="col-form-label text-black">Entiti Pengguna: <span style="color: #FF0000">&#42;</span></label>
@@ -108,16 +108,13 @@
                     <label class="col-form-label text-black">Jenis Pengenalan: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-4 mb-2">
-                    <select class="form-select categoryFilter" aria-label="Default select example" name="identity_type" required>
-                        {{-- <option selected>SILA PILIH</option> --}}
-                        <option value="{{$pengguna->identity_type}}">{{$pengguna->identity_type}}</option>
-                    </select>                
+                    <input value="{{$pengguna->identity_type}}" class="form-control" name="identity_type" type="text" required/>
                 </div>
                 <div class="col-2 mb-2">
                     <label class="col-form-label text-black">No. Pengenalan: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-4 mb-2">
-                    <input value="{{$pengguna->identity_number}}" class="form-control" type="identity_number" placeholder="TAIP DI SINI" required/>
+                    <input value="{{$pengguna->identity_number}}" class="form-control" name="identity_number" type="number" placeholder="TAIP DI SINI" required/>
                 </div>
             </div>
 
@@ -186,18 +183,22 @@
             </div>
             <div class="row mx-2 mb-2 mt-2">
                 <div class="col mb-2 text-end">
+                    {{-- <form action="/pengurusan-pengguna/senarai-pengguna" method="GET">
+                        @csrf
+                        @method('GET')
+                        <button class="btn btn-primary">Kembali</button>
+                    </form> --}}
+
+                    <button class="btn btn-secondary" type="submit">Simpan</button>
+                </form>
                     <form action="/pengurusan-pengguna/senarai-pengguna" method="GET">
                         @csrf
                         @method('GET')
                         <button class="btn btn-primary">Kembali</button>
                     </form>
-        <form action="/pengurusan-pengguna/senarai-pengguna/simpan-kemaskini/{{$pengguna->id}}" method="POST">
-            @csrf
-            @method('PUT')
-                    <button class="btn btn-secondary" type="submit">Simpan</button>
                 </div>
             </div>
-        </form>
+        {{-- </form> --}}
 
 
 

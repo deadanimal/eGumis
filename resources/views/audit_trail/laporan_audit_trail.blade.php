@@ -140,16 +140,17 @@
                     <tbody id="myAuditTrail">
                     @foreach ($audit_trail as $at) 
                         <tr>
-                            <td>{{$at->id}}</td>
-                            <td>{{$at->jenis_pengguna}}</td>
-                            <td>{{$at->full_name}}</td>
-                            <td>{{$at->ip_address}}</td>
-                            <td>OS (tiada table lagi)</td>
-                            <td>Model (tiada table lagi)</td>
-                            <td>{{$at->date_logged_in}}</td>
-                            <td>{{$at->date_logged_out}}</td>
-                            <td>{{$at->requested_time}}</td>
-                            <td>{{$at->requested_url}}</td>
+                            <td class="text-center">{{$at->id}}</td>
+                            <td class="text-center">BWTD</td>
+                            <td class="text-center">NAMA PENGGUNA</td>
+                            {{-- <td class="text-center">{{$at->full_name}}</td> --}}
+                            <td class="text-center">{{$at->ip_address}}</td>
+                            <td class="text-center">OS</td>
+                            <td class="text-center">Model</td>
+                            <td class="text-center">{{$at->date_logged_in}}</td>
+                            <td class="text-center">{{$at->date_logged_out}}</td>
+                            <td class="text-center">{{$at->requested_time}}</td>
+                            <td class="text-center">{{$at->requested_url}}</td>
                         </tr>
                     @endforeach
                     </tbody>

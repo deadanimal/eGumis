@@ -95,11 +95,11 @@
                 <tbody id="myLogAkses">
                     @foreach ($log_akses as $akses) 
                         <tr>
-                            <td>{{$akses->id}}</td>
-                            <td>{{$akses->username}}</td>
-                            <td>{{$akses->ip_address}}</td>
-                            <td>{{$akses->date_logged_in}}</td>
-                            <td>{{$akses->date_logged_out}}</td>
+                            <td class="text-center">{{$akses->id}}</td>
+                            <td class="text-center">{{$akses->username}}</td>
+                            <td class="text-center">{{$akses->ip_address}}</td>
+                            <td class="text-center">{{$akses->date_logged_in}}</td>
+                            <td class="text-center">{{$akses->date_logged_out}}</td>
                         </tr>
                     @endforeach
                 </tbody>

@@ -125,7 +125,7 @@
                 </tr>
                 <tbody id="mySenaraiPengguna">
                 @foreach ($senarai_pengguna as $s) 
-                    <tr>
+                    <tr class="text-center">
                         <td>{{$loop->iteration}}</td>
                         <td>{{$s->username}}</td>
                         <td>{{$s->identity_number}}</td>
@@ -136,7 +136,9 @@
                         <td>
                             <form action="/pengurusan-pengguna/senarai-pengguna/kemaskini/{{$s->id}}" method="GET">
                                 @csrf
-                                <button class="btn btn-secondary" style="text-align: center">Kemaskini</button>
+                                {{-- <div class="center"> --}}
+                                    <button class="btn btn-secondary" style="text-align: center">Kemaskini</button>
+                                {{-- </div> --}}
                             </form>
                         </td>
                         <td>

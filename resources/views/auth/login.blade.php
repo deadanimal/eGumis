@@ -160,6 +160,7 @@
     <!-- ===============================================-->
     <!--    Main Content-->
     <!-- ===============================================-->
+    
     <main class="main" id="top">
       <div class="container-fluid">
         <script>
@@ -187,7 +188,7 @@
                     @csrf
                     <div class="form-check mx-7 my-3">
                         <div id="nric">
-                            <input class="form-control text-center" type="email" name="email"  placeholder="Emel"/>
+                            <input class="form-control text-center" type="email" name="email"  placeholder="Emel" required/>
                         </div>
                     </div>
                     <div class="form-check mx-7 my-3">
@@ -204,6 +205,7 @@
             </div>
           </div>
         </div>
+        {{-- Lupa Kata Laluan --}}
         <div class="row">
           <div class="col mx-7 text-end">
               <a class="text-primary" href="#" data-toggle="modal" data-target="#exampleModalCenter">Lupa Kata Laluan</a>
@@ -226,15 +228,14 @@
                 </div>
               </div>
             </div>
-        </div>
-        
-        
+        </div>     
         <div class="split right">
           <div class="centered">
           </div>
         </div>
       </div> <!--Container Fluid-->
     </main>
+    
     <!-- ===============================================-->
     <!--    End of Main Content-->
     <!-- ===============================================-->
