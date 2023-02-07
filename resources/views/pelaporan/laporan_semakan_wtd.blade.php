@@ -122,13 +122,14 @@
                             <td class="text-center">{{$sw->id}}</td>
                             <td class="text-center">{{$sw->file_refno}}</td>
                             <td class="text-center">{{$sw->name}}</td>
-                            <td class="text-center">{{$sw->new_ic_number}}
+                            <td class="text-center">
+                                {{$sw->new_ic_number}}
                                 {{$sw->old_ic_number}}
                             </td>
                             <td class="text-center">{{$sw->claimAmount}}</td>
                             <td class="text-center">{{$sw->created_date}}</td>
                             <td class="text-center">{{$sw->status}}</td>
-                            <td class="text-center">Tindakan untuk?</td>
+                            <td class="text-center">Tindakan</td>
                             <td class="text-center">Tiada OS</td>
                             <td class="text-center">Tiada Model</td>
                         </tr>
