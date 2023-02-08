@@ -1,4 +1,45 @@
 <style>
+    #wrapper {
+    padding-left: 250px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 0;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 250px;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 0;
+}
+
+#page-content-wrapper {
+    padding: 20px;
+    position: relative;
+    width: 100%;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: relative;
+    margin-right: 0;
+}
     /* .sidebar{
         position: -webkit-sticky;
         position: sticky;
@@ -56,6 +97,7 @@
     padding-right: 8px;
     } */
 
+    /* uncomment sini */
     /* sidebar wrapper for mobile-view */
     .sidebar-wrapper {
         max-width: 400px;
@@ -96,7 +138,7 @@
     /* sidebar wrapper for mobile-view */
 
     .sidebar li .submenu{ 
-        list-style: none; 
+        list-style: none;
         margin: 0; 
         padding: 0; 
         padding-left: 1rem; 
@@ -321,6 +363,13 @@
     }); 
 });
 </script> --}}
+
+<script>
+    $(".menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
     
 
 
