@@ -71,8 +71,9 @@
                 <div class="col-2 mb-2">
                     <label class="col-form-label text-black">Entiti Pengguna: <span style="color: #FF0000">&#42;</span></label>
                 </div>
+                {{-- @dd($pengguna1) --}}
                 <div class="col-4 mb-2">
-                    <input class="form-control" name="" type="text" placeholder="TAIP DI SINI"/>
+                    <input value="{{$pengguna1->entity_name}}" class="form-control" name="entity_name" type="text" placeholder="TAIP DI SINI"/>
                 </div>
             </div>
             <div class="row mx-2 mb-2 mt-2">
@@ -126,7 +127,7 @@
                     <label class="col-form-label text-black">Alamat 1: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-4 mb-2">
-                    <input class="form-control" value="" type="text" readonly/>
+                    <input value="{{$pengguna->address1}}" class="form-control" value="address1" type="text" readonly/>
                 </div>
             </div>
             <div class="row mx-2 mb-2 mt-2">
@@ -134,7 +135,7 @@
                     <label class="col-form-label text-black">Alamat 2:</label>
                 </div>
                 <div class="col-4 mb-2">
-                    <input class="form-control" value="" type="text" readonly/>
+                    <input value="{{$pengguna->address2}}" class="form-control" value="" type="text" readonly/>
                 </div>
             </div>
             <div class="row mx-2 mb-2 mt-2">
@@ -142,13 +143,13 @@
                     <label class="col-form-label text-black">Poskod: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-4 mb-2">
-                    <input class="form-control" value="" type="text" readonly/>
+                    <input value="{{$pengguna->postcode}}" class="form-control" value="" type="text" readonly/>
                 </div>
                 <div class="col-2 mb-2">
                     <label class="col-form-label text-black">Bandar: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-4 mb-2">
-                    <input class="form-control" name="" type="text" readonly/>
+                    <input value="{{$pengguna->city}}" class="form-control" name="" type="text" readonly/>
                 </div>
             </div>
             <div class="row mx-2 mb-2 mt-2">
@@ -156,13 +157,13 @@
                     <label class="col-form-label text-black">Negara: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-4 mb-2">
-                    <input class="form-control" value="" type="text" readonly/>
+                    <input value="{{$pengguna->country}}" class="form-control" value="" type="text" readonly/>
                 </div>
                 <div class="col-2 mb-2">
                     <label class="col-form-label text-black">Negeri: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-4 mb-2">
-                    <input class="form-control" name="" type="text" readonly/>
+                    <input value="{{$pengguna->state}}" class="form-control" name="state" type="text" readonly/>
                 </div>
             </div>
             <div class="row mx-2 mb-2 mt-2">
@@ -170,14 +171,14 @@
                     <label class="col-form-label text-black">Nombor Tel Bimbit: <span style="color: #FF0000">&#42;</span><span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-4 mb-2">
-                    <input class="form-control" value="" type="text" readonly/>
+                    <input value="{{$pengguna->mobile_no}}" class="form-control" value="mobile_no" type="text" readonly/>
                     <small>Masukkan salah satu maklumat untuk dihubungi (no. tel. bimbit atau no. tel. pejabat/rumah)</small>
                 </div>
                 <div class="col-2 mb-2">
                     <label class="col-form-label text-black">Nombor Tel Pejabat: <span style="color: #FF0000">&#42;</span><span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-4 mb-2">
-                    <input class="form-control" name="" type="text" readonly/>
+                    <input value="{{$pengguna->office_no}}" class="form-control" name="office_no" type="text" readonly/>
                     <small>Masukkan salah satu maklumat untuk dihubungi (no. tel. bimbit atau no. tel. pejabat/rumah).</small>
                 </div>
             </div>

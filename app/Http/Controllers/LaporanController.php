@@ -8,6 +8,7 @@ use App\Models\Laporan;
 use App\Models\LaporanGagalLogMasuk;
 use App\Models\DaftarPengguna;
 use App\Models\LaporanSemakanWTD;
+use App\Models\PengurusanPengguna;
 
 class LaporanController extends Controller
 {
@@ -450,6 +451,9 @@ class LaporanController extends Controller
         // dd($request->all());
        
         $pengguna = DaftarPengguna::find($id);
+        $pengguna1 = PengurusanPengguna::find($id);
+        // dd($id);
+
         // $pengguna = DaftarPengguna::all();
         // if ($request->nama != null) {
             // $pengguna->username = $request->username;
@@ -464,21 +468,28 @@ class LaporanController extends Controller
         // dd('test');
 
        return view('pengurusan-pengguna.senarai-pengguna-edit', 
-       compact('pengguna'));
+       compact('pengguna', 'pengguna1'));
     }
 
     public function senarai_pengguna_simpan_kemaskini(Request $request)
     {
         $id = (int)$request->route('id'); 
         $s_pengguna = DaftarPengguna::find($id);
+        $s_pengguna1 = PengurusanPengguna::find($id);
+
         // // if ($pengguna != null) {
         $s_pengguna->full_name = $request->full_name;
         $s_pengguna->username = $request->username;
         $s_pengguna->identity_type = $request->identity_type;
         $s_pengguna->identity_number = $request->identity_number;
         $s_pengguna->email = $request->email;
+        $s_pengguna1->entity_name = $request->entity_name;
+        
+        $s_pengguna1->save();
         $s_pengguna->save();
         // // // }
+
+
 
         // // // dd($pengguna);
         
