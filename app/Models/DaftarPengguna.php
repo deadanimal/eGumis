@@ -15,5 +15,10 @@ class DaftarPengguna extends Model
     //    return $this->hasOne(DaftarPengguna::class, 'id', 'username');
     // }
 
+    public function Sec_Audit()
+    {
+        return $this->hasOne(PengurusanPengguna::class, 'entity_name');
+    }
+
 }
 
