@@ -63,7 +63,7 @@
 
 <body>
     @include('sweetalert::alert')
-    <style>
+    {{-- <style>
       *{
         margin: 0;
         padding: 0;
@@ -147,7 +147,7 @@
           background-image: url('assets/img/bg-4.png');
         }
 
-    </style>
+    </style> --}}
     <!-- ===============================================-->
     <!--    Main Content-->
     <!-- ===============================================-->
@@ -171,76 +171,8 @@
             container.classList.add('container-fluid');
           }
         </script>
-        <div class="split left">
-          <div class="centered">
-            <div class="background-image">
-              <div class="text-center mt-7" style="filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));">
-                <img src="/assets/img/IOS-eGUMIS 1024px 1.svg" alt="EGUMIS" style="width: 242px; height:242px">
-              </div>
-
-              <div class="text-center">
-                <h4 style='font-weight: bold;'>PORTAL PELAPORAN eGUMIS MOBILE APPS</h4>
-                <h5 style='font-weight: bold;'>Jabatan Akauntan Negara Malaysia (JANM)</h5>
-              </div>
-
-              <div class="container">
-                <form method="POST" action="/myLogin" >
-                    @csrf
-                    <div class="form-check mx-7 my-3">
-                        <div id="nric">
-                            <input class="form-control text-center" type="email" name="email"  placeholder="Emel" required/>
-                        </div>
-                    </div>
-                    <div class="form-check mx-7 my-3">
-                        <div>
-                            <input class="form-control text-center" type="password" name="password"  placeholder="Kata Laluan" required autocomplete="current-password"/>
-                        </div>
-                    </div>
-                    <div class="form-check mx-7 my-3">
-                    <div>
-                        <button class="btn btn-primary d-block w-100 mt-3" type="submit">Log Masuk</button>
-                    </div>
-                    <div style="text-align: right;">
-                      <a class="text-primary" href="/lupa-katalaluan">Lupa Kata Laluan</a>
-                      {{-- <a class="text-primary" href="#" data-toggle="modal" data-target="#exampleModalCenter">Lupa Kata Laluan</a> --}}
-                    </div>
-                </form>
-              </div>
-               {{-- </div> --}}
-              {{-- Lupa Kata Laluan --}}
-              {{-- <div class="row"> --}}
-              <div class="col mx-7 text-end">
-                {{-- <a class="text-primary" href="#" data-toggle="modal" data-target="#exampleModalCenter">Lupa Kata Laluan</a> --}}
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                      <div class="modal-body">
-                        <form method="POST" action="/login">
-                          @method('PUT')
-                          @csrf
-                          <div class="row mx-2 mb-2 mt-5">
-                            <div class="col mb-2">
-                                <input placeholder="Alamat Emel" class="form-control textbox-n" type="email"/>
-                                <button type="submit" class="btn btn-primary d-block w-100 mt-3">Hantar</button>
-                            </div>                      
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </div>
-          {{-- </div>      --}}
-      {{-- </div> <!--split left--> --}}
-            </div>
-          </div>
-        </div>
-        <div class="split right">
-          <div class="centered">
-          </div>
-        </div>
-      </div> <!--Container Fluid-->
+        
+        
     </main>
     
     <!-- ===============================================-->

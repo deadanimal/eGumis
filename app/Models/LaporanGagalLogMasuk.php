@@ -14,8 +14,9 @@ class LaporanGagalLogMasuk extends Model
     public function SecUser()
     {
         return $this->hasMany(LaporanGagalLogMasuk::class);
-
     }
+
+    
 
 
 }

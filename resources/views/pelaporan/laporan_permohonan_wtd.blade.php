@@ -121,7 +121,7 @@
                                         {{$n->new_ic_number}}
                                         {{$n->old_ic_number}}
                                     </td>
-                                    <td>Model (tiada table lagi)</td>
+                                    <td>{{$n->state}}</td>
                                     <td>{{$n->date_logged_in}}</td>
                                     <td>{{$n->date_logged_out}}</td>
                                     <td>{{$n->requested_time}}</td>
