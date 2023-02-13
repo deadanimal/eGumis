@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\MyLoginController;
+use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +29,10 @@ Route::get('/', function () {
 Route::get('/selamat-datang', function () {
     return view('paparan-selamat-datang');
 });
+Route::get('/lupa-katalaluan', [UserController::class, 'tunjuk_lupa']); 
+Route::post('/hantar-lupa-katalaluan', [UserController::class, 'cipta_lupa']); 
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -48,7 +54,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/pengurusan-pengguna/senarai-pengguna', [LaporanController::class, 'senarai_pengguna']);
     Route::get('/pengurusan-pengguna/senarai-pengguna/kemaskini/{id}', [LaporanController::class, 'senarai_pengguna_kemaskini']);
     Route::put('/pengurusan-pengguna/senarai-pengguna/simpan-kemaskini/{id}', [LaporanController::class, 'senarai_pengguna_simpan_kemaskini']);
-    Route::delete('/pengurusan-pengguna/senarai-pengguna/{id}', [LaporanController::class, 'hapus_senarai_pengguna']);  
+    Route::delete('/pengurusan-pengguna/senarai-pengguna/{id}', [LaporanController::class, 'hapus_senarai_pengguna']); 
+    // Route::get('/lupa-katalaluan', [UserController::class, 'cipta_lupa']); 
 
 
 

@@ -9,6 +9,8 @@ use App\Models\LaporanGagalLogMasuk;
 use App\Models\DaftarPengguna;
 use App\Models\LaporanSemakanWTD;
 use App\Models\PengurusanPengguna;
+use App\Models\AppRfdInfo;
+
 
 class LaporanController extends Controller
 {
@@ -373,6 +375,8 @@ class LaporanController extends Controller
     }
 
     public function log_akses(){
+
+
         return view('audit_trail.log_akses', [
             'log_akses'=>Laporan::all()
         ]);
@@ -380,6 +384,7 @@ class LaporanController extends Controller
 
     public function pelaporan(){
 
+        
         return view('pelaporan.laporan_semakan_wtd',[
             'semakan_wtd'=>LaporanSemakanWTD::all()
         ]);
@@ -393,8 +398,8 @@ class LaporanController extends Controller
         // dd('ok');
 
 
-    return view('pelaporan.laporan_gagal_log_masuk',
-    ['pelaporan'=>LaporanGagalLogMasuk::all()]);
+        return view('pelaporan.laporan_gagal_log_masuk',
+        ['pelaporan'=>LaporanGagalLogMasuk::all()]);
     }
 
     public function laporan_permohonan_tuntutan_aplikasi(){
@@ -404,10 +409,13 @@ class LaporanController extends Controller
     }
 
     public function laporan_permohonan_wtd(){
+        $negeri = LaporanSemakanWTD::where('id','!=',null);
+        // $negeri1 = AppRfdInfo::where('id','!=',null);
 
 
         return view('pelaporan.laporan_permohonan_wtd',[
-            'negeri'=>LaporanSemakanWTD::all()
+            'negeri'=>LaporanSemakanWTD::all(),
+            // 'negeri1'=>AppRfdInfo::all()
         ]);
     }
 

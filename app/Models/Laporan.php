@@ -21,4 +21,9 @@ class Laporan extends Model implements Auditable
     public function DaftarPengguna(){
         return $this->hasOneThrough(Laporan::class, 'id');
     }
+
+    public function SecUser()
+    {
+        return $this->hasOne(SecUser::class, 'username');
+    }
 }

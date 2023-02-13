@@ -53,4 +53,6 @@ class User extends Authenticatable
         return $this->belongsTo(User::class);
 
     }
+
+    // protected $table = 'sec_users';
 }

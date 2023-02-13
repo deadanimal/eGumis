@@ -17,6 +17,7 @@ class SecUser extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+
     /**
      * The attributes that are mass assignable.
      *
@@ -48,4 +49,14 @@ class SecUser extends Authenticatable
     ];
 
     protected $table = 'sec_users';
+
+    public function Laporan()
+    {
+        return $this->belongsTo(Laporan::class);
+    }
+
+    public function LaporanLogGagalMasuk()
+    {
+        return $this->belongsTo(LaporanGagalLogMasuk::class);
+    }
 }
