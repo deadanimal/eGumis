@@ -10,6 +10,8 @@ use App\Models\DaftarPengguna;
 use App\Models\LaporanSemakanWTD;
 use App\Models\PengurusanPengguna;
 use App\Models\AppRfdInfo;
+use App\Models\AuditTrail;
+
 
 
 class LaporanController extends Controller
@@ -363,7 +365,7 @@ class LaporanController extends Controller
         // $audit_trail->entity_name = $request->entity_name; 
         // $audit_trail->save();
         return view('audit_trail.laporan_audit_trail',
-            ['audit_trail'=>Laporan::all()]
+            ['audit_trail'=>AuditTrail::all()]
         );
         // return redirect('/audit_trail');
     }

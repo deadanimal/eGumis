@@ -141,8 +141,8 @@
                     @foreach ($audit_trail as $at) 
                         <tr>
                             <td class="text-center">{{$at->id}}</td>
-                            <td class="text-center">BWTD</td>
-                            <td class="text-center">NAMA PENGGUNA</td>
+                            <td class="text-center">{{$at->jenis_pengguna}}</td>
+                            <td class="text-center">{{$at->username}}</td>
                             {{-- <td class="text-center">{{$at->full_name}}</td> --}}
                             <td class="text-center">{{$at->ip_address}}</td>
                             <td class="text-center">OS</td>

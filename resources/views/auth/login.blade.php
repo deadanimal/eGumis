@@ -235,11 +235,11 @@
       {{-- </div> <!--split left--> --}}
             </div>
           </div>
-        </div>
+        </div> <!--split left-->
         <div class="split right">
           <div class="centered">
           </div>
-        </div>
+        </div> <!--split right-->
       </div> <!--Container Fluid-->
     </main>
     
