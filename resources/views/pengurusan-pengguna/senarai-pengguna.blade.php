@@ -132,7 +132,7 @@
                         <td>{{$s->full_name}}</td>
                         <td>{{$s->email}}</td>
                         <td>{{$s->jenis_pengguna}}</td>
-                        <td>Aktif (table lain ni)</td>
+                        <td>{{$s->status}}</td>
                         <td>
                             <form action="/pengurusan-pengguna/senarai-pengguna/kemaskini/{{$s->id}}" method="GET">
                                 @csrf

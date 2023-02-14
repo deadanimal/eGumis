@@ -20,5 +20,9 @@ class DaftarPengguna extends Model
         return $this->hasOne(PengurusanPengguna::class, 'entity_name');
     }
 
+    public function RefBoMaster()
+    {
+       return $this->belongsTo(RefBoMaster::class, 'status');
+    }
 }
 

@@ -59,4 +59,9 @@ class SecUser extends Authenticatable
     {
         return $this->belongsTo(LaporanGagalLogMasuk::class);
     }
+
+    public function AuditTrail()
+    {
+       return $this->belongsTo(AuditTrail::class);
+    }
 }

@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="container-fluid">
-      <div class="card mt-10" style="text-align:center; width: 18rem;">
+      <div class="card mt-10" style="text-align:center; max-width: 18rem;">
         <div class="card-body">
           <form method="POST" action="/hantar-lupa-katalaluan">
-            @method('POST')
+            @method('PUT')
             @csrf
             <div class="row mx-2 mb-2 mt-5">
               <div class="col mb-2">
