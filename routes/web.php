@@ -30,7 +30,7 @@ Route::get('/selamat-datang', function () {
     return view('paparan-selamat-datang');
 });
 Route::get('/lupa-katalaluan', [UserController::class, 'tunjuk_lupa']); 
-Route::put('/hantar-lupa-katalaluan', [UserController::class, 'cipta_lupa']); 
+Route::post('/hantar-lupa-katalaluan', [UserController::class, 'cipta_lupa']); 
 
 
 

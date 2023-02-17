@@ -127,7 +127,13 @@ class LaporanController extends Controller
         if ($request->tempoh) {
             $laporan->whereDate('requested_time', 'LIKE', '%'.$request->tempoh.'%');
         }
-        
+
+        // $jenisPengguna = Laporan::limit(20);
+        // $jenis_pengguna = $request->('jenis_pengguna');
+        // if ($jenis_pengguna) {
+        //     $jenisPengguna->where('name', 'LIKE', '%' . $jenis_pengguna . '%');
+        // }
+        // $jenis_pengguna = $jenisPengguna>get();
             // dd('ok');
         return view('audit_trail.laporan_audit_trail',[
             'audit_trail'=> $laporan->get(),

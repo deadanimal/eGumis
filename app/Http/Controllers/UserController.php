@@ -23,7 +23,7 @@ class UserController extends Controller
         
         // dd('123');
         // return redirect('/lupa-katalaluan');
-        return view('auth.lupa-katalaluan');
+        return view('auth.login');
     }
 
 
@@ -60,13 +60,13 @@ class UserController extends Controller
             return redirect('/login'); 
         }
         if ($user != null || $password != null) {
-        $user->password = Hash::make('password');
+            $user->password = Hash::make('password');
         }
-        // $user->save();
+        $user->save();
 
         Mail::to('maisarah.musa@pipeline-network.com')->send(new LupaKataLaluan);
         // Mail::to($user->email)->send(new LupaKataLaluan);
-        // alert()->success('Kata laluan baharu telah dihantar ke emel anda');
+        alert()->success('Kata laluan baharu telah dihantar ke emel anda');
         return redirect('/login');
         // return view('auth.lupa-katalaluan');
     }
