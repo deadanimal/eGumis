@@ -108,7 +108,7 @@
         position:absolute;
         top: 0;
         left: 0;
-        background:#6236FF !important;
+        background: #6236FF !important;
         height: 100vh;
         width: 100%;
         z-index: 9999;
@@ -184,9 +184,9 @@
     <!-- ===============================================-->
     
     <main class="main" id="top">
-      {{-- <div id="splash">
+      <!-- <div id="splash">
         <img src="../../../assets/img/calc1.png" alt="splash">
-      </div> --}}
+      </div>  -->
 
       {{-- <div class="container-fluid"> --}}
         <script>

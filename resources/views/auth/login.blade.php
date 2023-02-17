@@ -75,67 +75,95 @@
       background-size: cover;
     }
 
-      input[type="email"]::placeholder { 
-            /* Firefox, Chrome, Opera */
-            text-align: center;
-        }
-        input[type="email"]:-ms-input-placeholder {
-            /* Internet Explorer 10-11 */
-            text-align: center;
-        }
-        input[type="email"]::-ms-input-placeholder {   
-            /* Microsoft Edge */
-            text-align: center;
-        }
-        .text-primary{
-            color: #1A7FE5 !important;
-        }
+    input[type="email"]::placeholder { 
+        /* Firefox, Chrome, Opera */
+        text-align: center;
+    }
+    input[type="email"]:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        text-align: center;
+    }
+    input[type="email"]::-ms-input-placeholder {   
+        /* Microsoft Edge */
+        text-align: center;
+    }
+    .text-primary{
+        color: #1A7FE5 !important;
+    }
 
-        .btn-primary{
-            background-color: #1A7FE5 !important;
-            border-color: #1A7FE5 !important;
-        }
+    .btn-primary{
+        background-color: #1A7FE5 !important;
+        border-color: #1A7FE5 !important;
+    }
 
-        .btn-outline-primary{
-            background-color: white;
-            border-color: #1A7FE5 !important;
-            color: #1A7FE5;
-        }
-        
-        .btn-outline-primary:hover {
-            color: #fff;
-            background-color: #1A7FE5;
-            border-color: #1A7FE5;
-        }
+    .btn-outline-primary{
+        background-color: white;
+        border-color: #1A7FE5 !important;
+        color: #1A7FE5;
+    }
+    
+    .btn-outline-primary:hover {
+        color: #fff;
+        background-color: #1A7FE5;
+        border-color: #1A7FE5;
+    }
 
-        /* .title {
-          left: 220px;
-          top: 150px;
-        }
+    /* .title {
+      left: 220px;
+      top: 150px;
+    }
 
-        .login {
-          right: 400px;
-          top: 150px;
-        }
+    .login {
+      right: 400px;
+      top: 150px;
+    }
 
-        .logo {
-          right: 150px;
-          top: 150px;
-        } */
+    .logo {
+      right: 150px;
+      top: 150px;
+    } */
 
-        .half-container{
-          float: left;
-          width: 50%;
-          margin-right: auto;
-          margin-left: auto;
-          padding: 50px;
-      }
+    .half-container{
+      float: left;
+      width: 50%;
+      margin-right: auto;
+      margin-left: auto;
+      padding: 50px;
+    }
+    /* #splash {
+      position:absolute;
+      top: 0;
+      left: 0;
+      background: #6236FF !important;
+      height: 100vh;
+      width: 100%;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      transition: opacity 1s;
+    }
+
+    #splash.fade{
+      opacity: 0;
+    } */
+
+      @media only screen and (max-width: 992px) {
+        .social-icons-sidebar{
+      position:static;
+    }
+  }
 
 </style>
 </head>
 <body>
 
 <div class="bg">
+  <div id="splash">
+    
+  </div>
   <div class="half-container">
   {{-- <div class="split left"> --}}
     <div class="background-image">
@@ -173,17 +201,12 @@
               </div>
             </form>
 
-            <!-- Button trigger modal -->
-            {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-              Launch demo modal
-            </button> --}}
-
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-body">
                     <form method="POST" action="/login">
-                      @method('PUT')
+                      @method('POST')
                       @csrf
                       <div class="row mx-2 mb-2 mt-5">
                         <div class="col mb-2">
