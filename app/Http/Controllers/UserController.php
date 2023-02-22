@@ -61,8 +61,9 @@ class UserController extends Controller
         }
         if ($user != null || $password != null) {
             $user->password = Hash::make('password');
+            $user->save();
         }
-        $user->save();
+        // $user->save();
 
         Mail::to('maisarah.musa@pipeline-network.com')->send(new LupaKataLaluan);
         // Mail::to($user->email)->send(new LupaKataLaluan);
@@ -70,4 +71,12 @@ class UserController extends Controller
         return redirect('/login');
         // return view('auth.lupa-katalaluan');
     }
+
+    // public function Portal(Request $request, $id)
+    // {
+    //    $username = User::find($id);
+
+    //    return view('/audit_trail',
+    //     compact('username'));
+    // }
 }
