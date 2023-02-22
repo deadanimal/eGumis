@@ -56,6 +56,8 @@ Route::middleware('auth')->group(function () {
     Route::put('/pengurusan-pengguna/senarai-pengguna/simpan-kemaskini/{id}', [LaporanController::class, 'senarai_pengguna_simpan_kemaskini']);
     Route::delete('/pengurusan-pengguna/senarai-pengguna/{id}', [LaporanController::class, 'hapus_senarai_pengguna']); 
     // Route::get('/lupa-katalaluan', [UserController::class, 'cipta_lupa']); 
+    // Route::get('/audit_trail', [UserController::class, 'Portal']);
+
 
 
 

@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class SecAuditLog extends Model
 {
     use HasFactory;
+    // protected $guarded = ['id'];
+    protected $table = 'sec_audit_logs';
+
 }

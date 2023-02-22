@@ -73,7 +73,14 @@
                 <label class="col-form-label text-black">Jenis Capaian:</label>
             </div>
             <div class="col-4 mb-2">
-                <input class="form-control" name="" type="number" placeholder="TAIP DI SINI"/>
+                <select class="form-select" aria-label="Default select example" name="status">
+                    <option selected>SILA PILIH</option>
+                    <option value="Daftar Pengguna">Daftar Pengguna</option>
+                    <option value="Pengumuman">Pengumuman</option>
+                    <option value="Soalan Lazim">Soalan Lazim</option>
+                    <option value="Maklumbalas">Maklumbalas</option>
+                    <option value="Cetakan PDF">Cetakan PDF</option>
+                </select>
             </div>
         </div>
         <div class="row mx-2 mb-2">

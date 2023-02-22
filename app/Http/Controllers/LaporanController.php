@@ -11,8 +11,7 @@ use App\Models\LaporanSemakanWTD;
 use App\Models\PengurusanPengguna;
 use App\Models\AppRfdInfo;
 use App\Models\AuditTrail;
-
-
+use App\Models\SecAuditLog;
 
 class LaporanController extends Controller
 {
@@ -163,7 +162,7 @@ class LaporanController extends Controller
 
     public function carianLaporanLogAkses(Request $request) {
        
-        $laporan = Laporan::where('id','!=',null);
+        $laporan = SecAuditLog::where('id','!=',null);
        
         //$laporan->whereDate('created_date', '=', $request->tempoh);
     
@@ -386,7 +385,7 @@ class LaporanController extends Controller
 
 
         return view('audit_trail.log_akses', [
-            'log_akses'=>Laporan::all()
+            'log_akses'=>SecAuditLog::all()
         ]);
     }
 

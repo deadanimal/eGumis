@@ -294,6 +294,12 @@
         height: 59.17px;
         width: 59.17px;
     }
+
+    .c1 {
+        border-radius: 4px;
+        background: #003478;
+    }
+
 </style>
 <script>
     var isFluid = JSON.parse(localStorage.getItem('isFluid'));
@@ -389,12 +395,12 @@
                 {{-- <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav"> --}}
                     <ul class="nav flex-column mt-3" id="nav_accordion">
                             <div class="col text-center">
-                                <p class="info-sidebar mb-3">Selamat Datang!</p>
+                                <p class="info-sidebar mt-3">Selamat Datang!</p>
                             </div>
                             <div class="card">
-                                <div class="card-body" style="background: #003478">
+                                <div class="card-body c1" style="background: #003478">
                                     <div class="image mb-4" style="display: flex; justify-content: center;">
-                                        <img src="/assets/img/org-tua.jpeg" class="rounded" width="155" >
+                                        <img src="/assets/img/user.png" class="rounded" width="64px" height="64px">
                                     </div>
                                     <div class="col text-center">
                                         <p class="info-sidebar mb-3">MOHD ALI BIN ABU</p>
@@ -409,7 +415,7 @@
                                 </div>
                             </div>
 
-                            
+                                
                                 <span class="switch mt-4">
                                     <form action="" method="">
                                         @csrf

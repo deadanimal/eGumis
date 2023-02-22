@@ -150,7 +150,7 @@
 
 
 
-    
+
 
 
 
@@ -213,7 +213,7 @@
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <form method="POST" action="/login">
+                    <form method="POST" action="/hantar-lupa-katalaluan">
                       @method('POST')
                       @csrf
                       <div class="row mx-2 mb-2 mt-5">

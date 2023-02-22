@@ -26,4 +26,5 @@ class Laporan extends Model implements Auditable
     {
         return $this->hasOne(SecUser::class, 'username');
     }
+
 }

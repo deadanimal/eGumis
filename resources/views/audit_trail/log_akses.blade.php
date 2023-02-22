@@ -42,7 +42,7 @@
                 <input value="{{$nama ?? ''}}" class="form-control" name="nama" type="text" placeholder="TAIP DI SINI" />
             </div>
             <div class="col-2">
-                <label class="col-form-label text-black">Alamat:</label>
+                <label class="col-form-label text-black">Alamat IP:</label>
             </div>
             <div class="col-4">
                 <input value="{{$alamat_ip ?? ''}}" class="form-control" name="alamat_ip" type="text" placeholder="TAIP DI SINI" />
@@ -59,7 +59,7 @@
                 <label class="col-form-label text-black">Log Keluar:</label>
             </div>
             <div class="col-4 mb-2">
-                <input value="{{$log_keluar ?? ''}}" class="form-control" name="log_keluar" type="text" placeholder="TAIP DI SINI" />
+                <input value="{{$log_keluar ?? ''}}" class="form-control" name="log_keluar" type="text" placeholder="TAIP DI SINI" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"/>
             </div>
         </div>
     <div class="col mb-2 text-end">
@@ -87,7 +87,7 @@
                     <tr>
                         <th class="text-center">Bil.</th>
                         <th class="text-center">Nama Pengguna</th>
-                        <th class="text-center">Alamat</th>
+                        <th class="text-center">Alamat IP</th>
                         <th class="text-center">Log Masuk</th>
                         <th class="text-center">Log Keluar</th>
                     </tr>

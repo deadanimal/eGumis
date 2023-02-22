@@ -49,16 +49,9 @@
                 {{-- @foreach ($pelaporan as $p) --}}
                     <select class="form-select" aria-label="Default select example" name="status">
                         <option selected>SILA PILIH</option>
-                        <option value="Deraf">Deraf</option>
-                        <option value="Pengesahan Dokumen 1">Pengesahan Dokumen 1</option>
-                        <option value="Kuiri Dokumen 1">Kuiri Dokumen 1</option>
-                        <option value="Pengesahan Dokumen 2">Pengesahan Dokumen 2</option>
-                        <option value="Kuiri Dokumen 2">Kuiri Dokumen 2</option>
-                        <option value="Baharu">Baharu</option>
-                        <option value="Selesai">Selesai</option>
-                        <option value="Kuiri">Kuiri</option>
-                        {{-- <option value="{{$jenis_status ?? ''}}"></option> --}}
-                        {{-- <option value="B">B</option> --}}
+                        <option value="Daftar Pengguna Melalui Mobile Apps">Daftar Pengguna Melalui Mobile Apps</option>
+                        <option value="Gagal Log Masuk">Gagal Log Masuk</option>
+                        <option value="Lupa Kata Laluan">Lupa Kata Laluan</option>
                     </select> 
                 {{-- @endforeach        --}}
             </div>       
@@ -125,7 +118,11 @@
                                 <td>{{$l->identity_number}}</td>
                                 <td>{{$l->full_name}}</td>
                                 <td>{{$l->email}}</td>
-                                <td>{{$l->status}}</td>
+                                <td>{{$l->status}}
+                                    1. Daftar Pengguna Melalui Mobile Apps
+                                    2. Gagal Log In
+                                    3. Reset Kata Laluan
+                                </td>
                                 <td>{{$l->created_at}}</td>
                             </tr>
                         @endforeach

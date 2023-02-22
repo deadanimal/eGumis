@@ -22,6 +22,10 @@
         margin: 4px 2px;
         cursor: pointer;
     }
+    
+    td {
+        text-align: center;
+    }
 </style>
 @section('content')
 
@@ -88,29 +92,26 @@
             <table id="log-audit" class="table1 line-table" style="width:100%">
                 <thead class="text-black">
                     <tr>
-                        <th class="text-center">Bil.</th>
-                        <th class="text-center">Tarikh Audit</th>
-                        <th class="text-center">ID Log Masuk - Nama Pengguna</th>
-                        <th class="text-center">Jenis Audit</th>
-                        <th class="text-center">Info Audit</th> 
-                        <th class="text-center">Database Table</th>
+                        <th style="text-align: center">Bil.</th>
+                        <th style="text-align: center">Tarikh Audit</th>
+                        <th style="text-align: center">ID Log Masuk - Nama Pengguna</th>
+                        <th style="text-align: center">Jenis Audit</th>
+                        <th style="text-align: center">Info Audit</th> 
+                        <th style="text-align: center">Database Table</th>
                     </tr>
-                    {{-- <tbody id="myAuditTrail">
-                        @foreach ($audit_trail as $at) 
-                            <tr>
-                                <td>{{$at->id}}</td>
-                                <td>{{$at->full_name}}</td>
-                                <td>{{$at->ip_address}}</td>
-                                <td>{{$at->ip_address}}</td>
-                                <td>{{$at->ip_address}}</td>
-                                <td>{{$at->date_logged_in}}</td>
-                                <td>{{$at->date_logged_out}}</td>
-                                <td>{{$at->requested_time}}</td>
-                                <td>{{$at->requested_url}}</td>
-                            </tr>
-                            @endforeach
-                    </tbody> --}}
                 </thead>
+                <tbody id="myAuditTrail">
+                        {{-- @foreach ($audit_trail as $at)  --}}
+                            <tr>
+                                <td>1.</td>
+                                <td>10/06/2023 11:17:04PG</td>
+                                <td>Admin - SUPER ADMINISTRATOR</td>
+                                <td>LOG MASUK</td>
+                                <td>BERJAYA LOG MASUK</td>
+                                <td>GL_USER</td>
+                            </tr>
+                            {{-- @endforeach --}}
+                    </tbody>
              </table>
         </div>
     </div>
