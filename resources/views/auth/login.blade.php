@@ -145,6 +145,7 @@
       opacity: 1;
       transition: opacity 1s;
     }
+    
 
     #splash.fade{
       opacity: 0;
