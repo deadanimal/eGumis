@@ -102,6 +102,7 @@
             <table id="laporan-gagal" class="table line-table mt-6" style="width:100%">
                 <thead class="text-black">
                     <tr>
+                        
                         <th class="text-center">Bil.</th>
                         <th class="text-center">Nama Pengguna</th>
                         <th class="text-center">No. Pengenalan</th>
