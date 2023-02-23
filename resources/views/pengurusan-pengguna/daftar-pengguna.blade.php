@@ -1,5 +1,12 @@
 @extends('layouts.base')
 
+<style>
+    .wrapper {
+        text-align: center;
+        display: inline-block;
+        position: absolute;
+    }
+</style>
 @section('content')
 <h1 style="color: #003478;">PENGURUSAN PENGGUNA</h1>
 
@@ -8,54 +15,6 @@
 <div class="card mt-6">
     <div class="card-body">
         <h2 style="color: #003478;">Daftar Pengguna</h2>
-        {{-- <table id="laporan-audit-trail" class="table line-table mt-6 stripe" style="width:100%">
-            <thead class="text-black">
-                <tr>
-                    <th class="text-center">Bil.</th>
-                    <th class="text-center">Nama Pengguna</th>
-                    <th class="text-center">Bahagian Pengurusan Teknologi Maklumat (BPTM)</th>
-                    <th class="text-center">Bahagian Wang Tidak Dituntut (BWTD)</th>
-                    <th class="text-center">Peranan</th>
-                    <th class="text-center">Tindakan</th>
-                </tr>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Muzzamir</td>
-                        <td>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                <label class="form-check-label" for="exampleRadios1">
-                                  Sila Pilih
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                <label class="form-check-label" for="exampleRadios2">
-                                  Sila Pilih
-                                </label>
-                              </div>
-                        </td>
-                        <form action="/" method="POST" enctype="multipart/form-data">
-                            @csrf
-                        <td>
-                            <div class="col-auto">
-                                <select class="form-select form-control" name="nama">
-                                    <option selected disabled="">Sila Pilih</option>
-                                    <option value="admin">Admin</option>
-                                    <option value="sub-admin">Sub-Admin</option>
-                                 </select>
-                            </div>
-                        </td>
-                        <td><button name="sah" value="1" type="submit" class="btn btn-secondary">Simpan</button>
-                        </td>
-                        </form>
-                    </tr>
-                </tbody>
-            </thead>
-        </table> --}}
         <form action="/pengurusan-pengguna/daftar-pengguna" method="POST">
             @csrf
             <div class="row mx-2 mb-2 mt-5">
@@ -114,18 +73,19 @@
                     <input placeholder="Contoh: egumis@anm.gov.my" class="form-control textbox-n" name="email" type="email" required/>
                 </div>
             </div>
-            <div class="row mx-2 mb-2 mt-2 text-end">
-                <div class="col-10 mb-2 text-end">
+            <div class="mx-2 mb-2 mt-2 text-end">
+                {{-- <div class="col-10 mb-2 text-end"> --}}
                     <button class="btn btn-secondary" type="submit">Simpan</button>
-                </div>
-                </form>
-                <form action="/pengurusan-pengguna/daftar-pengguna" method="GET">
-                    @csrf
-                    <div class="col-10 mb-2 text-end">
-                        <button class="btn btn-primary" type="submit">Batal</button>
-                    </div>
-                </form>
             </div>
+        </form>
+        <div class="mx-2 mb-2 mt-2 text-end">
+            <form action="/pengurusan-pengguna/daftar-pengguna" method="GET">
+                @csrf
+                {{-- <div class="col-10 mb-2 text-end"> --}}
+                    <button class="btn btn-primary" type="submit">Batal</button>
+                {{-- </div> --}}
+            </form>
+        </div>
     </div>
 </div>
 

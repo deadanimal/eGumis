@@ -48,20 +48,21 @@ class SecUser extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $guarded = ['id'];
     protected $table = 'sec_users';
 
-    public function Laporan()
-    {
-        return $this->belongsTo(Laporan::class);
-    }
+    // public function Laporan()
+    // {
+    //     return $this->belongsTo(Laporan::class);
+    // }
 
-    public function LaporanLogGagalMasuk()
-    {
-        return $this->belongsTo(LaporanGagalLogMasuk::class);
-    }
+    // public function LaporanLogGagalMasuk()
+    // {
+    //     return $this->belongsTo(LaporanGagalLogMasuk::class);
+    // }
 
     public function AuditTrail()
     {
-       return $this->belongsTo(AuditTrail::class);
+       return $this->hasOne(AuditTrail::class);
     }
 }

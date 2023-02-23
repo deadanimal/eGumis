@@ -50,6 +50,9 @@
         background: url("/assets/img/calendar.png") no-repeat right;
         background-size: 20px;
     }
+    /* th {
+        align-items: center;
+    } */
 </style>
 @section('content')
 
@@ -82,15 +85,6 @@
                 </select>
             </div>
         </div>
-        {{-- ni testing part --}}
-        {{-- <div class="row mx-2 mb-2 mt-5">
-            <div class="col-2 mb-2">
-                <label class="col-form-label text-black">Alamat IP:</label>
-            </div>
-            <div class="col-4 mb-2">
-                <input value="{{$alamat_ip ?? ''}}" placeholder="SILA PILIH" class="form-control textbox-n" name="alamat_ip" type="text"/>
-            </div>
-        </div> --}}
         <div class="row mx-2 mb-2">
             <div class="col-2 mb-2">
                 <label class="col-form-label text-black">Nama Pengguna:</label>
@@ -98,7 +92,7 @@
             <div class="col-4 mb-2">
                 <input value="{{$nama ?? ''}}" class="form-control" data-column-index='1' type="text" placeholder="TAIP DI SINI" name="nama"/>
             </div>
-            <div class="col mb-2">
+            <div class="col-2 mb-2">
                 <button class="btn btn-secondary filter-button" type="submit"> Cari
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
@@ -106,7 +100,7 @@
                 </button>
             </div>
     </form>
-            <div class="col-4 mb-2">
+            <div class="col mb-2">
                 <form action="/audit_trail" method="GET">
                     @csrf
                     <button class="btn" onClick="window.location.reload();">
@@ -143,7 +137,6 @@
                             <td class="text-center">{{$at->id}}</td>
                             <td class="text-center">{{$at->jenis_pengguna}}</td>
                             <td class="text-center">{{$at->username}}</td>
-                            {{-- <td class="text-center">{{$at->full_name}}</td> --}}
                             <td class="text-center">{{$at->ip_address}}</td>
                             <td class="text-center">OS</td>
                             <td class="text-center">Model</td>

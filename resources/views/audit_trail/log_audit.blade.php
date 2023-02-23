@@ -187,8 +187,8 @@
             
         });
         
-        table1.buttons().container()
-        .appendTo( '#example_wrapper .small-6.columns:eq(0)' );
+        // table1.buttons().container()
+        // .appendTo( '#example_wrapper .small-6.columns:eq(0)' );
     });
 </script>
     
