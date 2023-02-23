@@ -12,6 +12,7 @@ use App\Models\PengurusanPengguna;
 use App\Models\AppRfdInfo;
 use App\Models\AuditTrail;
 use App\Models\SecAuditLog;
+use App\Models\SecUser;
 
 class LaporanController extends Controller
 {
@@ -338,8 +339,10 @@ class LaporanController extends Controller
     }
 
     public function laporan_audit_trail(Request $request){
-      //  $id = (int)$request->route('id');
-      //  $audit_trail = Laporan::find($id);  
+    //    $id = (int)$request->route('id');
+    //    $audit_trail = SecUser::find($id);
+    //    $sec_user = AuditTrail::find($id);  
+  
         // $audit_trail = new Laporan();  
         // dd($request->all());
         // dd('request');
@@ -369,9 +372,15 @@ class LaporanController extends Controller
         // $audit_trail->entity_id = $request->entity_id;
         // $audit_trail->entity_name = $request->entity_name; 
         // $audit_trail->save();
+        // $audit_trail->jenis_pengguna = $request->jenis_pengguna;
+
+        // dd($audit_trail);
         return view('audit_trail.laporan_audit_trail',
             ['audit_trail'=>AuditTrail::all()]
         );
+        // return view('audit_trail.laporan_audit_trail', 
+        // compact('audit_trail','sec_user'));
+
         // return redirect('/audit_trail');
     }
 
