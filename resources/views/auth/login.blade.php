@@ -176,7 +176,7 @@
   {{-- <div class="split left"> --}}
     <div class="background-image">
       <div class="text-center" style="filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));">
-        <img src="/assets/img/IOS-eGUMIS 1024px 1.svg" alt="EGUMIS" style="width: 242px; height:242px">
+        <img src="/assets/img/IOS-eGUMIS_1024px_1.svg" alt="EGUMIS" style="width: 242px; height:242px">
       </div>
 
       <div class="text-center">
@@ -191,7 +191,7 @@
               @csrf
               <div class="form-check mx-7 my-3">
                   <div id="nric">
-                      <input class="form-control text-center" type="email" name="email"  placeholder="Emel" required/>
+                      <input class="form-control text-center" type="text" name="username"  placeholder="Nama Pengguna" required/>
                   </div>
               </div>
               <div class="form-check mx-7 my-3">

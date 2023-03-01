@@ -65,4 +65,5 @@ class SecUser extends Authenticatable
     {
        return $this->hasOne(AuditTrail::class);
     }
+    
 }

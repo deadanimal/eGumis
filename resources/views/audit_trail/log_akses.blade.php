@@ -159,7 +159,7 @@
             buttons: [
                 { 
                     extend: 'pdf',  
-                    text: 'PDF <img src="./assets/img/cloud-computing-2.png">',
+                    text: 'PDF <i class="fa fa-cloud-download" aria-hidden="true"></i>',
                     download: 'open',
                     init: function(api, node, config) {
                     $(node).removeClass('btn-default')
@@ -167,7 +167,7 @@
                 },
                 { 
                     extend: 'excel', 
-                    text: 'EXCEL <img src="./assets/img/cloud-computing-2.png">',
+                    text: 'EXCEL <i class="fa fa-cloud-download" aria-hidden="true"></i>',
                     download: 'open',
                 },
             ]
