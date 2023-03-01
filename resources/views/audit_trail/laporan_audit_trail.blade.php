@@ -69,7 +69,7 @@
                 <label class="col-form-label text-black">Tempoh:</label>
             </div>
             <div class="col-4 mb-2">
-                <input placeholder="SILA PILIH" class="form-control textbox-n" name="tempoh" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"/>
+                <input value="{{$tempoh ?? ''}}" placeholder="SILA PILIH" class="form-control textbox-n" name="tempoh" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"/>
             </div>
         </div>
         <div class="row mx-2 mb-2">
@@ -135,11 +135,12 @@
                     @foreach ($audit_trail as $at) 
                         <tr>
                             <td class="text-center">{{$at->id}}</td>
-                            <td class="text-center">{{$at->jenis_pengguna}}</td>
+                            <td class="text-center">{{$at->ip_address}}</td>
+                            {{-- <td class="text-center">{{$at->jenis_pengguna}}</td> --}}
                             <td class="text-center">{{$at->username}}</td>
                             <td class="text-center">{{$at->ip_address}}</td>
-                            <td class="text-center">OS</td>
-                            <td class="text-center">Model</td>
+                            <td class="text-center">{{$at->ip_address}}</td>
+                            <td class="text-center">{{$at->ip_address}}</td>
                             <td class="text-center">{{$at->date_logged_in}}</td>
                             <td class="text-center">{{$at->date_logged_out}}</td>
                             <td class="text-center">{{$at->requested_time}}</td>
@@ -213,7 +214,7 @@
             buttons: [
                 { 
                     extend: 'pdf',  
-                    text: 'PDF <img src="./assets/img/cloud-computing.png">',
+                    text: 'PDF <i class="fa fa-cloud-download" aria-hidden="true"></i>',
                     download: 'open',
                     pageSize: 'A4',
                     orientation: 'landscape',
@@ -223,7 +224,7 @@
                 },
                 { 
                     extend: 'excel', 
-                    text: 'EXCEL <img src="./assets/img/cloud-computing.png">',
+                    text: 'EXCEL <i class="fa fa-cloud-download" aria-hidden="true"></i>',
                     download: 'open',
                 },
             ]
@@ -234,7 +235,7 @@
     });
 </script>
 
-<script>
+{{-- <script>
         var minDate, maxDate;
 
         $.fn.dataTable.ext.search.push(
@@ -272,5 +273,5 @@
             table.draw();
         });
     });
-</script>
+</script> --}}
 @endsection

@@ -5,13 +5,26 @@
     <title>PORTAL PELAPORAN eGUMIS MOBILE APPS</title>
     <link rel="manifest" href="/assets/img/favicons/manifest.json">
     <meta name="theme-color" content="#ffffff">
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="/vendors/choices/choices.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet">
+    <link href="/vendors/leaflet/leaflet.css" rel="stylesheet">
+    <link href="/vendors/leaflet.markercluster/MarkerCluster.css" rel="stylesheet">
+    <link href="/vendors/leaflet.markercluster/MarkerCluster.Default.css" rel="stylesheet">
+    <link href="/vendors/fullcalendar/main.min.css" rel="stylesheet">
+    <link href="/vendors/flatpickr/flatpickr.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
+    <link href="/vendors/overlayscrollbars/OverlayScrollbars.min.css" rel="stylesheet">
+    <link href="/assets/css/theme-rtl.min.css" rel="stylesheet" id="style-rtl">
+    <link href="/assets/css/theme.min.css" rel="stylesheet" id="style-default">
+    <link href="/assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
+    <link href="/assets/css/user.min.css" rel="stylesheet" id="user-style-default">
     <script src="/assets/js/config.js"></script>
     <script src="/vendors/overlayscrollbars/OverlayScrollbars.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
@@ -20,28 +33,6 @@
     <script src="/assets/js/flatpickr.js"></script>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
     <script src="/vendors/choices/choices.min.js"></script>
-    <link href="/vendors/choices/choices.min.css" rel="stylesheet" />
-
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css"
-        rel="stylesheet">
-
-    <link href="/vendors/leaflet/leaflet.css" rel="stylesheet">
-    <link href="/vendors/leaflet.markercluster/MarkerCluster.css" rel="stylesheet">
-    <link href="/vendors/leaflet.markercluster/MarkerCluster.Default.css" rel="stylesheet">
-    <link href="/vendors/fullcalendar/main.min.css" rel="stylesheet">
-    <link href="/vendors/flatpickr/flatpickr.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap"
-        rel="stylesheet">
-    <link href="/vendors/overlayscrollbars/OverlayScrollbars.min.css" rel="stylesheet">
-    <link href="/assets/css/theme-rtl.min.css" rel="stylesheet" id="style-rtl">
-    <link href="/assets/css/theme.min.css" rel="stylesheet" id="style-default">
-    <link href="/assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
-    <link href="/assets/css/user.min.css" rel="stylesheet" id="user-style-default">
-
-
     <script>
         var APP_URL = {!! json_encode(url('/')) !!}
 
@@ -549,7 +540,7 @@
         <nav class="navbar navbar-expand p-3" style="box-shadow: 0px 2px 2px 1px lightgrey; background-image: url('/assets/img/header.png'); z-index: 2;">
 
             <div class="col-3 text-center" style="filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));">
-                <img src="/assets/img/IOS-eGUMIS 1024px 1.png" alt="EGUMIS" style="width: 127px; height:127px">
+                <img src="/assets/img/IOS-eGUMIS_1024px_1.png" alt="EGUMIS" style="width: 127px; height:127px">
                 {{-- <img src="/assets/img/IOS-eGUMIS 1024px 1.png" class="d-lg-none" alt="EGUMIS" style="width: 90px; height:90px"> --}}
             </div>
 
@@ -588,7 +579,4 @@
 
     @yield('scripts')
 </body>
-
-
-
 </html>

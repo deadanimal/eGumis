@@ -13,6 +13,9 @@ use App\Models\AppRfdInfo;
 use App\Models\AuditTrail;
 use App\Models\SecAuditLog;
 use App\Models\SecUser;
+use App\Models\LaporanPermohonanTuntutanAplikasi;
+use App\Models\LaporanTempohPenggunaanAplikasi;
+use App\Models\LaporanPermohonanWTDNegeri;
 
 class LaporanController extends Controller
 {
@@ -110,7 +113,7 @@ class LaporanController extends Controller
 
     public function carianLaporan(Request $request)
     {
-        $laporan = Laporan::where('id','!=',null);
+        $laporan = AuditTrail::where('id','!=',null);
        
             //$laporan->whereDate('created_date', '=', $request->tempoh);
         
@@ -119,7 +122,7 @@ class LaporanController extends Controller
         //     $laporan->where('')
         // }
         if ($request->nama) {
-            $laporan->where('full_name','LIKE','%'.$request->nama.'%');
+            $laporan->where('username','LIKE','%'.$request->nama.'%');
         }
         if ($request->alamat_ip) {
             $laporan->where('ip_address','LIKE','%'.$request->alamat_ip.'%');
@@ -127,6 +130,7 @@ class LaporanController extends Controller
         if ($request->tempoh) {
             $laporan->whereDate('requested_time', 'LIKE', '%'.$request->tempoh.'%');
         }
+
 
         // $jenisPengguna = Laporan::limit(20);
         // $jenis_pengguna = $request->('jenis_pengguna');
@@ -137,7 +141,7 @@ class LaporanController extends Controller
             // dd('ok');
         return view('audit_trail.laporan_audit_trail',[
             'audit_trail'=> $laporan->get(),
-            'full_name'=>$request->nama,
+            'username'=>$request->nama,
             'alamat_ip'=>$request->alamat_ip, 
             'tempoh'=>$request->tempoh,
         ]);
@@ -283,28 +287,110 @@ class LaporanController extends Controller
         // if ($request->tempoh) {
         //     $semakan_wtd->whereDate('requested_time', 'LIKE', '%'.$request->tempoh.'%');
         // }
-
+        if($request->jenis_status){
+            $semakan_wtd->where('status', 'LIKE', '%'.$request->jenis_status.'%');
+        }
 
         return view('pelaporan.laporan_semakan_wtd',[
             'semakan_wtd'=>$semakan_wtd->get(),
             'nama'=>$request->nama,
             'no_rujukan'=>$request->no_rujukan,
+            'no_ic'=>$request->no_ic,
+            'jenis_status'=>$request->jenis_status,
         ]);
     }
 
-    public function carianLaporanPermohonanTuntutanAplikasi()
+    public function carianLaporanPermohonanTuntutanAplikasi(Request $request)
     {
-        return view('pelaporan.laporan_permohonan_tuntutan_aplikasi');
+        $permohonan_tuntutan_aplikasi = LaporanPermohonanTuntutanAplikasi::where('id','!=',null);
+        if ($request->no_rujukan) {
+            $permohonan_tuntutan_aplikasi->where('file_refno', 'LIKE', '%'.$request->nama.'%');
+        }
+        if($request->nama_penuh){
+            $permohonan_tuntutan_aplikasi->where('fullname', 'LIKE', '%'.$request->nama_penuh.'%');
+        }
+        if($request->no_ic){
+            $permohonan_tuntutan_aplikasi->where('new_ic_number', 'LIKE', '%'.$request->no_ic.'%');
+            $permohonan_tuntutan_aplikasi->where('old_ic_number', 'LIKE', '%'.$request->no_ic.'%');
+        }
+        if($request->amaun_tuntutan){
+            $permohonan_tuntutan_aplikasi->where('unclaimed_amount', 'LIKE', '%'.$request->amaun_tuntutan.'%');
+        }
+        if($request->tarikh_tuntutan){
+            $permohonan_tuntutan_aplikasi->where('status_date', 'LIKE', '%'.$request->tarikh_tuntutan.'%');
+        }
+        if($request->jenis_status){
+            $permohonan_tuntutan_aplikasi->where('status', 'LIKE', '%'.$request->jenis_status.'%');
+        }
+        if($request->tindakan){
+            $permohonan_tuntutan_aplikasi->where('tindakan', 'LIKE', '%'.$request->tindakan.'%');
+        }
+        
+        return view('pelaporan.laporan_permohonan_tuntutan_aplikasi',[
+            'permohonan_tuntutan_aplikasi'=>$permohonan_tuntutan_aplikasi->get(),
+            'nama_penuh'=>$request->nama_penuh,
+            'no_ic'=>$request->no_ic,
+            'amaun_tuntutan'=>$request->amaun_tuntutan,
+            'tarikh_tuntutan'=>$request->tarikh_tuntutan,
+            'jenis_status'=>$request->jenis_status,
+            'tindakan'=>$request->tindakan,
+        ]);
     }
 
-    public function carianLaporanPermohonanWTD()
+    public function carianLaporanPermohonanWTD(Request $request)
     {
-        return view('pelaporan.laporan_permohonan_wtd');
+        $laporan_permohonan_wtd_negeri = LaporanPermohonanWTDNegeri::where('id', '!=', null);
+
+        if($request->nama_penuh){
+            $laporan_permohonan_wtd_negeri->where('fullname', 'LIKE', '%'.$request->nama_penuh.'%');
+        }
+        if ($request->tempoh) {
+            $laporan_permohonan_wtd_negeri->whereDate('tempoh', 'LIKE', '%'.$request->tempoh.'%');
+        }
+        if($request->no_ic){
+            $laporan_permohonan_wtd_negeri->where('new_ic_number', 'LIKE', '%'.$request->no_ic.'%');
+            $laporan_permohonan_wtd_negeri->where('old_ic_number', 'LIKE', '%'.$request->no_ic.'%');
+        }
+        if ($request->no_rujukan) {
+            $laporan_permohonan_wtd_negeri->where('file_refno', 'LIKE', '%'.$request->nama.'%');
+        }
+        if ($request->negeri) {
+            $laporan_permohonan_wtd_negeri->where('state', 'LIKE', '%'.$request->negeri.'%');
+        }
+
+        return view('pelaporan.laporan_permohonan_wtd',[
+            'laporan_permohonan_wtd_negeri'=>$laporan_permohonan_wtd_negeri->get(),
+            'tempoh'=>$request->tempoh,
+            'no_ic'=>$request->no_ic,
+            'no_rujukan'=>$request->no_rujukan,
+            'negeri'=>$request->negeri
+        ]);
     }
 
-    public function carianLaporanTempohPenggunaanAplikasi()
+    public function carianLaporanTempohPenggunaanAplikasi(Request $request)
     {
-        return view('pelaporan.laporan_tempoh_penggunaan_aplikasi');
+        $laporan_tempoh_penggunaan_aplikasi = LaporanTempohPenggunaanAplikasi::where('id','!=',null);
+
+        if ($request->tempoh) {
+            $laporan_tempoh_penggunaan_aplikasi->whereDate('tempoh', 'LIKE', '%'.$request->tempoh.'%');
+        }
+        if($request->jenis_capaian){
+            $laporan_tempoh_penggunaan_aplikasi->where('jenis_capaian', 'LIKE', '%'.$request->jenis_capaian.'%');
+        }
+        if($request->jenis_os){
+            $laporan_tempoh_penggunaan_aplikasi->where('jenis_os', 'LIKE', '%'.$request->jenis_os.'%');
+        }
+        if($request->jenis_status){
+            $laporan_tempoh_penggunaan_aplikasi->where('status', 'LIKE', '%'.$request->jenis_status.'%');
+        }
+
+        return view('pelaporan.laporan_tempoh_penggunaan_aplikasi',[
+            'laporan_tempoh_penggunaan_aplikasi'=>$laporan_tempoh_penggunaan_aplikasi->get(),
+            'tempoh'=>$request->tempoh,
+            'jenis_capaian'=>$request->jenis_capaian,
+            'jenis_os'=>$request->jenis_os,
+            'jenis_status'=>$request->jenis_status      
+        ]);
     }
 
     public function audit_trail(Request $request){
@@ -339,9 +425,9 @@ class LaporanController extends Controller
     }
 
     public function laporan_audit_trail(Request $request){
-    //    $id = (int)$request->route('id');
-    //    $audit_trail = SecUser::find($id);
-    //    $sec_user = AuditTrail::find($id);  
+       $id = (int)$request->route('id');
+       $audit_trail = SecUser::find($id);
+       $sec_user = AuditTrail::find($id);  
   
         // $audit_trail = new Laporan();  
         // dd($request->all());
@@ -375,8 +461,13 @@ class LaporanController extends Controller
         // $audit_trail->jenis_pengguna = $request->jenis_pengguna;
 
         // dd($audit_trail);
+        // return view('audit_trail.laporan_audit_trail',
+        //     ['audit_trail'=>AuditTrail::all()]
+        // );
         return view('audit_trail.laporan_audit_trail',
-            ['audit_trail'=>AuditTrail::all()]
+            ['audit_trail'=>AuditTrail::get(),
+            
+            ]
         );
         // return view('audit_trail.laporan_audit_trail', 
         // compact('audit_trail','sec_user'));

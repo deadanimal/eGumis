@@ -35,7 +35,7 @@
                 <label class="col-form-label text-black">Tempoh:</label>
             </div>
             <div class="col-4 mb-2">
-                <input placeholder="SILA PILIH" class="form-control textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" />
+                <input value="{{$tempoh ?? ''}}" placeholder="SILA PILIH" class="form-control textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" />
             </div>
             <div class="col-2 mb-2">
                 <label class="col-form-label text-black">Jenis Status:</label>
@@ -43,14 +43,15 @@
             <div class="col-4 mb-2">
                 <select class="form-select" aria-label="Default select example" name="status">
                     <option selected>SILA PILIH</option>
-                    <option value="Deraf">Deraf</option>
+                    <option value="{{$jenis_status ?? ''}}">{{$jenis_status ?? ''}}</option>
+                    {{-- <option value="Deraf">Deraf</option>
                     <option value="Pengesahan Dokumen 1">Pengesahan Dokumen 1</option>
                     <option value="Kuiri Dokumen 1">Kuiri Dokumen 1</option>
                     <option value="Pengesahan Dokumen 2">Pengesahan Dokumen 2</option>
                     <option value="Kuiri Dokumen 2">Kuiri Dokumen 2</option>
                     <option value="Baharu">Baharu</option>
                     <option value="Selesai">Selesai</option>
-                    <option value="Kuiri">Kuiri</option>
+                    <option value="Kuiri">Kuiri</option> --}}
                 </select>     
             </div>
             {{-- <div class="col mb-2">
@@ -111,7 +112,7 @@
                             <th class="text-center">No. Pengenalan</th>
                             <th class="text-center">Amaun Tuntutan (RM)</th>
                             <th class="text-center">Tarikh Tuntutan</th> 
-                            <th class="text-center">Status</th>
+                            <th class="text-center">Jenis Status</th>
                             <th class="text-center">Tindakan</th> 
                             <th class="text-center">OS</th> 
                             <th class="text-center">Model</th> 
@@ -130,8 +131,8 @@
                             <td class="text-center">{{$sw->created_date}}</td>
                             <td class="text-center">{{$sw->status}}</td>
                             <td class="text-center">Tindakan</td>
-                            <td class="text-center">Tiada OS</td>
-                            <td class="text-center">Tiada Model</td>
+                            <td class="text-center">Versi OS</td>
+                            <td class="text-center">Versi Model</td>
                         </tr>
                     @endforeach
                         </tbody>
@@ -190,7 +191,7 @@
         buttons: [
                 { 
                     extend: 'pdf', 
-                    text: 'PDF <img src="./assets/img/cloud-computing.png">',
+                    text: 'PDF <i class="fa fa-cloud-download" aria-hidden="true"></i>',
                     download: 'open',
                     pageSize: 'LEGAL',
                     orientation: 'landscape',
@@ -200,7 +201,7 @@
                 },
                 { 
                     extend: 'excel', 
-                    text: 'EXCEL <img src="./assets/img/cloud-computing.png">',
+                    text: 'EXCEL <i class="fa fa-cloud-download" aria-hidden="true"></i>',
                     download: 'open',
                 }
             ]

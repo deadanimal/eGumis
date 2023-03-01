@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
 
-
 <style>
     .button {
         background-color: #1A7FE5;
@@ -169,7 +168,7 @@
             buttons: [
                 {   
                     extend: 'pdf', 
-                    text: 'PDF <img src="./assets/img/cloud-computing-2.png">',
+                    text: 'PDF <i class="fa fa-cloud-download" aria-hidden="true"></i>',
                     download: 'open',
                     pageSize: 'A4',
                     init: function(api, node, config) {
@@ -179,7 +178,7 @@
                 },
                 { 
                     extend: 'excel', 
-                    text: 'EXCEL <img src="./assets/img/cloud-computing-2.png">',
+                    text: 'EXCEL <i class="fa fa-cloud-download" aria-hidden="true"></i>',
                     download: 'open',
                 }
             ]

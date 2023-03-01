@@ -11,15 +11,15 @@ class MyLoginController extends Controller
 {
     public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
             // Authentication passed...
-           $user = User::where('email',$request->email)->first();
+           $user = SecUser::where('username',$request->username)->first();
            Auth::login($user);
-        //    dd('betul');
+           dd('betul');
            return redirect('/audit_trail');
         }
-        // dd('salah');
+        dd('salah');
         return redirect('login');
     }
 }

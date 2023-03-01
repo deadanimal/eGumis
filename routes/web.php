@@ -29,6 +29,9 @@ Route::get('/', function () {
 Route::get('/selamat-datang', function () {
     return view('paparan-selamat-datang');
 });
+Route::get('/test', function () {
+    return view('test123');
+});
 Route::get('/lupa-katalaluan', [UserController::class, 'tunjuk_lupa']); 
 Route::post('/hantar-lupa-katalaluan', [UserController::class, 'cipta_lupa']); 
 
@@ -70,7 +73,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/carian-gagal-log-masuk', [LaporanController::class, 'carianLaporanGagalLogMasuk']);
     Route::post('/carian-semakan-wtd', [LaporanController::class, 'carianLaporanSemakanWTD']);
     Route::post('/carian-permohonan-tuntutan-aplikasi', [LaporanController::class, 'carianLaporanPermohonanTuntutanAplikasi']);
-    Route::post('/carian-permohonan_wtd', [LaporanController::class, 'carianLaporanPermohonanWTD']);
+    Route::post('/carian-permohonan-wtd', [LaporanController::class, 'carianLaporanPermohonanWTD']);
     Route::post('/carian-tempoh-penggunaan-aplikasi', [LaporanController::class, 'carianLaporanTempohPenggunaanAplikasi']);
     Route::post('/carian-senarai-pengguna', [LaporanController::class, 'carianSenaraiPengguna']);
     });
