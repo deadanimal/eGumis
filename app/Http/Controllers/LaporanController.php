@@ -531,6 +531,9 @@ class LaporanController extends Controller
     }
 
     public function daftar_pengguna(){
+
+        // $daftar = new DaftarPengguna();  
+
         return view('pengurusan-pengguna.daftar-pengguna');
     }
     
@@ -548,7 +551,30 @@ class LaporanController extends Controller
         $daftar = new DaftarPengguna();  
         $daftar->full_name = $request->full_name;
         $daftar->username = $request->username;
-        $daftar->identity_type = $request->identity_type;
+
+        if($request->identity_type == "NOMBOR KP BARU"){
+            $daftar->new_ic_number = $request->new_ic_number;       
+        }
+        // if($request->identity_type == "NOMBOR KP LAMA"){
+
+        //     $daftar->old_ic_number = $request->old_ic_number;       
+        // }
+        if($request->identity_type == "NOMBOR TENTERA"){
+            $daftar->no_tentera = $request->no_tentera;       
+        }
+        if($request->identity_type == "NOMBOR POLIS"){
+            $daftar->no_polis = $request->no_polis;       
+        }
+        if($request->identity_type == "NOMBOR PASPORT"){
+            $daftar->no_passport = $request->no_passport;       
+        }
+        if($request->identity_type == "NOMBOR SIJIL KELAHIRAN"){
+            $daftar->no_sijil_kelahiran = $request->no_sijil_kelahiran;       
+        }
+        if($request->identity_type == "NOMBOR PENDAFTARAN SYARIKAT/FIRMA"){
+            $daftar->no_pendaftaran_syarikat_firma = $request->no_pendaftaran_syarikat_firma;       
+        }
+        // $daftar->identity_type = $request->identity_type;
         $daftar->identity_number = $request->identity_number;
         $daftar->email = $request->email;
         $daftar->jenis_pengguna = $request->jenis_pengguna;

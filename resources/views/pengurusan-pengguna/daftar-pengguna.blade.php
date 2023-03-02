@@ -54,6 +54,11 @@
                         <option selected>SILA PILIH</option>
                         <option value="NOMBOR KP BARU">NOMBOR KP BARU</option>
                         <option value="NOMBOR KP LAMA">NOMBOR KP LAMA</option>
+                        <option value="NOMBOR TENTERA">NOMBOR TENTERA</option>
+                        <option value="NOMBOR POLIS">NOMBOR POLIS</option>
+                        <option value="NOMBOR PASPORT">NOMBOR PASPORT</option>
+                        <option value="NOMBOR SIJIL KELAHIRAN">NOMBOR SIJIL KELAHIRAN</option>
+                        <option value="NOMBOR PENDAFTARAN SYARIKAT/FIRMA">NOMBOR PENDAFTARAN SYARIKAT/FIRMA</option>
                     </select>
                 </div>
             </div>
@@ -62,7 +67,12 @@
                     <label class="col-form-label text-black">No. Pengenalan: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-5 mb-2">
-                    <input class="form-control textbox-n" name="identity_number" type="number" placeholder="Contoh: 770101037777" required/>
+                    <input class="form-control textbox-n" name="old_ic_number" type="text" placeholder="Contoh: 770101037777" required/>
+                    <input class="form-control textbox-n" name="no_tentera" type="text" placeholder="Contoh: 770101037777" required/>
+                    <input class="form-control textbox-n" name="no_polis" type="text" placeholder="Contoh: 770101037777" required/>
+                    <input class="form-control textbox-n" name="no_pasport" type="text" placeholder="Contoh: 770101037777" required/>
+                    <input class="form-control textbox-n" name="no_sijil_kelahiran" type="text" placeholder="Contoh: 770101037777" required/>
+                    <input class="form-control textbox-n" name="no_pendaftaran_syarikat_firma" type="text" placeholder="Contoh: 770101037777" required/>
                 </div>
             </div>
             <div class="row mx-2 mb-2 mt-2">
@@ -124,6 +134,7 @@
     });
 </script>
 
+
 <script>
     $('input[type=checkbox]').change(function(){
     if($(this).is(':checked')){
@@ -134,5 +145,82 @@
     $('input[type=checkbox]').attr('disabled','');
     }
     });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('.2').hide();
+        $('.3').hide();
+        $('.4').hide();
+        $('.5').hide();
+        $('.6').hide();
+        $('.7').hide();
+    });
+
+    function button1() {
+        $('.1').show();
+        $('.2').hide();
+        $('.3').hide();
+        $('.4').hide();
+        $('.5').hide();
+        $('.6').hide();
+        $('.7').hide();
+    }
+    function button2() {
+        $('.2').show();
+        $('.1').hide();
+        $('.3').hide();
+        $('.4').hide();
+        $('.5').hide();
+        $('.6').hide();
+        $('.7').hide();
+    }
+    function button3() {
+        $('.3').show();
+        $('.1').hide();
+        $('.2').hide();
+        $('.4').hide();
+        $('.5').hide();
+        $('.6').hide();
+        $('.7').hide();
+    }
+    function button4() {
+        $('.4').show();
+        $('.1').hide();
+        $('.2').hide();
+        $('.3').hide();
+        $('.5').hide();
+        $('.6').hide();
+        $('.7').hide();
+    }
+    function button5() {
+        $('.5').show();
+        $('.1').hide();
+        $('.2').hide();
+        $('.3').hide();
+        $('.4').hide();
+        $('.6').hide();
+        $('.7').hide();
+    }
+    function button6() {
+        $('.6').show();
+        $('.1').hide();
+        $('.2').hide();
+        $('.3').hide();
+        $('.4').hide();
+        $('.5').hide();
+        $('.7').hide();
+    }
+    function button7() {
+        $('.7').show();
+        $('.1').hide();
+        $('.2').hide();
+        $('.3').hide();
+        $('.4').hide();
+        $('.5').hide();
+        $('.6').hide();
+    }
+
+
 </script>
 @endsection

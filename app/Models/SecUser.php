@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+// use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -61,9 +61,9 @@ class SecUser extends Authenticatable
     //     return $this->belongsTo(LaporanGagalLogMasuk::class);
     // }
 
-    public function AuditTrail()
-    {
-       return $this->hasOne(AuditTrail::class);
-    }
+    // public function AuditTrail()
+    // {
+    //    return $this->hasOne(AuditTrail::class);
+    // }
     
 }
