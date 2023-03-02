@@ -555,9 +555,10 @@ class LaporanController extends Controller
         if($request->identity_type == "NOMBOR KP BARU"){
             $daftar->new_ic_number = $request->new_ic_number;       
         }
-        if($request->identity_type == "NOMBOR KP LAMA"){
-            $daftar->old_ic_number = $request->old_ic_number;       
-        }
+        // if($request->identity_type == "NOMBOR KP LAMA"){
+
+        //     $daftar->old_ic_number = $request->old_ic_number;       
+        // }
         if($request->identity_type == "NOMBOR TENTERA"){
             $daftar->no_tentera = $request->no_tentera;       
         }
