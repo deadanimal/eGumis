@@ -134,6 +134,7 @@
     });
 </script>
 
+
 <script>
     $('input[type=checkbox]').change(function(){
     if($(this).is(':checked')){
