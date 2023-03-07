@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-5 mb-2">
                     <select class="form-select categoryFilter" data-column-index='2' aria-label="Default select example"  name="jenis_pengguna">
-                        <option selected>SILA PILIH</option>
+                        <option selected disabled>SILA PILIH</option>
                         <option value="">SEMUA</option>
                         <option value="BPTM">BPTM</option>
                         <option value="BWTD">BWTD</option>

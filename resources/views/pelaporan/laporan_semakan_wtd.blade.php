@@ -42,7 +42,7 @@
             </div>
             <div class="col-4 mb-2">
                 <select class="form-select" aria-label="Default select example" name="status">
-                    <option selected>SILA PILIH</option>
+                    <option selected disabled>SILA PILIH</option>
                     <option value="{{$jenis_status ?? ''}}">{{$jenis_status ?? ''}}</option>
                     {{-- <option value="Deraf">Deraf</option>
                     <option value="Pengesahan Dokumen 1">Pengesahan Dokumen 1</option>

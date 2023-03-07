@@ -16,6 +16,7 @@ use App\Models\SecUser;
 use App\Models\LaporanPermohonanTuntutanAplikasi;
 use App\Models\LaporanTempohPenggunaanAplikasi;
 use App\Models\LaporanPermohonanWTDNegeri;
+use App\Models\RefBoMaster;
 
 class LaporanController extends Controller
 {
@@ -552,29 +553,13 @@ class LaporanController extends Controller
         $daftar->full_name = $request->full_name;
         $daftar->username = $request->username;
 
-        if($request->identity_type == "NOMBOR KP BARU"){
-            $daftar->new_ic_number = $request->new_ic_number;       
-        }
-        // if($request->identity_type == "NOMBOR KP LAMA"){
-
-        //     $daftar->old_ic_number = $request->old_ic_number;       
-        // }
-        if($request->identity_type == "NOMBOR TENTERA"){
-            $daftar->no_tentera = $request->no_tentera;       
-        }
-        if($request->identity_type == "NOMBOR POLIS"){
-            $daftar->no_polis = $request->no_polis;       
-        }
-        if($request->identity_type == "NOMBOR PASPORT"){
-            $daftar->no_passport = $request->no_passport;       
-        }
-        if($request->identity_type == "NOMBOR SIJIL KELAHIRAN"){
-            $daftar->no_sijil_kelahiran = $request->no_sijil_kelahiran;       
-        }
-        if($request->identity_type == "NOMBOR PENDAFTARAN SYARIKAT/FIRMA"){
-            $daftar->no_pendaftaran_syarikat_firma = $request->no_pendaftaran_syarikat_firma;       
-        }
-        // $daftar->identity_type = $request->identity_type;
+        $daftar->new_ic_number = $request->new_ic_number;       
+        $daftar->no_tentera = $request->no_tentera;       
+        $daftar->no_polis = $request->no_polis;       
+        $daftar->no_passport = $request->no_passport;       
+        $daftar->no_sijil_kelahiran = $request->no_sijil_kelahiran;       
+        $daftar->no_pendaftaran_syarikat_firma = $request->no_pendaftaran_syarikat_firma; 
+        $daftar->identity_type = $request->identity_type;
         $daftar->identity_number = $request->identity_number;
         $daftar->email = $request->email;
         $daftar->jenis_pengguna = $request->jenis_pengguna;
@@ -593,8 +578,12 @@ class LaporanController extends Controller
        
         $pengguna = DaftarPengguna::find($id);
         $pengguna1 = PengurusanPengguna::find($id);
+        // $pengguna2 = RefBoMaster::find($id);
         // dd($id);
 
+        if($request->enabled == '1'){
+            $pengguna->enabled = $request->enabled;
+        }
         // $pengguna = DaftarPengguna::all();
         // if ($request->nama != null) {
             // $pengguna->username = $request->username;
@@ -624,6 +613,11 @@ class LaporanController extends Controller
         $s_pengguna->identity_type = $request->identity_type;
         $s_pengguna->identity_number = $request->identity_number;
         $s_pengguna->email = $request->email;
+
+        // if($request->status == 'aktif') {
+        //     $s_pengguna->enabled = $request->enabled;
+        // }
+        $s_pengguna->enabled = $request->enabled;
         $s_pengguna1->entity_name = $request->entity_name;
         
         $s_pengguna1->save();

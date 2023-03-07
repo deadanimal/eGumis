@@ -78,7 +78,7 @@
             </div>
             <div class="col-4 mb-2">
                 <select class="form-select categoryFilter" aria-label="Default select example"  name="jenis_pengguna">
-                    <option selected>SILA PILIH</option>
+                    <option selected disabled>SILA PILIH</option>
                     <option value="">SEMUA</option>
                     <option value="BWTD">BWTD</option>
                     <option value="BPTM">BPTM</option>

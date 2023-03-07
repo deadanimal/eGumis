@@ -6,6 +6,13 @@
         display: inline-block;
         position: absolute;
     }
+    .myDiv {
+        display: none;
+    }
+
+    #showNOMBOR_KP_BARU {
+        display: inline;
+    }
 </style>
 @section('content')
 <h1 style="color: #003478;">PENGURUSAN PENGGUNA</h1>
@@ -23,7 +30,7 @@
                 </div>
                 <div class="col-5 mb-2">
                     <select class="form-select categoryFilter" aria-label="Default select example" name="jenis_pengguna" required>
-                        <option selected>SILA PILIH</option>
+                        <option selected disabled>SILA PILIH</option>
                         <option value="BWTD">BWTD</option>
                         <option value="BPTM">BPTM</option>
                     </select>
@@ -50,15 +57,15 @@
                     <label class="col-form-label text-black">Jenis Pengenalan: <span style="color: #FF0000">&#42;</span></label>
                 </div>
                 <div class="col-5 mb-2">
-                    <select class="form-select categoryFilter" data-column-index='2' aria-label="Default select example" name="identity_type" required>
-                        <option selected>SILA PILIH</option>
-                        <option value="NOMBOR KP BARU">NOMBOR KP BARU</option>
-                        <option value="NOMBOR KP LAMA">NOMBOR KP LAMA</option>
-                        <option value="NOMBOR TENTERA">NOMBOR TENTERA</option>
-                        <option value="NOMBOR POLIS">NOMBOR POLIS</option>
-                        <option value="NOMBOR PASPORT">NOMBOR PASPORT</option>
-                        <option value="NOMBOR SIJIL KELAHIRAN">NOMBOR SIJIL KELAHIRAN</option>
-                        <option value="NOMBOR PENDAFTARAN SYARIKAT/FIRMA">NOMBOR PENDAFTARAN SYARIKAT/FIRMA</option>
+                    <select class="form-select categoryFilter" data-column-index='2' aria-label="Default select example" name="identity_type" id="jenis-pengenalan" required>
+                        <option selected disabled>SILA PILIH</option>
+                        <option value="BARU">NOMBOR KP BARU</option>
+                        <option value="LAMA">NOMBOR KP LAMA</option>
+                        <option value="TENTERA">NOMBOR TENTERA</option>
+                        <option value="POLIS">NOMBOR POLIS</option>
+                        <option value="PASPORT">NOMBOR PASPORT</option>
+                        <option value="SIJIL_KELAHIRAN">NOMBOR SIJIL KELAHIRAN</option>
+                        <option value="PENDAFTARAN_SYARIKAT_FIRMA">NOMBOR PENDAFTARAN SYARIKAT/FIRMA</option>
                     </select>
                 </div>
             </div>
@@ -66,13 +73,26 @@
                 <div class="col-4 mb-2 text-end">
                     <label class="col-form-label text-black">No. Pengenalan: <span style="color: #FF0000">&#42;</span></label>
                 </div>
-                <div class="col-5 mb-2">
-                    <input class="form-control textbox-n" name="old_ic_number" type="text" placeholder="Contoh: 770101037777" required/>
-                    <input class="form-control textbox-n" name="no_tentera" type="text" placeholder="Contoh: 770101037777" required/>
-                    <input class="form-control textbox-n" name="no_polis" type="text" placeholder="Contoh: 770101037777" required/>
-                    <input class="form-control textbox-n" name="no_pasport" type="text" placeholder="Contoh: 770101037777" required/>
-                    <input class="form-control textbox-n" name="no_sijil_kelahiran" type="text" placeholder="Contoh: 770101037777" required/>
-                    <input class="form-control textbox-n" name="no_pendaftaran_syarikat_firma" type="text" placeholder="Contoh: 770101037777" required/>
+                <div class="col-5 mb-2 myDiv" id="showBARU">
+                    <input id="inputBARU" class="form-control textbox-n" name="new_ic_number" type="number" placeholder="Contoh: 770101037777" />
+                </div>  
+                <div class="col-5 mb-2 myDiv" id="showLAMA">  
+                    <input id="inputLAMA" class="form-control textbox-n" name="old_ic_number" type="number" placeholder="Contoh: 4131383" />
+                </div>
+                <div class="col-5 mb-2 myDiv" id="showTENTERA">    
+                    <input id="inputTENTERA" class="form-control textbox-n" name="no_tentera" type="text" placeholder="Contoh: 6216264" />
+                </div>
+                <div class="col-5 mb-2 myDiv" id="showPOLIS">    
+                    <input id="inputPOLIS" class="form-control textbox-n" name="no_polis" type="text" placeholder="Contoh: RF/ 116843" />
+                </div>
+                <div class="col-5 mb-2 myDiv" id="showPASPORT">    
+                    <input id="inputPASPORT" class="form-control textbox-n" name="no_pasport" type="text" placeholder="Contoh: A1234567" />
+                </div>   
+                <div class="col-5 mb-2 myDiv" id="showSIJIL_KELAHIRAN">    
+                    <input id="inputSIJIL_KELAHIRAN" class="form-control textbox-n" name="no_sijil_kelahiran" type="text" placeholder="Contoh: 770101037777" />
+                </div>
+                <div class="col-5 mb-2 myDiv" id="showPENDAFTARAN_SYARIKAT_FIRMA">    
+                    <input id="inputPENDAFTARAN_SYARIKAT_FIRMA" class="form-control textbox-n" name="no_pendaftaran_syarikat_firma" type="text" placeholder="Contoh: 201901000005 (1312525-A)" />
                 </div>
             </div>
             <div class="row mx-2 mb-2 mt-2">
@@ -84,16 +104,13 @@
                 </div>
             </div>
             <div class="mx-2 mb-2 mt-2 text-end">
-                {{-- <div class="col-10 mb-2 text-end"> --}}
-                    <button class="btn btn-secondary" type="submit">Simpan</button>
+                <button class="btn btn-secondary" type="submit">Simpan</button>
             </div>
         </form>
         <div class="mx-2 mb-2 mt-2 text-end">
             <form action="/pengurusan-pengguna/daftar-pengguna" method="GET">
                 @csrf
-                {{-- <div class="col-10 mb-2 text-end"> --}}
-                    <button class="btn btn-primary" type="submit">Batal</button>
-                {{-- </div> --}}
+                <button class="btn btn-primary" type="submit">Batal</button>
             </form>
         </div>
     </div>
@@ -148,79 +165,10 @@
 </script>
 
 <script>
-    $(document).ready(function () {
-        $('.2').hide();
-        $('.3').hide();
-        $('.4').hide();
-        $('.5').hide();
-        $('.6').hide();
-        $('.7').hide();
-    });
-
-    function button1() {
-        $('.1').show();
-        $('.2').hide();
-        $('.3').hide();
-        $('.4').hide();
-        $('.5').hide();
-        $('.6').hide();
-        $('.7').hide();
-    }
-    function button2() {
-        $('.2').show();
-        $('.1').hide();
-        $('.3').hide();
-        $('.4').hide();
-        $('.5').hide();
-        $('.6').hide();
-        $('.7').hide();
-    }
-    function button3() {
-        $('.3').show();
-        $('.1').hide();
-        $('.2').hide();
-        $('.4').hide();
-        $('.5').hide();
-        $('.6').hide();
-        $('.7').hide();
-    }
-    function button4() {
-        $('.4').show();
-        $('.1').hide();
-        $('.2').hide();
-        $('.3').hide();
-        $('.5').hide();
-        $('.6').hide();
-        $('.7').hide();
-    }
-    function button5() {
-        $('.5').show();
-        $('.1').hide();
-        $('.2').hide();
-        $('.3').hide();
-        $('.4').hide();
-        $('.6').hide();
-        $('.7').hide();
-    }
-    function button6() {
-        $('.6').show();
-        $('.1').hide();
-        $('.2').hide();
-        $('.3').hide();
-        $('.4').hide();
-        $('.5').hide();
-        $('.7').hide();
-    }
-    function button7() {
-        $('.7').show();
-        $('.1').hide();
-        $('.2').hide();
-        $('.3').hide();
-        $('.4').hide();
-        $('.5').hide();
-        $('.6').hide();
-    }
-
-
+    $('#jenis-pengenalan').on('change', function(){
+            var jenispengenalan = $(this).val();
+            $("#show"+jenispengenalan).show();
+            $("#input"+jenispengenalan).attr("required",true)
+        });
 </script>
 @endsection
