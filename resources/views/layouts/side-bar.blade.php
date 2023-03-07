@@ -284,6 +284,7 @@
         font-size: 20px;
         line-height: 13px;
         color: white;
+        line-height:  25px;
     }
 
     /* .profil-icon {
@@ -403,7 +404,7 @@
                                         <img src="/assets/img/user.png" class="rounded" width="64px" height="64px">
                                     </div>
                                     <div class="col text-center">
-                                        <p class="info-sidebar mb-3">MOHD ALI BIN ABU</p>
+                                        <p class="info-sidebar mb-3">{{ Auth::user()->full_name }}</p>
 
                                         <form action="{{ route('logout') }}" method="POST">
                                             @csrf

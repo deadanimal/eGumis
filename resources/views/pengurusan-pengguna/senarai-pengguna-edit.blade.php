@@ -1,4 +1,6 @@
 @extends('layouts.base')
+{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"  /> --}}
+{{-- <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet"> --}}
 
 <style>
     /* .slider {
@@ -82,8 +84,9 @@
                 </div>
                 <div class="col-4 mb-2">
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                        <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                        {{-- <input class="form-check-input" value="{{$pengguna->enabled}}" type="checkbox" id="flexSwitchCheckChecked" checked> --}}
+                        {{-- <label class="form-check-label" for="flexSwitchCheckChecked"></label> --}}
+                        <input data-id="{{$pengguna->id}}" name="aktif" class="toggle-class" type="checkbox" id="flexSwitchCheckChecked" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $pengguna->enabled ? 'checked' : '' }}>
                     </div>
                 </div>
             </div>
@@ -116,6 +119,13 @@
                 </div>
                 <div class="col-4 mb-2">
                     <input value="{{$pengguna->identity_number}}" class="form-control" name="identity_number" type="number" placeholder="TAIP DI SINI" required/>
+                    <input value="{{$pengguna->new_ic_number}}" class="form-control" name="new_ic_number" type="number" placeholder="TAIP DI SINI" required/>
+                    <input value="{{$pengguna->old_ic_number}}" class="form-control" name="old_ic_number" type="number" placeholder="TAIP DI SINI" required/>
+                    <input value="{{$pengguna->no_tentera}}" class="form-control" name="no_tentera" type="number" placeholder="TAIP DI SINI" required/>
+                    <input value="{{$pengguna->no_polis}}" class="form-control" name="no_polis" type="number" placeholder="TAIP DI SINI" required/>
+                    <input value="{{$pengguna->no_pasport}}" class="form-control" name="no_pasport" type="number" placeholder="TAIP DI SINI" required/>
+                    <input value="{{$pengguna->no_sijil_kelahiran}}" class="form-control" name="no_sijil_kelahiran" type="number" placeholder="TAIP DI SINI" required/>
+                    <input value="{{$pengguna->no_pendaftaran_syarikat_firma}}" class="form-control" name="no_pendaftaran_syarikat_firma" type="number" placeholder="TAIP DI SINI" required/>
                 </div>
             </div>
 
@@ -135,7 +145,7 @@
                     <label class="col-form-label text-black">Alamat 2:</label>
                 </div>
                 <div class="col-4 mb-2">
-                    <input value="{{$pengguna->address2}}" class="form-control" value="" type="text" readonly/>
+                    <input value="{{$pengguna->address2}}" class="form-control" value="address2" type="text" readonly/>
                 </div>
             </div>
             <div class="row mx-2 mb-2 mt-2">
@@ -205,4 +215,25 @@
 
     </div>
 </div>
+
+<script>
+    $(function() {
+    $('.toggle-class').change(function() {
+        var enabled = $(this).prop('checked') == true ? 1 : 0; 
+        var user_id = $(this).data('id'); 
+         
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: '/pengurusan-pengguna/senarai-pengguna/simpan-kemaskini/{{$pengguna->id}}',
+            data: {'enabled': enabled, 'id': id},
+            success: function(data){
+              console.log(data.success)
+            }
+        });
+    })
+  })
+</script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script> --}}
+{{-- <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script> --}}
 @endsection
