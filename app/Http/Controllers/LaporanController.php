@@ -614,9 +614,9 @@ class LaporanController extends Controller
         $s_pengguna->identity_number = $request->identity_number;
         $s_pengguna->email = $request->email;
 
-        // if($request->status == 'aktif') {
-        //     $s_pengguna->enabled = $request->enabled;
-        // }
+        if($request->status == '1') {
+            $s_pengguna->enabled = $request->enabled;
+        }
         $s_pengguna->enabled = $request->enabled;
         $s_pengguna1->entity_name = $request->entity_name;
         
