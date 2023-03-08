@@ -1,6 +1,4 @@
 @extends('layouts.base')
-{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"  /> --}}
-{{-- <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet"> --}}
 
 <style>
     /* .slider {
@@ -85,8 +83,8 @@
                 <div class="col-4 mb-2">
                     <div class="form-check form-switch">
                         {{-- <input class="form-check-input" value="{{$pengguna->enabled}}" type="checkbox" id="flexSwitchCheckChecked" checked> --}}
-                        {{-- <label class="form-check-label" for="flexSwitchCheckChecked"></label> --}}
-                        <input data-id="{{$pengguna->id}}" name="aktif" class="toggle-class" type="checkbox" id="flexSwitchCheckChecked" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $pengguna->enabled ? 'checked' : '' }}>
+                        <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                        <input data-id="{{$pengguna->id}}" name="enabled" class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" {{ $pengguna->enabled ? 'checked' : '' }}>
                     </div>
                 </div>
             </div>
@@ -218,9 +216,9 @@
 
 <script>
     $(function() {
-    $('.toggle-class').change(function() {
+    $('.form-check-input').change(function() {
         var enabled = $(this).prop('checked') == true ? 1 : 0; 
-        var user_id = $(this).data('id'); 
+        var id = $(this).data('id'); 
          
         $.ajax({
             type: "GET",
@@ -234,6 +232,5 @@
     })
   })
 </script>
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script> --}}
-{{-- <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script> --}}
+
 @endsection

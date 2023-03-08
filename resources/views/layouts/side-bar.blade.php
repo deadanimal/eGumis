@@ -104,11 +104,20 @@
         margin-bottom: 50px;
     }
 
-    @media (max-width:991px) {
+    /* @media (max-width:991px) {
 	.sidebar-wrapper {
 		width: 100%;
 		max-width: 992px;
 		margin-bottom: 0
+	    }
+    } */
+    @media screen (min-width:320px)
+    {
+	.sidebar-wrapper {
+		width: 50%;
+		min-width: 320px;
+        /* max-width: 480px; */
+		margin-bottom: 0;
 	    }
     }
 
@@ -129,7 +138,7 @@
     .sidebar-wrapper nav>ul>li>a {
         color: #1f1a17;
         display: block;
-        padding: 20px 20px
+        padding: 20px 20px;
     }
     .sidebar-wrapper nav>ul>li>a:hover {
         color: #fff;
@@ -137,7 +146,7 @@
     }
     /* sidebar wrapper for mobile-view */
 
-    .sidebar li .submenu{ 
+    .sidebar li.submenu{ 
         list-style: none;
         margin: 0; 
         padding: 0; 
@@ -178,6 +187,7 @@
         position: relative;
         width: 200px;
         height: 45px;
+        text-align: center;
     }
 
     .switch input {
@@ -220,9 +230,13 @@
         bottom: 1px;
     }
 
-    .switch input:checked::after,
     .switch input:checked::before {
         color: #fff;
+        transition: color 0.5s;
+    }
+    
+    .switch input:checked::after {
+        color: #003478;
         transition: color 0.5s;
     }
 
@@ -300,6 +314,13 @@
         border-radius: 4px;
         background: #003478;
     }
+
+    /* Screen Resolution Sidebar
+    @media screen and (min-width: 320px){
+        body {
+            width: 100%;
+        }
+    } */
 
 </style>
 <script>
@@ -420,7 +441,8 @@
                                 <span class="switch mt-4">
                                     <form action="" method="">
                                         @csrf
-                                        <input type="checkbox" id="switcher">
+                                        {{-- <input type="checkbox" id="switcher"> --}}
+                                        <input type="checkbox">
                                         <label for="switcher"></label>
                                     </form>
                                 </span>

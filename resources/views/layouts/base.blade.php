@@ -531,16 +531,55 @@
             border-color: #1A7FE5;
         }
 
+        /* @media screen and (max-width: 480px) {
+            .background-pg, .navbar-atas {
+                width: auto;
+            }
+        } */
+
+        /* @media screen and (max-width: 375px) {
+            .background-pg, .navbar-atas {
+                width: 50%;
+            }
+        } */
+
+        /* Screen Resolution for body*/
+        @media screen and (min-width: 320px){
+            body, .background-pg, .navbar-atas {
+                /* width: auto; */
+                float: none;
+            }
+        }
+
+        @media screen and (min-width: 320px)
+        and (max-device-width : 480px){
+            .egumis-logo {
+                max-width: 20px;
+                height: auto;
+            }
+        }
+
+        input {
+            max-width: 200x;
+            width: 80%;
+            min-width: 50px;
+        }
+
+        /* div {
+            width: 50%;
+        } */
+
     </style>
     <?php
         use Illuminate\Support\Facades\Auth;
     ?>
 
     <main class="main" id="top">
-        <nav class="navbar navbar-expand p-3" style="box-shadow: 0px 2px 2px 1px lightgrey; background-image: url('/assets/img/header.png'); z-index: 2;">
+        <nav class="navbar-atas navbar navbar-expand p-3" style="box-shadow: 0px 2px 2px 1px lightgrey; background-image: url('/assets/img/header.png'); z-index: 2;">
 
             <div class="col-3 text-center" style="filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));">
-                <img src="/assets/img/IOS-eGUMIS_1024px_1.png" alt="EGUMIS" style="width: 127px; height:127px">
+                <img src="/assets/img/IOS-eGUMIS_1024px_1.png" alt="EGUMIS">
+                {{-- <img src="/assets/img/IOS-eGUMIS_1024px_1.png" alt="EGUMIS" style="width: 127px; height:127px"> --}}
                 {{-- <img src="/assets/img/IOS-eGUMIS 1024px 1.png" class="d-lg-none" alt="EGUMIS" style="width: 90px; height:90px"> --}}
             </div>
 
@@ -552,7 +591,7 @@
         <div class="container-fluid ps-0" data-layout="container">
             @include('layouts.side-bar')
             <div class="row">
-                <div class="content py-5" style="background: white">
+                <div class="content py-5 background-pg" style="background: white">
                     <div class="egumis-m">
                         <div class="container">
                             @yield('content')

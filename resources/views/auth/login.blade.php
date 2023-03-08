@@ -75,15 +75,15 @@
       background-size: cover;
     }
 
-    input[type="email"]::placeholder { 
+    input[type="username"]::placeholder { 
         /* Firefox, Chrome, Opera */
         text-align: center;
     }
-    input[type="email"]:-ms-input-placeholder {
+    input[type="username"]:-ms-input-placeholder {
         /* Internet Explorer 10-11 */
         text-align: center;
     }
-    input[type="email"]::-ms-input-placeholder {   
+    input[type="username"]::-ms-input-placeholder {   
         /* Microsoft Edge */
         text-align: center;
     }
@@ -130,6 +130,32 @@
       margin-left: auto;
       padding: 50px;
     }
+
+    @media screen (min-width: 320px) {
+      .half-container {
+      float: left;
+      width: 25%;
+      margin-right: auto;
+      margin-left: auto;
+      padding: 50px;
+    }
+
+      .egumis-logo {
+        width: 24px;
+        height: auto;
+      }
+
+    }
+
+    @media screen (min-width: 1024px) {
+      .egumis-logo-1 {
+        width: 242px;
+        height: 242px;
+      }
+
+    }
+
+
     /* #splash {
       position:absolute;
       top: 0;
@@ -145,14 +171,6 @@
       opacity: 1;
       transition: opacity 1s;
     }
-
-
-
-
-
-
-
-
 
     #splash.fade{
       opacity: 0;
@@ -175,9 +193,13 @@
   <div class="half-container">
   {{-- <div class="split left"> --}}
     <div class="background-image">
-      <div class="text-center" style="filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));">
+      <div class="text-center" class="egumis-logo-1" style="filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));">
         <img src="/assets/img/IOS-eGUMIS_1024px_1.svg" alt="EGUMIS" style="width: 242px; height:242px">
+        {{-- <img src="/assets/img/IOS-eGUMIS_1024px_1.svg" alt="EGUMIS" style="width: 242px; height:242px"> --}}
       </div>
+      {{-- <div class="text-center" class="egumis-logo" style="filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));">
+        <img src="/assets/img/IOS-eGUMIS_1024px_1.svg" alt="EGUMIS">
+      </div> --}}
 
       <div class="text-center">
         <h4 style='font-weight: bold;'>PORTAL PELAPORAN eGUMIS MOBILE APPS</h4>
@@ -233,7 +255,7 @@
   {{-- </div> --}}
 </div>
 
-<!-- ===============================================-->
+    <!-- ===============================================-->
     <!--    JavaScripts-->
     <!-- ===============================================-->
     <script src="../../../vendors/popper/popper.min.js"></script>
