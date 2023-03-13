@@ -33,7 +33,7 @@ Route::get('/test', function () {
     return view('test123');
 });
 Route::get('/lupa-katalaluan', [UserController::class, 'tunjuk_lupa']); 
-Route::post('/hantar-lupa-katalaluan', [UserController::class, 'cipta_lupa']); 
+Route::put('/hantar-lupa-katalaluan', [UserController::class, 'cipta_lupa']); 
 
 
 

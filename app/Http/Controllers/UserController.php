@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\SecUser;
+
 
 
 class UserController extends Controller
@@ -23,7 +26,7 @@ class UserController extends Controller
         
         // dd('123');
         // return redirect('/lupa-katalaluan');
-        return view('auth.login');
+        return view('auth.lupa');
     }
 
 
@@ -51,16 +54,21 @@ class UserController extends Controller
         
         $email = $request->email;
         $password = $request->password;
-        $user = User::where('email',$email)->first();
-        $user = User::where('password',$password)->first();
+        // $user = SecUser::where('email',$email)->first();
+        // $user = SecUser::where('password',$password)->first();
         // dd($user->email);
         // dd($user);
+
+        $user = SecUser::where([
+            ['email', '=', $request->email],
+            ['password', '=', $request->password]
+        ])->first();
         if ($user != null || $email != null) {
             alert()->error('Email Tidak Sah', 'Gagal');
             return redirect('/login'); 
         }
         if ($user != null || $password != null) {
-            $user->password = Hash::make('password');
+            $user->password = Hash::make('eGUMIS');
             $user->save();
         }
         // $user->save();
