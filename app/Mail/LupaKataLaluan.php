@@ -43,7 +43,7 @@ class LupaKataLaluan extends Mailable
     public function content()
     {
         return new Content(
-            view: 'auth.login',
+            view: 'emails.lupa',
         );
     }
 

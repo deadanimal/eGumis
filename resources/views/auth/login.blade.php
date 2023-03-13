@@ -225,26 +225,26 @@
               <div>
                   <button class="btn btn-primary d-block w-100 mt-3" type="submit">Log Masuk</button>
               </div>
-              <div style="text-align: right;">
-                {{-- <a class="text-primary" href="/lupa-katalaluan">Lupa Kata Laluan</a> --}}
-                <a class="text-primary" data-toggle="modal" data-target="#exampleModalCenter">Lupa Kata Laluan</a>
-              </div>
             </form>
+            <div style="text-align: right;">
+              {{-- <a class="text-primary" href="/lupa-katalaluan">Lupa Kata Laluan</a> --}}
+              <a class="text-primary" data-toggle="modal" data-target="#exampleModalCenter">Lupa Kata Laluan</a>
+            </div>
 
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <form method="POST" action="/hantar-lupa-katalaluan">
-                      @method('POST')
-                      @csrf
                       <div class="row mx-2 mb-2 mt-5">
                         <div class="col mb-2">
+                          <form method="POST" action="/hantar-lupa-katalaluan">
+                            @method('PUT')
+                            @csrf
                             <input placeholder="Alamat Emel" class="form-control textbox-n" type="email"/>
                             <button type="submit" class="btn btn-primary d-block w-100 mt-3">Hantar</button>
+                          </form>
                         </div>                      
                       </div>
-                    </form>
                   </div>
                 </div>
               </div>
