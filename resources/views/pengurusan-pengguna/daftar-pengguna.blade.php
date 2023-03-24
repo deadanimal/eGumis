@@ -1,5 +1,6 @@
 @extends('layouts.base')
 
+@section('content')
 <style>
     .wrapper {
         text-align: center;
@@ -10,11 +11,14 @@
         display: none;
     }
 
-    #showNOMBOR_KP_BARU {
+    /* #showBARU {
         display: inline;
     }
+
+    #showLAMA {
+        display: inline;
+    } */
 </style>
-@section('content')
 <h1 style="color: #003478;">PENGURUSAN PENGGUNA</h1>
 
 <hr style="color: #003478;">
