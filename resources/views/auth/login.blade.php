@@ -194,12 +194,12 @@
   {{-- <div class="split left"> --}}
     <div class="background-image">
       <div class="text-center" class="egumis-logo-1" style="filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));">
-        <img src="/assets/img/IOS-eGUMIS_1024px_1.svg" alt="EGUMIS" style="width: 242px; height:242px">
+        {{-- <img src="/assets/img/IOS-eGUMIS_1024px_1.svg" alt="EGUMIS" style="width: 242px; height:242px"> --}}
         {{-- <img src="/assets/img/IOS-eGUMIS_1024px_1.svg" alt="EGUMIS" style="width: 242px; height:242px"> --}}
       </div>
-      {{-- <div class="text-center" class="egumis-logo" style="filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));">
+      <div class="text-center" class="egumis-logo" style="filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));">
         <img src="/assets/img/IOS-eGUMIS_1024px_1.svg" alt="EGUMIS">
-      </div> --}}
+      </div>
 
       <div class="text-center">
         <h4 style='font-weight: bold;'>PORTAL PELAPORAN eGUMIS MOBILE APPS</h4>
