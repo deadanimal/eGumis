@@ -331,6 +331,7 @@
         container.classList.add('container-fluid');
     }
 </script>
+
 <script>
     var btn = document.getElementById('btn')
 
@@ -727,8 +728,8 @@
                         
             </div>
         </div> 
-        </div>
-    </nav>
+    </div>
+</nav>
 
     {{-- <div class="gap"> --}}
         {{-- <nav class="sidebar navbar navbar-vertical navbar-expand-xl navbar-light">

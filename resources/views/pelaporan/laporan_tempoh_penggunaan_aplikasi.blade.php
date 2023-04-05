@@ -44,14 +44,14 @@
             <div class="col mb-2">
                 <select class="form-select" aria-label="Default select example" name="status">
                     <option selected disabled>SILA PILIH</option>
-                    <option value="Deraf">Deraf</option>
-                    <option value="Pengesahan Dokumen 1">Pengesahan Dokumen 1</option>
-                    <option value="Kuiri Dokumen 1">Kuiri Dokumen 1</option>
-                    <option value="Pengesahan Dokumen 2">Pengesahan Dokumen 2</option>
-                    <option value="Kuiri Dokumen 2">Kuiri Dokumen 2</option>
-                    <option value="Baharu">Baharu</option>
-                    <option value="Selesai">Selesai</option>
-                    <option value="Kuiri">Kuiri</option>
+                    <option value="01">Deraf</option>
+                    <option value="02">Pengesahan Dokumen 1</option>
+                    <option value="03">Kuiri Dokumen 1</option>
+                    <option value="04">Pengesahan Dokumen 2</option>
+                    <option value="05">Kuiri Dokumen 2</option>
+                    <option value="06">Baharu</option>
+                    <option value="07">Selesai</option>
+                    <option value="08">Kuiri</option>
                 </select>
             </div>
             {{-- <div class="col-2 mb-2">
